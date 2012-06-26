@@ -1,0 +1,6 @@
+Anel bidirecional N=20,W=16, two step, roteamento Fixo, random
+1;8;100000;10;random
+4;11;2
+0
+0.05;
+false;

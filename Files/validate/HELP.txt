@@ -1,0 +1,98 @@
+################ ESTRUTURA DOS ARQUIVOS DE VALIDAÇÃO : ################
+
+Obs.: 	- O delimitador ';' pode ser substituído por marcas de tabulação.
+	- Os seguintes arquivos devem estar na pasta principal: 
+	'simulation.sim' (parametros da simulação)
+	'network.net' (topologia)
+	'pairs.prs' (pares)
+	'resultsOk.res' (resultados validos)
+	- se o arquivo 'pairs.prs' estiver vazio, os pares são gerados automáticamente
+
+network.net
+________________________________________________________
+<comentarios apenas na primeira linha>
+<tipo conversão>  		// full conversion, without conversion ou sparse-partial
+<nameNó1>;<pesoTrafegoNó1>;<numConversoresNó1>
+<nameNó2>;<pesoTrafegoNó2>;<numConversoresNó2>
+<nameNó3>;<pesoTrafegoNó3>;<numConversoresNó3>
+<nameNóN>;<pesoTrafegoNóN>;<numConversoresNóN>
+links
+<nameNóOri>;<nameNóDest>;<pesoEnlace>;<nComprimentosDeOnda>;
+<nameNóOri>;<nameNóDest>;<pesoEnlace>;<nComprimentosDeOnda>;
+...
+<nameNóOri>;<nameNóDest>;<pesoEnlace>;<nComprimentosDeOnda>;
+________________________________________________________
+
+simulation.sim
+________________________________________________________
+<comentarios> (apenas na primeira linha)
+<holdRate>;<arrivedRate>;<numberReq>;<simulationType>;<wAssing>
+<loadInc>;<pointsNumber>;<replyNumber>
+<trafficType>
+<significativeLevel>
+<booleanFailure>;<fixLinkRate>;<occurRate>
+________________________________________________________
+
+pairs.prs
+________________________________________________________
+<comentarios> (apenas na primeira linha)
+<origem>;<destino>;<categoria>
+<origem>;<destino>;<categoria>
+<origem>;<destino>;<categoria>
+...
+________________________________________________________
+
+resultsOk.res
+________________________________________________________
+<nome da métrica>
+<SSS>; <SSS>;<SSS>;Average;                  // <SSS> -> Qualquer String
+<carga1>	<repl1>	<repliN>	<Average1>
+<carga2>	<repl1>	<repliN>	<Average2>
+...
+<cargaC>	<replC>	<repliN>	<AverageC>
+<pula 1 linha>
+<nome da proxima métrica>
+<SSS>; <SSS>;<SSS>;Average;
+<carga1>	<repl1>	<repliN>	<Average1>
+<carga2>	<repl1>	<repliN>	<Average2>
+...
+<cargaC>	<replC>	<repliN>	<AverageC>
+outras...
+________________________________________________________
+
+Tipos de simulação
+
+	SS - Sem Sobrevivência
+	TS - Two Step
+	TSB - Two Step com backtracking
+	RS - Restauração Simples
+	AR - Actve Restoration
+
+	Fix - Roteamento Fixo (nº de Saltos)
+	LLR - Roteamento Adaptativo (Least Load Routing)
+	Fixo-ADP - Fix+LLR
+
+         0. SS  - Fix
+         1. SS  - Fix Alternativo
+         2. SS  - LLR
+         3. SS  - Fixo-ADP
+
+         10.TS  - Fix
+         11.TS  - LLR
+         12.TSB - Fix
+         13.TSB - LLR
+
+         20.RS  - Rota primaria Fixa e Rota Secundaria LLR. (S/ implementação!!)
+         21.RS  - Fixo
+         22.RS  - LLR
+         23.RS  - Fixo-ADP
+         24.AR  - Fix
+         25.AR  - LLR  (Sem implementação!!)
+
+         30.Adaptative (RS + TSB) - Fix
+         31.Adaptative (RS + TSB) - LLR
+
+Tipos de tráfego
+	0 - tráfego uniforme
+	1 - tráfego não uniforme (peso por nó)
+	2 - tráfego não uniforme (peso por par)

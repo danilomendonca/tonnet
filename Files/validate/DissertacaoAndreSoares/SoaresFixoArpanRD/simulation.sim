@@ -1,0 +1,6 @@
+Arpanet,SS,roteamento fixo, random
+1;42;100000;0;random
+21;10;10
+0
+0.05;
+false;

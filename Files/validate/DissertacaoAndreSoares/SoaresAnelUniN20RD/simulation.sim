@@ -1,0 +1,6 @@
+Anel Unidirecional N=20,W=16, SS, roteamento fixo, random
+1;8;100000;0;random
+4;11;2
+0
+0.05;
+false;
