@@ -8,3 +8,5 @@
 dist
 Relatorios
 build
+Files/SimTemp/*
+nbproject/*
