@@ -1,5 +1,6 @@
 package request;
 
+import java.util.Vector;
 import network.*;
 import routing.Route;
 import simulator.*;
@@ -86,16 +87,27 @@ public abstract class RequestMother {
    * @param arrive ArriveRequest
    */
   public void scheduleNewArrivedRequest(double time, ArriveRequest arrive) {
-    double deltaTime = arrive.getMesh().getRandomVar().negexp(arrive.
-        getArrivedRate());
+    double deltaTime = arrive.getMesh().getRandomVar().negexp(arrive.getArrivedRate());
+    double finalizeTime = arrive.getMesh().getRandomVar().negexp(arrive.getHoldRate());
     RequestMother r = null;
 
-    r = this.getNewRequest(arrive.getMesh().pairGenerator(), arrive.getMesh());
+    /*Event e = new Event(r, arrive, time + delta);
+    arrive.getEMachine().insert(e);*/
 
-    Event e = new Event(r, arrive, deltaTime + time);
+    Vector <Node> nosRota = this.mesh.getRoutingControl().getRoutes(arrive.getMesh().pairGenerator()).get(0).getNodeList();
+    for (int i = 0; i < nosRota.size() - 1; i ++){
 
-    arrive.getEMachine().insert(e);
-
+        Node noA = nosRota.get(i);
+        Node noB = nosRota.get(i + 1);
+        Event e;
+        r = this.getNewRequest(arrive.getMesh().searchPair(noA, noB), arrive.getMesh());
+        e = new Event(r, arrive, time + deltaTime + finalizeTime * (i) * 0.7);
+        
+        if(i != 0)
+            e.setGenerateNext(false);
+        
+        arrive.getEMachine().insert(e);        
+    }
   }
 
   //------------------------------------------------------------------------------

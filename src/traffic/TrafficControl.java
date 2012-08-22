@@ -28,6 +28,15 @@ public class TrafficControl {
   public Pair pairGenerator() {
     return traffic.pairGenerator();
   }
+   /**
+  * Retorna um par a partir da origem e destino.
+  * @param source
+  * @param destination
+  * @return
+  */
+ public Pair searchPair(Node source, Node destination){
+  return this.traffic.searchPair(source, destination);
+ }
   //----------------------------------------------------------------------------
  /**
   * Retorna a lista de pares
@@ -36,6 +45,7 @@ public class TrafficControl {
  public Vector<Pair> getPairList() {
    return this.traffic.getPairList();
  }
+
 
 
 }
