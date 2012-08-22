@@ -508,6 +508,17 @@ public void calculateMeasureNode() {
 public Pair pairGenerator() {
   return this.trafficControl.pairGenerator();
 }
+
+/**
+ * Retorna um par a partir de origem e destino.
+ * @param source
+ * @param destination
+ * @return
+ */
+public Pair searchPair(Node source, Node destination){
+    return this.trafficControl.searchPair(source, destination);
+}
+
 public Vector<Vector<Route>> getRoutes()
 {	
 	//Vector<Route> routes = new Vector<Route> ();

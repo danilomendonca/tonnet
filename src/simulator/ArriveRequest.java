@@ -1,5 +1,6 @@
 package simulator;
 
+import java.util.Vector;
 import request.RequestMother;
 import routing.Route;
 import request.ReqDPPTwoStep;
@@ -43,6 +44,11 @@ public class ArriveRequest
     return this.arrivedRate;
   }
 
+  //------------------------------------------------------------------------------
+  public double getHoldRate() {
+    return this.arrivedRate;
+  }
+
 //------------------------------------------------------------------------------
   public String getWAAlgorithm() {
     return this.wAAlgorithm;
@@ -67,17 +73,15 @@ public class ArriveRequest
     RequestMother request = (RequestMother) e.getObject();
     // incrementa o nº de vezes que o par foi gerados
     request.getPair().incNumGenerated();
-    //verifica se é necessário agendar a geração de novas requisições
-    if (this.mesh.getMeasurements().getNumGeneratedReq() <
-        this.numMaxRequest)
-      request.scheduleNewArrivedRequest(e.getTime(),this);
 
+    //verifica se é necessário agendar a geração de novas requisições
+    if (this.mesh.getMeasurements().getNumGeneratedReq() < this.numMaxRequest && e.isGenerateNext())
+      request.scheduleNewArrivedRequest(e.getTime(), this);
+    
     if (request.RWA()) {
       this.mesh.getConnectionControl().addRequest(request);
-      double finalizeTime = e.getTime() +
-          this.mesh.getRandomVar().negexp(this.holdRate);
-      this.eMachine.insert(new Event(e.getObject(), this.finalizeRequest,
-                                     finalizeTime));
+      double finalizeTime = e.getTime() + this.mesh.getRandomVar().negexp(this.holdRate);
+      this.eMachine.insert(new Event(e.getObject(), this.finalizeRequest,finalizeTime));
 
       //soma ao tamanho de todas requisições atendidas
       this.mesh.getMeasurements().sumAllSizeOfPrimaryAcceptedReq(request.getRoute().
@@ -123,6 +127,14 @@ public class ArriveRequest
    */
   public Mesh getMesh() {
     return mesh;
+  }
+
+  public void setNumMaxRequest(int num){
+      this.numMaxRequest = num;
+  }
+
+  public int getNumMaxRequest(){
+      return this.numMaxRequest;
   }
 
   /**

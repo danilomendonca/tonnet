@@ -8,6 +8,7 @@ public class Event {
   private EventListener eventListener;
   private double time;
   private double id;
+  private boolean generateNext = true;
 
   /**
    *Constroi um evento.
@@ -61,6 +62,15 @@ public class Event {
    */
   public void setObject(Object x) {
     this.object=x;
+  }
+
+
+  public boolean isGenerateNext(){
+      return generateNext;
+  }
+
+  public void setGenerateNext(boolean generateNext){
+      this.generateNext = generateNext;
   }
 
 }
