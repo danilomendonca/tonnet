@@ -10,7 +10,7 @@ public abstract class RequestMother {
   protected Pair pair;
   protected Mesh mesh;
   /** de comprimentos de onda utilizados em todos os enlaces da rota.
-   *Se n„o houver convers„o de comprimento de onda o vetor vai armazenar
+   *Se n√£o houver convers√£o de comprimento de onda o vetor vai armazenar
    *o mesmo valor para todos os enlaces.
    */
   protected int[] waveList;
@@ -58,8 +58,8 @@ public abstract class RequestMother {
 
   //------------------------------------------------------------------------------
   /**
-   * define quais o(s) comprimento(s) utilizado para atender a conex„o. A ocupaÁ„o
-   * destes recursos È feita pelo mÈtodo useWavelength().
+   * define quais o(s) comprimento(s) utilizado para atender a conex√£o. A ocupa√ß√£o
+   * destes recursos √© feita pelo m√©todo useWavelength().
    * @param index int
    * @param wave int
    */
@@ -82,7 +82,7 @@ public abstract class RequestMother {
 
   //------------------------------------------------------------------------------
   /**
-   * agenda uma nova requisiÁ„o do mesmo tipo
+   * agenda uma nova requisi√ß√£o do mesmo tipo
    * @param time double
    * @param arrive ArriveRequest
    */
@@ -113,13 +113,13 @@ public abstract class RequestMother {
   //------------------------------------------------------------------------------
   /**
    *Define que os comprimentos de onda alocados ficam ocupados nos
-   *enlaces da(s) rota(s) utilizada pela requisiÁ„o.
+   *enlaces da(s) rota(s) utilizada pela requisi√ß√£o.
    */
   protected abstract void establishConnection();
 
   /**
    *Define que os comprimentos de onda alocados ficam livres nos
-   *enlaces da(s) rota(s) utilizada pela requisiÁ„o.
+   *enlaces da(s) rota(s) utilizada pela requisi√ß√£o.
    */
   public abstract void tearDownConnection();
 
@@ -130,7 +130,7 @@ public abstract class RequestMother {
   protected abstract boolean routing();
 
   /**
-   * Retorna uma nova requisiÁ„o do mesmo tipo
+   * Retorna uma nova requisi√ß√£o do mesmo tipo
    * @param p Pair
    * @param m Mesh
    * @return RequestMother
@@ -138,7 +138,7 @@ public abstract class RequestMother {
   protected abstract RequestMother getNewRequest(Pair p, Mesh m);
 
   /**
-   * Implementa estratÈgia se sobrevivÍncia.
+   * Implementa estrat√©gia se sobreviv√™ncia.
    * @param link Link
    * @param eMachine EventMachine
    * @return boolean
@@ -165,7 +165,7 @@ public abstract class RequestMother {
   }
 
   /**
-   * Retorna true caso implementa proteÁ„o (rota primaria e rota backup)
+   * Retorna true caso implementa prote√ß√£o (rota primaria e rota backup)
    * @return boolean
    */
   public boolean getProtection() {

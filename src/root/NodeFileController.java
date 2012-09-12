@@ -92,7 +92,7 @@ public static Vector[] readFile(String fileName,Vector<Integer> conversionType, 
         list.get(nameS).getOxc().addLink(list.get(nameD).
             getOxc(), cost, numWave);
 
-        if(Integer.parseInt(nameS) < Integer.parseInt(nameD)){//NAO ESTÁ VERIFICANDO BIDIRECIONALIDE (ARQ NETWORK ESTÁ IMCOMPLETO?), ASSUMINDO TRUE
+        if(Integer.parseInt(nameS) < Integer.parseInt(nameD)){//NAO ESTÃ VERIFICANDO BIDIRECIONALIDE (ARQ NETWORK ESTÃ IMCOMPLETO?), ASSUMINDO TRUE
         	NoGrf nGrf1 = listNodeGrf.get(nameS);
         	NoGrf nGrf2 = listNodeGrf.get(nameD);
         	LinkGrf lGrf = new LinkGrf(linkId++, nGrf1, nGrf2, cost, numWave, true, mapa);

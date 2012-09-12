@@ -43,18 +43,18 @@ public class SimulationFileController {
       config.add(Double.parseDouble(line.nextToken()));
       //pontos
       config.add(Integer.valueOf(line.nextToken()));
-      //replicações
+      //replicaÃ§Ãµes
       config.add(Integer.valueOf(line.nextToken()));
 
       //LINE 3-tipo de trafego
       line = new StringTokenizer(in.readLine(), ";\t");
       config.add(Integer.valueOf(line.nextToken()));
 
-      //LINE 5-nivel de confiança
+      //LINE 5-nivel de confianÃ§a
       line = new StringTokenizer(in.readLine(), ";\t");
       config.add(Double.parseDouble(line.nextToken()));
       line = new StringTokenizer(in.readLine(), ";\t");
-      //LINE 6-Verifica se a simulação vai gerar falha
+      //LINE 6-Verifica se a simulaÃ§Ã£o vai gerar falha
       if ((line.nextToken()).equalsIgnoreCase("true")) {
         config.add(new Boolean(true));
         //LinkRate

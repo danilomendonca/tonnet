@@ -15,7 +15,7 @@ public class LLRDoubleRouteBckt
 
   //------------------------------------------------------------------------------
   /**
-   * Retorna as duas menores rotas disjuntas. O custo é a atual utilização do enlaces.
+   * Retorna as duas menores rotas disjuntas. O custo Ã© a atual utilizaÃ§Ã£o do enlaces.
    * Implementa backtracking.
    * @param s Node
    * @param d Node
@@ -71,7 +71,7 @@ public class LLRDoubleRouteBckt
 
   //............................................................................
   /**
-   * Retorna as duas menores rotas disjuntas. O custo é a atual utilização do enlaces.
+   * Retorna as duas menores rotas disjuntas. O custo Ã© a atual utilizaÃ§Ã£o do enlaces.
    * Implementa backtracking.
    * @param p Pair
    * @return Route[]

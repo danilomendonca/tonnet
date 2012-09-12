@@ -292,7 +292,7 @@ public class Main extends javax.swing.JFrame {
 
         jPanelDesenho.setBackground(new java.awt.Color(255, 255, 255));
         jPanelDesenho.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153))));
-        jPanelDesenho.setToolTipText("·rea para desenho da topologia");
+        jPanelDesenho.setToolTipText("√°rea para desenho da topologia");
         jPanelDesenho.setAutoscrolls(true);
         jPanelDesenho.setPreferredSize(new java.awt.Dimension(788, 458));
         jPanelDesenho.setLayout(new java.awt.GridLayout(1, 1));
@@ -399,7 +399,7 @@ public class Main extends javax.swing.JFrame {
         jRadioButtonUniforme.setOpaque(false);
 
         buttonGroupTipoTrafego.add(jRadioButtonNaoUniforme);
-        jRadioButtonNaoUniforme.setText("N„o Uniforme");
+        jRadioButtonNaoUniforme.setText("N√£o Uniforme");
         jRadioButtonNaoUniforme.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jRadioButtonNaoUniforme.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jRadioButtonNaoUniforme.setOpaque(false);
@@ -410,7 +410,7 @@ public class Main extends javax.swing.JFrame {
         });
 
         jLabelGerTrafego.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelGerTrafego.setText("GeraÁ„o de Tr·fego");
+        jLabelGerTrafego.setText("Gera√ß√£o de Tr√°fego");
 
         buttonGroupTrafNaoUnirforme.add(jRadioButtonTNUPar);
         jRadioButtonTNUPar.setSelected(true);
@@ -426,7 +426,7 @@ public class Main extends javax.swing.JFrame {
         });
 
         buttonGroupTrafNaoUnirforme.add(jRadioButtonTNUNo);
-        jRadioButtonTNUNo.setText("por NÛ");
+        jRadioButtonTNUNo.setText("por N√≥");
         jRadioButtonTNUNo.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jRadioButtonTNUNo.setEnabled(false);
         jRadioButtonTNUNo.setMargin(new java.awt.Insets(0, 0, 0, 0));
@@ -436,7 +436,7 @@ public class Main extends javax.swing.JFrame {
         jTextAreaTrafego.setEditable(false);
         jTextAreaTrafego.setLineWrap(true);
         jTextAreaTrafego.setRows(5);
-        jTextAreaTrafego.setText("Tr·fego Uniforme.");
+        jTextAreaTrafego.setText("Tr√°fego Uniforme.");
         jTextAreaTrafego.setWrapStyleWord(true);
         jScrollPaneTrafego.setViewportView(jTextAreaTrafego);
 
@@ -509,13 +509,13 @@ public class Main extends javax.swing.JFrame {
 
         jTableTrafegoPar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"NÛ 1", "-", null, null, null},
-                {"NÛ 2", null, "-", null, null},
-                {"NÛ 3", null, null, "-", ""},
-                {"NÛ 4", null, null, null, "-"}
+                {"N√≥ 1", "-", null, null, null},
+                {"N√≥ 2", null, "-", null, null},
+                {"N√≥ 3", null, null, "-", ""},
+                {"N√≥ 4", null, null, null, "-"}
             },
             new String [] {
-                "NÛs", "NÛ 1", "NÛ 2", "NÛ 3", "NÛ 4"
+                "N√≥s", "N√≥ 1", "N√≥ 2", "N√≥ 3", "N√≥ 4"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -556,7 +556,7 @@ public class Main extends javax.swing.JFrame {
             .add(jPanelDir, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPaneTelas.addTab("Tr·fego", jPanelTrafego);
+        jTabbedPaneTelas.addTab("Tr√°fego", jPanelTrafego);
 
         jPanelRWASobrevivencia.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -587,7 +587,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabelAlgoWA.setText("Algoritmos de AlocaÁ„o de Comprimetos de Onda");
+        jLabelAlgoWA.setText("Algoritmos de Aloca√ß√£o de Comprimetos de Onda");
 
         jLabelRoteamento.setText("Roteamento");
 
@@ -595,7 +595,7 @@ public class Main extends javax.swing.JFrame {
 
         jLabelTipoRoteamento.setText("Tipo de Roteamento :");
 
-        jComboBoxRoteamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Fixo - menor n˙mero de saltos", "Adaptativo -Least Load Routing" }));
+        jComboBoxRoteamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Fixo - menor n√∫mero de saltos", "Adaptativo -Least Load Routing" }));
 
         org.jdesktop.layout.GroupLayout jPanelRoteamentoLayout = new org.jdesktop.layout.GroupLayout(jPanelRoteamento);
         jPanelRoteamento.setLayout(jPanelRoteamentoLayout);
@@ -618,7 +618,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jCheckBoxSobrevivencia.setText("Estrategia de SobrevivÍncia");
+        jCheckBoxSobrevivencia.setText("Estrategia de Sobreviv√™ncia");
         jCheckBoxSobrevivencia.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jCheckBoxSobrevivencia.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jCheckBoxSobrevivencia.addItemListener(new java.awt.event.ItemListener() {
@@ -631,7 +631,7 @@ public class Main extends javax.swing.JFrame {
 
         jRadioButtonProtecao.setBackground(new java.awt.Color(227, 241, 241));
         buttonGroupSobrevivencia.add(jRadioButtonProtecao);
-        jRadioButtonProtecao.setText("ProteÁ„o");
+        jRadioButtonProtecao.setText("Prote√ß√£o");
         jRadioButtonProtecao.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jRadioButtonProtecao.setEnabled(false);
         jRadioButtonProtecao.setMargin(new java.awt.Insets(0, 0, 0, 0));
@@ -643,7 +643,7 @@ public class Main extends javax.swing.JFrame {
 
         jRadioButtonRestauracao.setBackground(new java.awt.Color(227, 241, 241));
         buttonGroupSobrevivencia.add(jRadioButtonRestauracao);
-        jRadioButtonRestauracao.setText("RestauraÁ„o");
+        jRadioButtonRestauracao.setText("Restaura√ß√£o");
         jRadioButtonRestauracao.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jRadioButtonRestauracao.setEnabled(false);
         jRadioButtonRestauracao.setMargin(new java.awt.Insets(0, 0, 0, 0));
@@ -740,18 +740,18 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(265, Short.MAX_VALUE))
         );
 
-        jTabbedPaneTelas.addTab("RWA e SobrevivÍncia", jPanelRWASobrevivencia);
+        jTabbedPaneTelas.addTab("RWA e Sobreviv√™ncia", jPanelRWASobrevivencia);
 
         jPanelConversores.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabelArqtConversao.setText("Arquitetura de Convers„o");
+        jLabelArqtConversao.setText("Arquitetura de Convers√£o");
 
         jPanelArqtConversao.setBackground(new java.awt.Color(227, 241, 241));
 
         jRadioButtonSemConversao.setBackground(new java.awt.Color(227, 241, 241));
         buttonGroupArqtConversao.add(jRadioButtonSemConversao);
         jRadioButtonSemConversao.setSelected(true);
-        jRadioButtonSemConversao.setText("Sem Convers„o");
+        jRadioButtonSemConversao.setText("Sem Convers√£o");
         jRadioButtonSemConversao.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jRadioButtonSemConversao.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jRadioButtonSemConversao.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -795,7 +795,7 @@ public class Main extends javax.swing.JFrame {
 
         jRadioButtonConversaoT.setBackground(new java.awt.Color(227, 241, 241));
         buttonGroupArqtConversao.add(jRadioButtonConversaoT);
-        jRadioButtonConversaoT.setText("Convers„o Total");
+        jRadioButtonConversaoT.setText("Convers√£o Total");
         jRadioButtonConversaoT.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jRadioButtonConversaoT.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jRadioButtonConversaoT.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -898,19 +898,19 @@ public class Main extends javax.swing.JFrame {
 
         jPanelParametrosSim.setBackground(new java.awt.Color(227, 241, 241));
 
-        jLabelPontosCarga.setText("N˙mero de Pontos de Carga :");
+        jLabelPontosCarga.setText("N√∫mero de Pontos de Carga :");
 
         jTextFieldPontosCarga.setText("0");
 
-        jLabelNumReq.setText("N˙mero de RequisiÁıes :");
+        jLabelNumReq.setText("N√∫mero de Requisi√ß√µes :");
 
         jTextFieldNumReq.setText("0");
 
-        jLabelNumRep.setText("N˙mero de ReplicaÁıes :");
+        jLabelNumRep.setText("N√∫mero de Replica√ß√µes :");
 
         jTextFieldNumRep.setText("0");
 
-        jLabelNivelConfianca.setText("Nivel de ConfianÁa :");
+        jLabelNivelConfianca.setText("Nivel de Confian√ßa :");
 
         jCheckBoxGerarFalhas.setBackground(new java.awt.Color(227, 241, 241));
         jCheckBoxGerarFalhas.setText("Gerar Falhas");
@@ -979,7 +979,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(338, Short.MAX_VALUE))
         );
 
-        jTabbedPaneTelas.addTab("Par‚metros de SimulaÁ„o", jPanelParametrosSimulacao);
+        jTabbedPaneTelas.addTab("Par√¢metros de Simula√ß√£o", jPanelParametrosSimulacao);
 
         jPanelAgendaSimulacoes.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1012,7 +1012,7 @@ public class Main extends javax.swing.JFrame {
         });
 
         jButtonIniciarAgenda.setBackground(new java.awt.Color(153, 255, 204));
-        jButtonIniciarAgenda.setText("Iniciar SimulaÁıes");
+        jButtonIniciarAgenda.setText("Iniciar Simula√ß√µes");
 
         org.jdesktop.layout.GroupLayout jPanelAgendaLayout = new org.jdesktop.layout.GroupLayout(jPanelAgenda);
         jPanelAgenda.setLayout(jPanelAgendaLayout);
@@ -1072,7 +1072,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(285, Short.MAX_VALUE))
         );
 
-        jTabbedPaneTelas.addTab("Agenda de SimulaÁıes", jPanelAgendaSimulacoes);
+        jTabbedPaneTelas.addTab("Agenda de Simula√ß√µes", jPanelAgendaSimulacoes);
 
         jPanelResultados.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1092,7 +1092,7 @@ public class Main extends javax.swing.JFrame {
 
         jToggleButtonGraf.setBackground(new java.awt.Color(153, 255, 204));
         buttonGroupTabGraf.add(jToggleButtonGraf);
-        jToggleButtonGraf.setText("GR¡FICO");
+        jToggleButtonGraf.setText("GR√ÅFICO");
         jToggleButtonGraf.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jToggleButtonGrafItemStateChanged(evt);
@@ -1102,7 +1102,7 @@ public class Main extends javax.swing.JFrame {
         jBMaximizar.setBackground(new java.awt.Color(200, 226, 226));
         jBMaximizar.setFont(new java.awt.Font("Arial", 0, 11));
         jBMaximizar.setText("Maximizar");
-        jBMaximizar.setToolTipText("Maximizar PainÈl");
+        jBMaximizar.setToolTipText("Maximizar Pain√©l");
         jBMaximizar.setAlignmentX(0.5F);
         jBMaximizar.setMargin(new java.awt.Insets(10, 14, 4, 14));
         jBMaximizar.addActionListener(new java.awt.event.ActionListener() {
@@ -1117,8 +1117,8 @@ public class Main extends javax.swing.JFrame {
 
         jBLimparHistorico.setBackground(new java.awt.Color(200, 226, 226));
         jBLimparHistorico.setFont(new java.awt.Font("Arial", 0, 11));
-        jBLimparHistorico.setText("Limpar HistÛrico");
-        jBLimparHistorico.setToolTipText("Maximizar PainÈl");
+        jBLimparHistorico.setText("Limpar Hist√≥rico");
+        jBLimparHistorico.setToolTipText("Maximizar Pain√©l");
         jBLimparHistorico.setAlignmentX(0.5F);
         jBLimparHistorico.setMargin(new java.awt.Insets(10, 14, 4, 14));
         jBLimparHistorico.addActionListener(new java.awt.event.ActionListener() {
@@ -1280,7 +1280,7 @@ public class Main extends javax.swing.JFrame {
         jMenuAjuda.setText("Ajuda");
 
         jMenuItemTopicosAjuda.setMnemonic('t');
-        jMenuItemTopicosAjuda.setText("TÛpicos de Ajuda");
+        jMenuItemTopicosAjuda.setText("T√≥picos de Ajuda");
         jMenuAjuda.add(jMenuItemTopicosAjuda);
 
         jMenuItemSobre.setMnemonic('e');
@@ -1398,7 +1398,7 @@ public class Main extends javax.swing.JFrame {
         if (jToggleButtonGraf.isSelected()){
             graphicShow(false);
         }else{
-            //JOptionPane.showMessageDialog(this,"IndisponÌvel!","Tabela",JOptionPane.OK_OPTION);
+            //JOptionPane.showMessageDialog(this,"Indispon√≠vel!","Tabela",JOptionPane.OK_OPTION);
             
             JTextArea tmp = new JTextArea();
             BufferedReader in;
@@ -1455,7 +1455,7 @@ public class Main extends javax.swing.JFrame {
         if(res == JFileChooser.APPROVE_OPTION){
             File diretorio = fc.getSelectedFile();
             jTextAreaCenarios.append(diretorio.getPath()+"\n");
-            JOptionPane.showMessageDialog(this, "Voce escolheu o diretÛrio: " + diretorio.getPath());
+            JOptionPane.showMessageDialog(this, "Voce escolheu o diret√≥rio: " + diretorio.getPath());
         } else
             JOptionPane.showMessageDialog(this, "Voce nao selecionou nenhum diretorio.");
     }//GEN-LAST:event_jButtonAdicionarSimActionPerformed
@@ -1552,7 +1552,7 @@ public class Main extends javax.swing.JFrame {
         int numNos = listaNo.size();
         Object[][] objs = new Object[numNos][numNos+1];
         String[] titles = new String[numNos+1];
-        titles[0]="N”S";
+        titles[0]="N√ìS";
         for (int i = 0; i < numNos; i++) {
             titles[i+1]=listaNo.get(i).getName();
             objs[i][0]=listaNo.get(i).getName();
@@ -1583,10 +1583,10 @@ public class Main extends javax.swing.JFrame {
         if (this.jRadioButtonTNUPar.isSelected()){
             this.jTableTrafegoPar.setEnabled(true);
             this.montaTabelaDePares();
-            this.jTextAreaTrafego.setText("Tr·fego N„o Uniforme (por PAR). Configure os pesos de cada par na tabela de tr·fego ao lado.");
+            this.jTextAreaTrafego.setText("Tr√°fego N√£o Uniforme (por PAR). Configure os pesos de cada par na tabela de tr√°fego ao lado.");
         } else{
             this.jTableTrafegoPar.setEnabled(false);
-            this.jTextAreaTrafego.setText("Tr·fego N„o Uniforme (por N”). Configure o peso de cada nÛ na tela Topologia clicando com o bot„o direito sobre o respectivo nÛ");
+            this.jTextAreaTrafego.setText("Tr√°fego N√£o Uniforme (por N√ì). Configure o peso de cada n√≥ na tela Topologia clicando com o bot√£o direito sobre o respectivo n√≥");
         }
     }//GEN-LAST:event_jRadioButtonTNUParItemStateChanged
     
@@ -1598,13 +1598,13 @@ public class Main extends javax.swing.JFrame {
             this.jRadioButtonTNUNo.setEnabled(true);
             this.jTableTrafegoPar.setEnabled(true);
             this.montaTabelaDePares();
-            this.jTextAreaTrafego.setText("Tr·fego N„o Uniforme (por PAR). Configure os pesos de cada par na tabela de tr·fego ao lado.");
+            this.jTextAreaTrafego.setText("Tr√°fego N√£o Uniforme (por PAR). Configure os pesos de cada par na tabela de tr√°fego ao lado.");
         }else{
             this.jRadioButtonTNUPar.setEnabled(false);
             this.jRadioButtonTNUNo.setEnabled(false);
             this.jScrollPaneTrafegoPar.setViewportView(null);
             this.jTableTrafegoPar.setEnabled(false);
-            this.jTextAreaTrafego.setText("Tr·fego Uniforme.");
+            this.jTextAreaTrafego.setText("Tr√°fego Uniforme.");
         }
     }//GEN-LAST:event_jRadioButtonNaoUniformeItemStateChanged
     
@@ -1652,17 +1652,17 @@ public class Main extends javax.swing.JFrame {
     private void jButtonPararSimulacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPararSimulacaoActionPerformed
         this.trocaJButtonIniciarPararSim();
         this.management.stop();
-        JOptionPane.showMessageDialog(this,"SimulaÁ„o Interrompida!","Fim",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this,"Simula√ß√£o Interrompida!","Fim",JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonPararSimulacaoActionPerformed
     
     private void trocaJButtonIniciarPararSim(){
-        //trocando de bot„o
+        //trocando de bot√£o
         ((CardLayout) jPanelIniciarParar.getLayout()).next(jPanelIniciarParar);
     }
     
     private void jButtonIniciarSimulacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSimulacaoActionPerformed
         this.jToggleButtonTab.setEnabled(false);
-        //trocando de bot„o <parar>
+        //trocando de bot√£o <parar>
         ((CardLayout) jPanelIniciarParar.getLayout()).next(jPanelIniciarParar);
         //iniciando barra de progresso
         jProgressBar.setMinimum(0);
@@ -1677,7 +1677,7 @@ public class Main extends javax.swing.JFrame {
             this.start();
         }catch(Exception e){
             JOptionPane.showMessageDialog(this,"Erro na entrada de dados!","Erro",JOptionPane.INFORMATION_MESSAGE);
-            //trocando de bot„o <iniciar>
+            //trocando de bot√£o <iniciar>
             ((CardLayout) jPanelIniciarParar.getLayout()).next(jPanelIniciarParar);
         }
     }//GEN-LAST:event_jButtonIniciarSimulacaoActionPerformed
@@ -1696,15 +1696,15 @@ public class Main extends javax.swing.JFrame {
         double incLoad = (Double) config.get(0); //incremento da carga
         jTextFieldIncremento.setText(String.valueOf(incLoad));
         
-        //int points = 2; //numero de pontos (diferentes cargas de trÈfego) a serem simulados
-        int points = (Integer) config.get(1); //numero de pontos (diferentes cargas de trÈfego) a serem simulados
+        //int points = 2; //numero de pontos (diferentes cargas de tr√©fego) a serem simulados
+        int points = (Integer) config.get(1); //numero de pontos (diferentes cargas de tr√©fego) a serem simulados
         jTextFieldPontosCarga.setText((String.valueOf(points)));
         
-        //int replyNumber = 2; //numero de replicaÁıes
-        int replyNumber = (Integer) config.get(2); //numero de replicaÁıes
+        //int replyNumber = 2; //numero de replica√ß√µes
+        int replyNumber = (Integer) config.get(2); //numero de replica√ß√µes
         jTextFieldNumRep.setText(String.valueOf(replyNumber));
         
-        //Tipo de Tr·fego
+        //Tipo de Tr√°fego
         if(((Integer) config.get(3)) == 0){
         	jRadioButtonUniforme.setSelected(true);
         }else{
@@ -1713,7 +1713,7 @@ public class Main extends javax.swing.JFrame {
         }
         
         Vector<Integer> conversionType = new Vector<Integer>(1);
-        //Recupera os nÛs e seus equivalentes gr·ficos (Vector<Node>, Vector<NoGrf>, Vector<Enl)
+        //Recupera os n√≥s e seus equivalentes gr√°ficos (Vector<Node>, Vector<NoGrf>, Vector<Enl)
         Vector [] bothNodesAndLinks = NodeFileController.readFile(net, conversionType, jXMapKit1.getMainMap());
         mPanelDesenho.getTopologiaListaNo().addAll(bothNodesAndLinks[1]);
         mPanelDesenho.updateNsquares();
@@ -1797,7 +1797,7 @@ public class Main extends javax.swing.JFrame {
     }
     public void simFinished(){
         this.trocaJButtonIniciarPararSim();
-        JOptionPane.showMessageDialog(this,"SimulaÁ„o finalizada!","fim",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this,"Simula√ß√£o finalizada!","fim",JOptionPane.INFORMATION_MESSAGE);
         this.jToggleButtonTab.setEnabled(true);
     }
     
@@ -1807,7 +1807,7 @@ public class Main extends javax.swing.JFrame {
         //barra de progresso
         this.jProgressBar.setValue(progress);
         this.jProgressBar.setString(progress+" %");
-        //gr·fico
+        //gr√°fico
         graphicShow(false);
         this.repaint();
 
@@ -1816,7 +1816,7 @@ public class Main extends javax.swing.JFrame {
     }
     
     /**
-     * Exibe o gr·fico selecionado na ·rvore
+     * Exibe o gr√°fico selecionado na √°rvore
      * @param boolean newWindowMax.
      * True para exibir o grafico em uma nova janela maximizada
      */
@@ -1867,7 +1867,7 @@ public class Main extends javax.swing.JFrame {
 
     private void jButtonGerarGraficosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerarGraficosActionPerformed
           try {
-            relatorios.creatReport("Relatorios/Relatorio.pdf", "RelatÛrio de SimulaÁ„o");
+            relatorios.creatReport("Relatorios/Relatorio.pdf", "Relat√≥rio de Simula√ß√£o");
         } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1936,15 +1936,15 @@ public class Main extends javax.swing.JFrame {
         String sobrevivencia = (String)jComboBoxSobrevivencia.getSelectedItem();
         int roteamento = jComboBoxRoteamento.getSelectedIndex();
         
-        if (jCheckBoxSobrevivencia.isSelected()){ //SobrevivÍncia
-            if (jRadioButtonProtecao.isSelected()){//proteÁ„o
+        if (jCheckBoxSobrevivencia.isSelected()){ //Sobreviv√™ncia
+            if (jRadioButtonProtecao.isSelected()){//prote√ß√£o
                 if (sobrevivencia.equalsIgnoreCase("Two Step")){
                     simulationType=10+roteamento;
                 }else if (sobrevivencia.equalsIgnoreCase("Two Step Com backtracking")){
                     simulationType=12+roteamento;
                 }
-            }else if (jRadioButtonRestauracao.isSelected()){//RestauraÁ„o
-                if (sobrevivencia.equalsIgnoreCase("restauraÁ„o simples")){
+            }else if (jRadioButtonRestauracao.isSelected()){//Restaura√ß√£o
+                if (sobrevivencia.equalsIgnoreCase("restaura√ß√£o simples")){
                     simulationType=21+roteamento;
                 }else if(sobrevivencia.equalsIgnoreCase("Active Restoration")){
                     simulationType=24+roteamento*0;
@@ -1952,7 +1952,7 @@ public class Main extends javax.swing.JFrame {
             }else{//adaptative
                 simulationType=30+roteamento;
             }
-        }else{//Sem sobrevivÍncia
+        }else{//Sem sobreviv√™ncia
             simulationType=0+2*roteamento;
         }
         
@@ -1966,9 +1966,9 @@ public class Main extends javax.swing.JFrame {
         if (jRadioButtonUniforme.isSelected()){
             trafficType="0";//uniforme
         }else if (jRadioButtonTNUNo.isSelected()){
-            trafficType="1";//n„o uniforme por par
+            trafficType="1";//n√£o uniforme por par
         }else if (jRadioButtonTNUPar.isSelected()){
-            trafficType="2";// n„o uniforme por nÛ
+            trafficType="2";// n√£o uniforme por n√≥
         }
         
         boolean failure = jCheckBoxGerarFalhas.isSelected();
@@ -2117,29 +2117,29 @@ public class Main extends javax.swing.JFrame {
         double incLoad = (Double) config.get(0); //incremento da carga
         System.out.println("inc Load = " + incLoad);
         
-        //int points = 2; //numero de pontos (diferentes cargas de trÈfego) a serem simulados
-        int points = (Integer) config.get(1); //numero de pontos (diferentes cargas de trÈfego) a serem simulados
+        //int points = 2; //numero de pontos (diferentes cargas de tr√©fego) a serem simulados
+        int points = (Integer) config.get(1); //numero de pontos (diferentes cargas de tr√©fego) a serem simulados
         System.out.println("points = " + points);
         
-        //int replyNumber = 2; //numero de replicaÁıes
-        int replyNumber = (Integer) config.get(2); //numero de replicaÁıes
+        //int replyNumber = 2; //numero de replica√ß√µes
+        int replyNumber = (Integer) config.get(2); //numero de replica√ß√µes
         System.out.println("reply number = " + replyNumber);
         
         Vector<Integer> conversionType=new Vector<Integer>(1);
-        //Recupera os nÛs e seus equivalentes gr·ficos (Vector<Node>, Vector<NoGrf>)
+        //Recupera os n√≥s e seus equivalentes gr√°ficos (Vector<Node>, Vector<NoGrf>)
         Vector [] bothNodes = NodeFileController.readFile(net, conversionType, jXMapKit1.getMainMap());
         
-        //criando todas as simulaÁıes...
+        //criando todas as simula√ß√µes...
         /**
-         * allSimulations È um Vector de Vector. Isto È, o 1∫ Vector armazena Vectors
-         * com todas as replicaÁıes simuladas para uma mesma carga de tr·fego.
+         * allSimulations √© um Vector de Vector. Isto √©, o 1¬∫ Vector armazena Vectors
+         * com todas as replica√ß√µes simuladas para uma mesma carga de tr√°fego.
          */
         Vector<Vector<Simulation>> allSimulations = new Vector<Vector<Simulation>> ();
         double newArriveRate = simulacao.getArrivedRate();
-        //loop para geraÁ„o de todos os pontos
+        //loop para gera√ß√£o de todos os pontos
         for (int i = 0; i < points; i++) {
             allSimulations.add(new Vector<Simulation> ());
-            //loop para geraÁ„o das replicaÁıes
+            //loop para gera√ß√£o das replica√ß√µes
             for (int j = 0; j < replyNumber; j++) {
                 Simulation s = new Simulation(simulacao.getHoldRate(),
                         newArriveRate,
@@ -2202,32 +2202,32 @@ public class Main extends javax.swing.JFrame {
         
         //       this.jScrollPaneTopologia.setViewportView(jPanelDesenhoTop);
         //arvore de metricas
-        DefaultMutableTreeNode root = new DefaultMutableTreeNode("MÈtricas");
+        DefaultMutableTreeNode root = new DefaultMutableTreeNode("M√©tricas");
         //PB
         DefaultMutableTreeNode pb = new DefaultMutableTreeNode("Probabilidade de Bloqueio");
         DefaultMutableTreeNode pbGeral = new DefaultMutableTreeNode("Probabilidade de Bloqueio Geral");
-        DefaultMutableTreeNode pbBack = new DefaultMutableTreeNode("PB por AusÍncia de Backup");
+        DefaultMutableTreeNode pbBack = new DefaultMutableTreeNode("PB por Aus√™ncia de Backup");
         DefaultMutableTreeNode pbPar = new DefaultMutableTreeNode("PB por Par(Origem, Destino)");
         //Utilizacao
-        DefaultMutableTreeNode util = new DefaultMutableTreeNode("UtilizaÁ„o da Rede");
-        DefaultMutableTreeNode utilGeral = new DefaultMutableTreeNode("UtilizaÁ„o Geral");
-        DefaultMutableTreeNode utilE = new DefaultMutableTreeNode("UtilizaÁ„o por Link");
-        DefaultMutableTreeNode utilW = new DefaultMutableTreeNode("UtilizaÁ„o por Comprimento de Onda");
+        DefaultMutableTreeNode util = new DefaultMutableTreeNode("Utiliza√ß√£o da Rede");
+        DefaultMutableTreeNode utilGeral = new DefaultMutableTreeNode("Utiliza√ß√£o Geral");
+        DefaultMutableTreeNode utilE = new DefaultMutableTreeNode("Utiliza√ß√£o por Link");
+        DefaultMutableTreeNode utilW = new DefaultMutableTreeNode("Utiliza√ß√£o por Comprimento de Onda");
         //restaurabilidade
         DefaultMutableTreeNode rest = new DefaultMutableTreeNode("Restaurabilidade");
         DefaultMutableTreeNode restaurabilidade = new DefaultMutableTreeNode("Restaurabilidade");
         //tamanho da conexao
-        DefaultMutableTreeNode tam = new DefaultMutableTreeNode("Tamanho MÈdio(TM) das RequisiÁıes");
-        DefaultMutableTreeNode tamA = new DefaultMutableTreeNode("TM das RequisiÁıes Atendidas");
-        DefaultMutableTreeNode tamB = new DefaultMutableTreeNode("TM das RequisiÁıes Bloqueadas");
+        DefaultMutableTreeNode tam = new DefaultMutableTreeNode("Tamanho M√©dio(TM) das Requisi√ß√µes");
+        DefaultMutableTreeNode tamA = new DefaultMutableTreeNode("TM das Requisi√ß√µes Atendidas");
+        DefaultMutableTreeNode tamB = new DefaultMutableTreeNode("TM das Requisi√ß√µes Bloqueadas");
         //Link
         DefaultMutableTreeNode link = new DefaultMutableTreeNode("Link");
-        DefaultMutableTreeNode nFalEnl = new DefaultMutableTreeNode("N˙mero de Falhas por Link");
-        DefaultMutableTreeNode nRotasEnl = new DefaultMutableTreeNode("N˙mero de Rotas por Link");
-        DefaultMutableTreeNode utilE2 = new DefaultMutableTreeNode("UtilizaÁ„o por Link");
+        DefaultMutableTreeNode nFalEnl = new DefaultMutableTreeNode("N√∫mero de Falhas por Link");
+        DefaultMutableTreeNode nRotasEnl = new DefaultMutableTreeNode("N√∫mero de Rotas por Link");
+        DefaultMutableTreeNode utilE2 = new DefaultMutableTreeNode("Utiliza√ß√£o por Link");
         //par
         DefaultMutableTreeNode par = new DefaultMutableTreeNode("Par(Origem, Destino)");
-        DefaultMutableTreeNode nReqPar = new DefaultMutableTreeNode("N˙mero de RequisiÁıes por Par");
+        DefaultMutableTreeNode nReqPar = new DefaultMutableTreeNode("N√∫mero de Requisi√ß√µes por Par");
         DefaultMutableTreeNode pbPar2 = new DefaultMutableTreeNode("Probabilidade de Bloqueio por Par");
         
         treeModel = new DefaultTreeModel(root);
@@ -2264,16 +2264,16 @@ public class Main extends javax.swing.JFrame {
         
         this.jScrollPaneMetricas.setViewportView(this.jTreeMetricas);
         
-        this.jScrollPaneTrafegoPar.setViewportView(null); //n„o mostrar tabela
-        //sobrevivÍncia
+        this.jScrollPaneTrafegoPar.setViewportView(null); //n√£o mostrar tabela
+        //sobreviv√™ncia
         this.protecao = new String[] { "Two Step", "Two Step com backtracking" };
-        this.restauracao = new String[]  { "RestauraÁ„o Simples", "Active Restoration" };
+        this.restauracao = new String[]  { "Restaura√ß√£o Simples", "Active Restoration" };
         this.adaptive = new String[] { "Adaptative" };
-        //Estrategia convers„o
+        //Estrategia convers√£o
         this.estrategiasPosConversoresEsparsa = new String[] { "Manual" };
         this.estrategiasPosConversoresParcial = new String[] { "Manual", "Total Outorsing Traffic",  };
         this.estrategiasPosConversoresEsparsaParcial = new String[] {"First Load Priority", "Manual"};
-        //nivel de confianÁa
+        //nivel de confian√ßa
         SpinnerNumberModel sm = new SpinnerNumberModel();
         sm.setValue(0.95);
         sm.setStepSize(0.1);

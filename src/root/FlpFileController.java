@@ -21,7 +21,7 @@ public class FlpFileController {
       System.out.println(comment);
       StringTokenizer line = new StringTokenizer(in.readLine(), ";\t");
 
-      //LINE 2-lendo as configurações
+      //LINE 2-lendo as configuraÃ§Ãµes
       flMin = Integer.valueOf(line.nextToken());
       flMax = Integer.valueOf(line.nextToken());
       inc = Integer.valueOf(line.nextToken());

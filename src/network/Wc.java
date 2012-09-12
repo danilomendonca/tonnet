@@ -3,7 +3,7 @@ package network;
 public class Wc {
   private int id;
   /**
-   * se state = false o wC está livre.
+   * se state = false o wC estÃ¡ livre.
    */
   private boolean state=false;
 

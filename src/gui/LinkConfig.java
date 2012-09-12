@@ -37,7 +37,7 @@ public class LinkConfig extends javax.swing.JFrame {
         jSpinnerDistancia = new javax.swing.JSpinner();
         jLabelDistancia = new javax.swing.JLabel();
 
-        setTitle("Configurações Link");
+        setTitle("ConfiguraÃ§Ãµes Link");
         setBackground(new java.awt.Color(255, 255, 255));
         setFocusableWindowState(false);
         setMinimumSize(new java.awt.Dimension(135, 144));
@@ -61,13 +61,13 @@ public class LinkConfig extends javax.swing.JFrame {
         jRadioButtonBidirecional.setOpaque(false);
 
         jLabelNumWave.setText("W:");
-        jLabelNumWave.setToolTipText("Número de Comprimentos de Onda");
+        jLabelNumWave.setToolTipText("NÃºmero de Comprimentos de Onda");
 
-        jSpinnerNumWave.setToolTipText("Número de Comprimentos de Onda");
+        jSpinnerNumWave.setToolTipText("NÃºmero de Comprimentos de Onda");
 
         jLabelCusto.setText("Custo:");
 
-        jLabelDistancia.setText("Distância:");
+        jLabelDistancia.setText("DistÃ¢ncia:");
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

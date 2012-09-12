@@ -52,8 +52,8 @@ public class RCL extends WaveAlgo {
 		    	routes=linksMeasure.get(a).getRoutes();
 		    	numero_rotas=routes.size() + numero_rotas;
 		    }
-		    //Inicializa o contador que ir· armazenar os comprimentos de ondas bloqueados em cada link
-		    //. Nas colunas temos os links que ser„o o bloqueados. Nas linhas temos em quais links o comprimento de onda ser· bloqueado
+		    //Inicializa o contador que ir√° armazenar os comprimentos de ondas bloqueados em cada link
+		    //. Nas colunas temos os links que ser√£o o bloqueados. Nas linhas temos em quais links o comprimento de onda ser√° bloqueado
 		    int contador[][]=new int[freeWave.length][numero_rotas];
 		    
 		    //Zera o contador
@@ -72,7 +72,7 @@ public class RCL extends WaveAlgo {
 		    	somador[i]=0;
 		    }
 		    
-		    //Soma os elementos das colunas. Ser· usado para dividir o elemento de cada coluna.
+		    //Soma os elementos das colunas. Ser√° usado para dividir o elemento de cada coluna.
 		    int divisor[]=new int[numero_rotas];
 		    
 		    //Zera o divisor
@@ -112,7 +112,7 @@ public class RCL extends WaveAlgo {
 		    for(int w=0;w< freeWave.length;w++)
 		    	for(int i=0;i< numero_rotas;i++)
 		    	{	
-		    		//se o divisor È igual a zero, igualamos a um para n„o realizarmos divis„o por zero
+		    		//se o divisor √© igual a zero, igualamos a um para n√£o realizarmos divis√£o por zero
 		    		if(divisor[i]==0)
 		    		{
 		    			divisor[i]=1;
@@ -121,7 +121,7 @@ public class RCL extends WaveAlgo {
 		    		somador[w]=somador[w] + contador[w][i]/divisor[i];
 		    	}//for
 		    
-		   //Realiza a vrificaÁ„o da linha que possui menor valor
+		   //Realiza a vrifica√ß√£o da linha que possui menor valor
 		    for(int i=0; i<somador.length; i++)
 		    {
 		    	if(somador[i]<somador[index])

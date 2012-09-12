@@ -11,7 +11,7 @@ public class Validate {
 
   //----------------------------------------------------------------------------
   /**
-   * Retorna true se as medias do arquivo fileOkname(corretas) est„o
+   * Retorna true se as medias do arquivo fileOkname(corretas) est√£o
    * dentro do intervalo de confianca fornecido pelo arquivo "file2Name"
    * @param fileOKname String
    * @param file2Name String
@@ -48,7 +48,7 @@ public class Validate {
     Vector<Double> averages = new Vector<Double> ();
     String endDelim = "";
     while (! (endDelim.equalsIgnoreCase("outras..."))) {
-      //descartando primeira linha (nome da mÈtrica)
+      //descartando primeira linha (nome da m√©trica)
       in.readLine();
       //linha 1 computando a quantidade de delimitadores ate chegar a media
       StringTokenizer line = new StringTokenizer(in.readLine(), ";\t");
@@ -67,7 +67,7 @@ public class Validate {
       //verifica se existe mais medias(cargas)
       while (line.countTokens() > 1) {
         int cont = 0;
-        //"pulando" a quantidade certa de tokens desnecess·rios
+        //"pulando" a quantidade certa de tokens desnecess√°rios
         while ( (line.hasMoreElements()) && (cont != contDelim)) {
           line.nextToken();
           cont++;
@@ -88,7 +88,7 @@ public class Validate {
 
   //----------------------------------------------------------------------------
   /**
-   * Retorna um Vector<Vector> com 2 posiÁıes:
+   * Retorna um Vector<Vector> com 2 posi√ß√µes:
    * 1->medias
    * 2->erros respectivos
    * @param fileName String url do arquivo com os resultados
@@ -105,7 +105,7 @@ public class Validate {
     averagesAndErrors.add(new Vector());
     String endDelim = "";
     while (! (endDelim.equalsIgnoreCase("outras..."))) {
-      //descartando primeira linha (nome da mÈtrica)
+      //descartando primeira linha (nome da m√©trica)
       in.readLine();
       //linha 1 computando a quantidade de delimitadores ate chegar a media
       StringTokenizer line = new StringTokenizer(in.readLine(), ";\t");
@@ -124,7 +124,7 @@ public class Validate {
       //verifica se existe mais medias(cargas)
       while (line.countTokens() > 1) {
         int cont = 0;
-        //"pulando" a quantidade certa de tokens desnecess·rios
+        //"pulando" a quantidade certa de tokens desnecess√°rios
         while ( (line.hasMoreElements()) && (cont != contDelim)) {
           line.nextToken();
           cont++;
@@ -148,7 +148,7 @@ public class Validate {
 
   //----------------------------------------------------------------------------
   /**
-   * Retorna true se as medias corretas est„o dentro do intervalo de confianca
+   * Retorna true se as medias corretas est√£o dentro do intervalo de confianca
    * das medias a serem validadas
    * @param averagesOK Vector medias corretas
    * @param averagesAndErrors Vector medias com respectivos erros
@@ -158,9 +158,9 @@ public class Validate {
       Vector<Vector<Double>> averagesAndErrors) {
     boolean flag = true;
     for (int i = 0; i < averagesOK.size(); i++) {
-      //mÈdia ok
+      //m√©dia ok
       double averageOK = averagesOK.get(i);
-      //mÈdia 2
+      //m√©dia 2
       double average2 = averagesAndErrors.get(0).get(i);
       //lim inferior
       double limInf = average2 - averagesAndErrors.get(1).get(i);
@@ -187,9 +187,9 @@ public class Validate {
   public static Vector<String> getFiles() {
     Vector<String> files = new Vector<String> ();
 
-      //############## DissertaÁ„o de mestrado Andre Soares ##############\\
+      //############## Disserta√ß√£o de mestrado Andre Soares ##############\\
       String path = "DissertacaoAndreSoares/";
-      //Fixo,Anel 20 nÛs
+      //Fixo,Anel 20 n√≥s
    files.add(path + "SoaresAnelUniN20RD");
       files.add(path + "SoaresAnelBidN20RD");
      // Fixo, Arpanet

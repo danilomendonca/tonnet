@@ -17,9 +17,9 @@ public class TOT {
   }
 
   /**
-   * Executa a técnica TOT - Total Outorsing Traffic
-   * Constitue em aplicar a quantidade máxima de conversão
-   * à aqueles nós que tem mais rotas que o atravessam
+   * Executa a tÃ©cnica TOT - Total Outorsing Traffic
+   * Constitue em aplicar a quantidade mÃ¡xima de conversÃ£o
+   * Ã  aqueles nÃ³s que tem mais rotas que o atravessam
    */
   public void run() {
     Vector<Measurements> measurements = this.runSimulation();
@@ -30,7 +30,7 @@ public class TOT {
 
   //------------------------------------------------------------------------------
   /**
-   * Ordena pelo maior numero de rotas que passam pelo nó
+   * Ordena pelo maior numero de rotas que passam pelo nÃ³
    */
   private void ordenaByNumRoutesCrossing() {
     for (int i = 0; i < results.size() - 1; i++) {
@@ -47,7 +47,7 @@ public class TOT {
 
 //------------------------------------------------------------------------------
   /**
-   * Executa a simulação
+   * Executa a simulaÃ§Ã£o
    * Retorna um Vector<Measurements>
    * @return Vector Measurements
    */
@@ -62,19 +62,19 @@ public class TOT {
     Simulation simulacao = SimulationFileController.readFile(sim, config); //parametros da simulacao
 
     /**
-     * allSimulations é um Vector de Vector. Isto é, o 1º Vector armazena Vectors
-     * com todas as replicações simuladas para uma mesma carga de tráfego.
+     * allSimulations Ã© um Vector de Vector. Isto Ã©, o 1Âº Vector armazena Vectors
+     * com todas as replicaÃ§Ãµes simuladas para uma mesma carga de trÃ¡fego.
      */
     Vector<Vector<Simulation>> allSimulations = new Vector<Vector<Simulation>> ();
 
     double incLoad = (Double) config.get(0); //incremento da carga
     int points = (Integer) config.get(1);
-    int replyNumber = (Integer) config.get(2); //numero de replicações
+    int replyNumber = (Integer) config.get(2); //numero de replicaÃ§Ãµes
     double newArriveRate = simulacao.getArrivedRate();
-    //loop para geração de todos os pontos
+    //loop para geraÃ§Ã£o de todos os pontos
     for (int i = 0; i < points; i++) {
       allSimulations.add(new Vector<Simulation> ());
-      //loop para geração das replicações
+      //loop para geraÃ§Ã£o das replicaÃ§Ãµes
       for (int j = 0; j < replyNumber; j++) {
         Simulation s = new Simulation(simulacao.getHoldRate(),
                                       newArriveRate,

@@ -14,7 +14,7 @@ public class JanelaValidacao extends javax.swing.JFrame implements Runnable {
     
    public JanelaValidacao() {
         initComponents();
-        this.setTitle("Validação");
+        this.setTitle("ValidaÃ§Ã£o");
         this.jProgressBar.setMinimum(0);
         this.jProgressBar.setMaximum(100); 
         this.jProgressBar.setValue(0);
@@ -114,7 +114,7 @@ public class JanelaValidacao extends javax.swing.JFrame implements Runnable {
           println("Resultado : " + valid);
           println("------------------------------------------------");
         }
-         JOptionPane.showMessageDialog(null,"Validação Concluída!","fim",JOptionPane.INFORMATION_MESSAGE);       
+         JOptionPane.showMessageDialog(null,"ValidaÃ§Ã£o ConcluÃ­da!","fim",JOptionPane.INFORMATION_MESSAGE);       
       }
       catch (Exception ex) {
         ex.printStackTrace();
@@ -135,25 +135,25 @@ public class JanelaValidacao extends javax.swing.JFrame implements Runnable {
       double incLoad = (Double) config.get(0); //incremento da carga
       System.out.println("inc Load = " + incLoad);
 
-      //int points = 2; //numero de pontos (diferentes cargas de tréfego) a serem simulados
-      int points = (Integer) config.get(1); //numero de pontos (diferentes cargas de tréfego) a serem simulados
+      //int points = 2; //numero de pontos (diferentes cargas de trÃ©fego) a serem simulados
+      int points = (Integer) config.get(1); //numero de pontos (diferentes cargas de trÃ©fego) a serem simulados
       System.out.println("points = " + points);
 
-      //int replyNumber = 2; //numero de replicações
-      int replyNumber = (Integer) config.get(2); //numero de replicações
+      //int replyNumber = 2; //numero de replicaÃ§Ãµes
+      int replyNumber = (Integer) config.get(2); //numero de replicaÃ§Ãµes
       System.out.println("reply number = " + replyNumber);
 
-      //criando todas as simulações...
+      //criando todas as simulaÃ§Ãµes...
       /**
-       * allSimulations é um Vector de Vector. Isto é, o 1º Vector armazena Vectors
-       * com todas as replicações simuladas para uma mesma carga de tráfego.
+       * allSimulations Ã© um Vector de Vector. Isto Ã©, o 1Âº Vector armazena Vectors
+       * com todas as replicaÃ§Ãµes simuladas para uma mesma carga de trÃ¡fego.
        */
       Vector<Vector<Simulation>> allSimulations = new Vector<Vector<Simulation>> ();
       double newArriveRate = simulacao.getArrivedRate();
-      //loop para geração de todos os pontos
+      //loop para geraÃ§Ã£o de todos os pontos
       for (int i = 0; i < points; i++) {
         allSimulations.add(new Vector<Simulation> ());
-        //loop para geração das replicações
+        //loop para geraÃ§Ã£o das replicaÃ§Ãµes
         for (int j = 0; j < replyNumber; j++) {
           Simulation s = new Simulation(simulacao.getHoldRate(),
                                         newArriveRate,
@@ -192,7 +192,7 @@ public class JanelaValidacao extends javax.swing.JFrame implements Runnable {
     }
 
     public void simFinished() {
-       //JOptionPane.showMessageDialog(null,"Validação Concluída!","fim",JOptionPane.INFORMATION_MESSAGE);       
+       //JOptionPane.showMessageDialog(null,"ValidaÃ§Ã£o ConcluÃ­da!","fim",JOptionPane.INFORMATION_MESSAGE);       
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -53,8 +53,8 @@ public class Relatorios {
             document.addAuthor(title);
             document.open();
 
-            //Cabeçalho
-            document.add(new Paragraph("Relatório da Simulação"));
+            //CabeÃ§alho
+            document.add(new Paragraph("RelatÃ³rio da SimulaÃ§Ã£o"));
             PdfContentByte cb = writer.getDirectContent();
             
             short c = 0;

@@ -40,7 +40,7 @@ public class LinkMeasure {
 
 //------------------------------------------------------------------------------
   /**
-   * retorna a utilização deste link
+   * retorna a utilizaÃ§Ã£o deste link
    * @return double
    */
   public double getUtilization() {
@@ -65,7 +65,7 @@ public class LinkMeasure {
 
 //------------------------------------------------------------------------------
   /**
-   * configura a utilização deste link
+   * configura a utilizaÃ§Ã£o deste link
    * @param utilization double
    */
   public void setUtilization(double utilization) {

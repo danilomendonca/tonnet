@@ -48,7 +48,7 @@ public class Saudacao extends javax.swing.JFrame {
         jTextArea1.setFont(new java.awt.Font("Comic Sans MS", 0, 12));
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Ferramenta para avaliação de desempenho de redes ópticas transparentes que permite considerar em um mesmo cenário diferentes algoritmos RWA, estratégias de sobrevivência e técnicas de posicionamento de conversores de comprimentos de onda. A ferramenta TONetS permite também que se considere diferentes condições de tráfego, utilizando topologias genéricas.");
+        jTextArea1.setText("Ferramenta para avaliaÃ§Ã£o de desempenho de redes Ã³pticas transparentes que permite considerar em um mesmo cenÃ¡rio diferentes algoritmos RWA, estratÃ©gias de sobrevivÃªncia e tÃ©cnicas de posicionamento de conversores de comprimentos de onda. A ferramenta TONetS permite tambÃ©m que se considere diferentes condiÃ§Ãµes de trÃ¡fego, utilizando topologias genÃ©ricas.");
         jTextArea1.setWrapStyleWord(true);
         jTextArea1.setBorder(javax.swing.BorderFactory.createTitledBorder("TONetS"));
 
@@ -58,7 +58,7 @@ public class Saudacao extends javax.swing.JFrame {
         jTextArea2.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jTextArea2.setLineWrap(true);
         jTextArea2.setRows(1);
-        jTextArea2.setText("André Soares, Gilvan Durães, Paulo Cunha, Danilo Mendonça, Pablo Estrela e William Giozza.");
+        jTextArea2.setText("AndrÃ© Soares, Gilvan DurÃ£es, Paulo Cunha, Danilo MendonÃ§a, Pablo Estrela e William Giozza.");
         jTextArea2.setWrapStyleWord(true);
         jTextArea2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Equipe de desenvolvimento", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 

@@ -31,7 +31,7 @@ public class Event {
   }
 //------------------------------------------------------------------------------
   /**
-   *Retorna qual È o escutador do evento.
+   *Retorna qual √© o escutador do evento.
    * @return EventListener
    */
   public EventListener listener() {
@@ -40,7 +40,7 @@ public class Event {
 
 //------------------------------------------------------------------------------
   /**
-   *Retorna o tempo que o evento ser· disparado.
+   *Retorna o tempo que o evento ser√° disparado.
    * @return double
    */
   public double getTime() {

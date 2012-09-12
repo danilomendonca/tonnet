@@ -8,8 +8,8 @@ public class ScheduleFLP {
   }
 
   /**
-   * Permite o agendamento de varias simulações FLP.
-   * Cada parametro um path de uma simulação
+   * Permite o agendamento de varias simulaÃ§Ãµes FLP.
+   * Cada parametro um path de uma simulaÃ§Ã£o
    * @param args String[]
    * @throws FileNotFoundException
    * @throws IOException

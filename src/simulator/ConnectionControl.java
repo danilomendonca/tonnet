@@ -17,7 +17,7 @@ public class ConnectionControl {
   }
 
   /**
-   *Executa a estratégia de sobrevivência para todas as conexões afetadas
+   *Executa a estratÃ©gia de sobrevivÃªncia para todas as conexÃµes afetadas
    * pela falha do link detectada. O Vector contem o link de ida e o de volta.
    * @param listLink Vector
    * @param eMachine EventMachine
@@ -38,10 +38,10 @@ public class ConnectionControl {
   }
 
   /**
-   * retorna true se a falha do link afetou algum das requisições em atual
-   * atendimento. Se alguma requisição foi afetada é iniciada a estratégia de
-   * sobrevivência. Contabiliza o número de requisições que sobreviveram a
-   * falha do link e o número de requisições que foram afetadas com a falha do link
+   * retorna true se a falha do link afetou algum das requisiÃ§Ãµes em atual
+   * atendimento. Se alguma requisiÃ§Ã£o foi afetada Ã© iniciada a estratÃ©gia de
+   * sobrevivÃªncia. Contabiliza o nÃºmero de requisiÃ§Ãµes que sobreviveram a
+   * falha do link e o nÃºmero de requisiÃ§Ãµes que foram afetadas com a falha do link
    * @param link Link
    * @param eMachine EventMachine
    */
@@ -56,8 +56,8 @@ public class ConnectionControl {
           }
           else{
             /**
-             * Armazena as requisições que não foram recuperadas. As rotas
-             * dessas requisição são definidas com null no método survive de
+             * Armazena as requisiÃ§Ãµes que nÃ£o foram recuperadas. As rotas
+             * dessas requisiÃ§Ã£o sÃ£o definidas com null no mÃ©todo survive de
              * toda classe request ou filha.
              */
             if (this.connectionList.get(i).getRoute()==null)
@@ -66,7 +66,7 @@ public class ConnectionControl {
       }
     }
 
-    // remove da lista de conexões em atendimento as requisições que não fora
+    // remove da lista de conexÃµes em atendimento as requisiÃ§Ãµes que nÃ£o fora
     // recuperadas.
     if (listRequestAux.size() > 0)
       this.connectionList.removeAll(listRequestAux);
@@ -74,7 +74,7 @@ public class ConnectionControl {
   }
 
   /**
-   * retorna true se a conexão sobreviveu a falha. caso contrário retorna false.
+   * retorna true se a conexÃ£o sobreviveu a falha. caso contrÃ¡rio retorna false.
    * @param request RequestMother
    * @param link Link
    * @param eMachine EventMachine
@@ -85,14 +85,14 @@ public class ConnectionControl {
   }
 
   /**
-   * adiciona request a lista de requisições em atual atendimento
+   * adiciona request a lista de requisiÃ§Ãµes em atual atendimento
    * @param request Request
    */
   public void addRequest(RequestMother request) {
     connectionList.add(request);
   }
   /**
-   * remove request da lista de requisições em atual atendimento
+   * remove request da lista de requisiÃ§Ãµes em atual atendimento
    * @param request Request
    */
   public void removeRequest(RequestMother request) {

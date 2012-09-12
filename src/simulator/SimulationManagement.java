@@ -21,7 +21,7 @@ public class SimulationManagement extends Thread {
     
     private Vector<Vector<Simulation>> simulations;
     /**
-     * armazena os resultados para todos os pontos com todas replicações
+     * armazena os resultados para todos os pontos com todas replicaÃ§Ãµes
      */
     private Vector<Vector<Measurements>> mainMeasurements;
     
@@ -62,15 +62,15 @@ public class SimulationManagement extends Thread {
     public void run() {
         //loop para simular todos os pontos
         for (int i = 0; i < this.simulations.size(); i++) {
-            //para guardar os resultados de todas replicações deste ponto...
+            //para guardar os resultados de todas replicaÃ§Ãµes deste ponto...
             this.mainMeasurements.add(new Vector<Measurements> ());
-            //loop para simular todas replicações do ponto
+            //loop para simular todas replicaÃ§Ãµes do ponto
             for (int j = 0; j < this.simulations.get(i).size(); j++) {
-                //simulação atual
+                //simulaÃ§Ã£o atual
                 Simulation actualSimulation = this.simulations.get(i).get(j);
-                //atualiza a simulação no simulator
+                //atualiza a simulaÃ§Ã£o no simulator
                 this.simulator = new Simulator(actualSimulation);
-                //inicia simulação e guarda resultados no mainMeasurements
+                //inicia simulaÃ§Ã£o e guarda resultados no mainMeasurements
                 this.mainMeasurements.get(i).add(this.simulator.start(failure, fixLinkRate, occurRate));
                 
                 //imprimindo progresso da simulacao (%)
@@ -113,29 +113,29 @@ public class SimulationManagement extends Thread {
         this.printPbBlocking(out);
         out.println();
         
-        //Utilização Rede
+        //UtilizaÃ§Ã£o Rede
         this.printUtilization(out);
         out.println();
         
-        //tamanho medio das requisições atendidas.
+        //tamanho medio das requisiÃ§Ãµes atendidas.
         this.printAverageSizeOfPrimaryAcceptedReq(out);
         out.println();
         
-        //tamanho medio das requisições bloqueidas.
+        //tamanho medio das requisiÃ§Ãµes bloqueidas.
         this.printAverageSizeOfBlockedReq(out);
         out.println("outras...");
-        //######################## PROTEÇÃO ########################\\
+        //######################## PROTEÃ‡ÃƒO ########################\\
         if ( (type == 3) || (type == 4) || (type == 5)) {
             out.println();
             //Pb Bloqueio por ausencia de backup
             this.printBlockingAbsenceBackupProtection(out);
             out.println();
             
-            //tamanho medio das requisições de backup atendidas.
+            //tamanho medio das requisiÃ§Ãµes de backup atendidas.
             this.printAverageSizeOfBackupAcceptedReq(out);
             out.println();
             
-            //tamanho medio das requisições de backup  bloqueidas.
+            //tamanho medio das requisiÃ§Ãµes de backup  bloqueidas.
             this.printAverageSizeOfBackupBlockedReq(out);
         }
         
@@ -143,10 +143,10 @@ public class SimulationManagement extends Thread {
         //Pb restaurabilidade
         this.printPbRestorability(out);
         
-        //Utilização por link
+        //UtilizaÃ§Ã£o por link
         this.printUtilizationPerWavelengh(out);
         
-        //Utilização por link
+        //UtilizaÃ§Ã£o por link
         this.printUtilizationPerLink(out);
         
         //para cada link exibe as rotas que utilizam este link
@@ -187,16 +187,16 @@ public class SimulationManagement extends Thread {
             for (int c = 0; c < mainMeasurements.size(); c++) {
                 double sumReqPair = 0;
                 int numReplication = mainMeasurements.get(c).size();
-                //percorre as replicações do par (p)
+                //percorre as replicaÃ§Ãµes do par (p)
                 for (int r = 0; r < numReplication; r++) {
-                    //soma as requisições de todas replicações do par p para carga c
+                    //soma as requisiÃ§Ãµes de todas replicaÃ§Ãµes do par p para carga c
                     sumReqPair +=
                             mainMeasurements.get(c).get(r).getListPairMeasure().get(p).
                             getNumberReq();
                 }
-                //calcula o numero medio de requisições do par p para carga c
+                //calcula o numero medio de requisiÃ§Ãµes do par p para carga c
                 double averageReq = sumReqPair / numReplication;
-                //grava o numero medio de requisições do par p
+                //grava o numero medio de requisiÃ§Ãµes do par p
                 out.print(averageReq + "\t");
             }
             out.println();
@@ -207,8 +207,8 @@ public class SimulationManagement extends Thread {
     //------------------------------------------------------------------------------
     /**
      * escreve no arquivo e na console a Pb de Bloqueio por ausencia de backup.
-     * carga 1 replicação 1 replicaçao n media
-     * carga n replicação 1 replicaçao n media
+     * carga 1 replicaÃ§Ã£o 1 replicaÃ§ao n media
+     * carga n replicaÃ§Ã£o 1 replicaÃ§ao n media
      * @param out Printer
      */
     private void printBlockingAbsenceBackupProtection(Printer out) {
@@ -224,31 +224,31 @@ public class SimulationManagement extends Thread {
             int numReplication = mainMeasurements.get(i).size();
             //para calculo do erro
             double[] pb = new double[numReplication];
-            //percorre as replicações da carga i
+            //percorre as replicaÃ§Ãµes da carga i
             for (int j = 0; j < numReplication; j++) {
                 pb[j] = mainMeasurements.get(i).get(j).
                         getPbBlockingAbsenceBackupProtection();
-                //Pb Bloqueio replicações
+                //Pb Bloqueio replicaÃ§Ãµes
                 out.print(pb[j] + "\t");
-                //soma das replicações
+                //soma das replicaÃ§Ãµes
                 sumPB += pb[j];
             }
             double mediaPB = sumPB / numReplication;
             //Pb Bloqueio Geral
             out.print(mediaPB + "\t");
-            //erro para o intervalo de confiança...............
+            //erro para o intervalo de confianÃ§a...............
             double erro = Statistics.calculateError(pb, mediaPB,
                     this.significativeLevel);
             out.println(erro + "\t");
-            //intervalo de confiança...............
+            //intervalo de confianÃ§a...............
         }
     }
     
     //------------------------------------------------------------------------------
     /**
      * escreve no arquivo e na console a Pb de Bloqueio.
-     * carga 1 replicação 1 replicaçao n media
-     * carga n replicação 1 replicaçao n media
+     * carga 1 replicaÃ§Ã£o 1 replicaÃ§ao n media
+     * carga n replicaÃ§Ã£o 1 replicaÃ§ao n media
      * @param out Printer
      */
     private void printPbBlocking(Printer out) {
@@ -264,11 +264,11 @@ public class SimulationManagement extends Thread {
             int numReplication = mainMeasurements.get(i).size();
             //para calculo do erro
             double[] pb = new double[numReplication];
-            //percorre as replicações para carga i
+            //percorre as replicaÃ§Ãµes para carga i
             for (int j = 0; j < numReplication; j++) {
-                //Pb Bloqueio replicações
+                //Pb Bloqueio replicaÃ§Ãµes
                 out.print(mainMeasurements.get(i).get(j).getPb() + "\t");
-                //soma das replicações
+                //soma das replicaÃ§Ãµes
                 pb[j] = mainMeasurements.get(i).get(j).getPb();
                 sumPB += pb[j];
             }
@@ -305,19 +305,19 @@ public class SimulationManagement extends Thread {
        pb[j++] = 280;
        pb[j++] = 249.5;*/
             //...TESTE
-            //erro para o intervalo de confiança...............
+            //erro para o intervalo de confianÃ§a...............
             double erro = Statistics.calculateError(pb, mediaPB,
                     this.significativeLevel);
             out.println(erro + "\t");
-            //intervalo de confiança...............
+            //intervalo de confianÃ§a...............
         }
     }
     
     //------------------------------------------------------------------------------
     /**
-     * escreve no arquivo e na console a utilização geral da rede.
-     * carga 1 replicação 1 replicaçao n media
-     * carga n replicação 1 replicaçao n media
+     * escreve no arquivo e na console a utilizaÃ§Ã£o geral da rede.
+     * carga 1 replicaÃ§Ã£o 1 replicaÃ§ao n media
+     * carga n replicaÃ§Ã£o 1 replicaÃ§ao n media
      * @param out Printer
      */
     private void printUtilization(Printer out) {
@@ -333,7 +333,7 @@ public class SimulationManagement extends Thread {
             //para calculo do erro
             double[] pbUtil = new double[numReplication];
             for (int j = 0; j < numReplication; j++) {
-                //Util replicações
+                //Util replicaÃ§Ãµes
                 pbUtil[j] = mainMeasurements.get(i).get(j).getUtilization();
                 out.print(pbUtil[j] + "\t");
                 sumUtil += pbUtil[j];
@@ -341,11 +341,11 @@ public class SimulationManagement extends Thread {
             //PbGeral
             double mediaPB = sumUtil / numReplication;
             out.print(mediaPB + "\t");
-            //erro para o intervalo de confiança...............
+            //erro para o intervalo de confianÃ§a...............
             double erro = Statistics.calculateError(pbUtil, mediaPB,
                     this.significativeLevel);
             out.println(erro + "\t");
-            //intervalo de confiança...............
+            //intervalo de confianÃ§a...............
         }
     }
     
@@ -364,12 +364,12 @@ public class SimulationManagement extends Thread {
         
         //numero de pares
         int numOfPair = mainMeasurements.get(0).get(0).getListPairMeasure().size();
-        //para calculo da justiça
+        //para calculo da justiÃ§a
         double[][] average = new double[mainMeasurements.size()][numOfPair];
         //percorre a lista de pares
         
         for (int p = 0; p < numOfPair; p++) {
-            //exibe o tamanho das requisições feitas pelo par p
+            //exibe o tamanho das requisiÃ§Ãµes feitas pelo par p
             out.print(mainMeasurements.get(0).get(0).getListPairMeasure().get(p).
                     getSize() + "\t");
             //exibe a categoria do par p
@@ -382,7 +382,7 @@ public class SimulationManagement extends Thread {
             for (int c = 0; c < mainMeasurements.size(); c++) {
                 double sumBlockPair = 0;
                 int numReplication = mainMeasurements.get(c).size();
-                //percorre as replicações do par (p) para a carga c
+                //percorre as replicaÃ§Ãµes do par (p) para a carga c
                 for (int r = 0; r < numReplication; r++) {
                     //soma bloqueio
                     sumBlockPair += mainMeasurements.get(c).get(r).getListPairMeasure().
@@ -424,17 +424,17 @@ public class SimulationManagement extends Thread {
             for (int l = 0; l < numLinks; l++) {
                 double sumUtiliLink = 0;
                 int numReplication = mainMeasurements.get(c).size();
-                //percorre as replicações do Link (l)
+                //percorre as replicaÃ§Ãµes do Link (l)
                 for (int r = 0; r < numReplication; r++) {
-                    //soma utilizacao (replicações)
+                    //soma utilizacao (replicaÃ§Ãµes)
                     sumUtiliLink += mainMeasurements.get(c).get(r).getListLinkMeasure().
                             get(l).
                             getUtilization();
                 }
                 
-                //calcula a a utilização media do link
+                //calcula a a utilizaÃ§Ã£o media do link
                 double averageUtil = sumUtiliLink / numReplication;
-                //grava a utilização media do link
+                //grava a utilizaÃ§Ã£o media do link
                 out.print(averageUtil + "\t");
             }
             out.println();
@@ -461,15 +461,15 @@ public class SimulationManagement extends Thread {
             for (int w = 0; w < numWaves; w++) {
                 double sumWaveUtil = 0;
                 int numReplication = mainMeasurements.get(c).size();
-                //percorre as replicações da carga (c)
+                //percorre as replicaÃ§Ãµes da carga (c)
                 for (int r = 0; r < numReplication; r++) {
-                    //soma utilizacao do comprimento de onda (replicações)
+                    //soma utilizacao do comprimento de onda (replicaÃ§Ãµes)
                     sumWaveUtil += mainMeasurements.get(c).get(r).
                             getWavelenghUtilization()[w];
                 }
-                //calcula a a utilização media do comprimento de onda
+                //calcula a a utilizaÃ§Ã£o media do comprimento de onda
                 double averageUtil = sumWaveUtil / numReplication;
-                //grava a utilização media do comprimento de onda
+                //grava a utilizaÃ§Ã£o media do comprimento de onda
                 out.print(averageUtil + "\t");
             }
             out.println();
@@ -484,11 +484,11 @@ public class SimulationManagement extends Thread {
     private void printRoutesPerLink(Printer out) {
         out.println("Routes per link");
         out.println("Link\tRoutes number\tRoutes");
-        //uma simulação qualquer (primeiro ponto e primeira replicação)
+        //uma simulaÃ§Ã£o qualquer (primeiro ponto e primeira replicaÃ§Ã£o)
         Measurements anyMeasure = mainMeasurements.get(0).get(0);
         //numero de links
         int numLinks = anyMeasure.getListLinkMeasure().size();
-        //percorre a lista de links(Measure) da primeira simulação
+        //percorre a lista de links(Measure) da primeira simulaÃ§Ã£o
         for (int l = 0; l < numLinks; l++) {
             LinkMeasure linkMeasure = anyMeasure.getListLinkMeasure().get(l);
             //nome do link
@@ -530,9 +530,9 @@ public class SimulationManagement extends Thread {
             for (int l = 0; l < numLinks; l++) {
                 double sumFailLink = 0;
                 int numReplication = mainMeasurements.get(c).size();
-                //percorre as replicações do Link (l)
+                //percorre as replicaÃ§Ãµes do Link (l)
                 for (int r = 0; r < numReplication; r++) {
-                    //soma as replicações
+                    //soma as replicaÃ§Ãµes
                     sumFailLink +=
                             mainMeasurements.get(c).get(r).getListLinkMeasure().get(l).
                             getNumberFailure();
@@ -551,8 +551,8 @@ public class SimulationManagement extends Thread {
     //------------------------------------------------------------------------------
     /**
      * escreve no arquivo e na console a Pb de restaurabilidade.
-     * carga 1 replicação 1 replicaçao n media
-     * carga n replicação 1 replicaçao n media
+     * carga 1 replicaÃ§Ã£o 1 replicaÃ§ao n media
+     * carga n replicaÃ§Ã£o 1 replicaÃ§ao n media
      * @param out Printer
      */
     private void printPbRestorability(Printer out) {
@@ -567,28 +567,28 @@ public class SimulationManagement extends Thread {
             int numReplication = mainMeasurements.get(i).size();
             //para calculo do erro
             double[] pb = new double[numReplication];
-            //percorre as replicações da carga i
+            //percorre as replicaÃ§Ãµes da carga i
             for (int j = 0; j < numReplication; j++) {
                 pb[j] = mainMeasurements.get(i).get(j).getPbRestorability();
                 out.print(pb[j] + "\t");
-                //soma Pb replicações
+                //soma Pb replicaÃ§Ãµes
                 sumPR += pb[j];
             }
             double mediaPB = sumPR / numReplication;
             //Pb Bloqueio Geral
             out.print(mediaPB + "\t");
-            //erro para o intervalo de confiança...............
+            //erro para o intervalo de confianÃ§a...............
             double erro = Statistics.calculateError(pb, mediaPB,
                     this.significativeLevel);
             out.println(erro + "\t");
-            //intervalo de confiança...............
+            //intervalo de confianÃ§a...............
         }
         out.println();
     }
     
     //------------------------------------------------------------------------------
     /**
-     * escreve no arquivo e na console o tamanho medio das requisições atendidas.
+     * escreve no arquivo e na console o tamanho medio das requisiÃ§Ãµes atendidas.
      * carga 1 media
      * carga n media
      * @param out Printer
@@ -605,28 +605,28 @@ public class SimulationManagement extends Thread {
             int numReplication = mainMeasurements.get(i).size();
             //para calculo do erro
             double[] pbAS = new double[numReplication];
-            //percorre as replicações para carga i
+            //percorre as replicaÃ§Ãµes para carga i
             for (int j = 0; j < numReplication; j++) {
                 pbAS[j] = mainMeasurements.get(i).get(j).
                         getAverageSizeOfPrimaryAcceptedReq();
                 out.print(pbAS[j] + "\t");
-                //soma do tamanho medio das replicações
+                //soma do tamanho medio das replicaÃ§Ãµes
                 sumAverageSize += pbAS[j];
             }
             //tamanho medio
             double mediaAS = sumAverageSize / numReplication;
             out.print(mediaAS + "\t");
-            //erro para o intervalo de confiança...............
+            //erro para o intervalo de confianÃ§a...............
             double erro = Statistics.calculateError(pbAS, mediaAS,
                     this.significativeLevel);
             out.println(erro + "\t");
-            //intervalo de confiança...............
+            //intervalo de confianÃ§a...............
         }
     }
     
     //------------------------------------------------------------------------------
     /**
-     * escreve no arquivo e na console o tamanho medio das requisições bloqueidas.
+     * escreve no arquivo e na console o tamanho medio das requisiÃ§Ãµes bloqueidas.
      * carga 1 media
      * carga n media
      * @param out Printer
@@ -643,9 +643,9 @@ public class SimulationManagement extends Thread {
             int numReplication = mainMeasurements.get(i).size();
             //para calculo do erro
             double[] pbAS = new double[numReplication];
-            //percorre as replicações para carga i
+            //percorre as replicaÃ§Ãµes para carga i
             for (int j = 0; j < numReplication; j++) {
-                //soma do tamanho medio das replicações
+                //soma do tamanho medio das replicaÃ§Ãµes
                 pbAS[j] = mainMeasurements.get(i).get(j).
                         getAverageSizeOfPrimaryBlockedReq();
                 out.print(pbAS[j] + "\t");
@@ -654,17 +654,17 @@ public class SimulationManagement extends Thread {
             //tamanho medio
             double mediaAS = sumAverageSize / numReplication;
             out.print(mediaAS + "\t");
-            //erro para o intervalo de confiança...............
+            //erro para o intervalo de confianÃ§a...............
             double erro = Statistics.calculateError(pbAS, mediaAS,
                     this.significativeLevel);
             out.println(erro + "\t");
-            //intervalo de confiança...............
+            //intervalo de confianÃ§a...............
         }
     }
     
     //------------------------------------------------------------------------------
     /**
-     * escreve no arquivo e na console o tamanho medio das requisições de backup atendidas.
+     * escreve no arquivo e na console o tamanho medio das requisiÃ§Ãµes de backup atendidas.
      * carga 1 media
      * carga n media
      * @param out Printer
@@ -681,28 +681,28 @@ public class SimulationManagement extends Thread {
             int numReplication = mainMeasurements.get(i).size();
             //para calculo do erro
             double[] pbAS = new double[numReplication];
-            //percorre as replicações para carga i
+            //percorre as replicaÃ§Ãµes para carga i
             for (int j = 0; j < numReplication; j++) {
                 pbAS[j] = mainMeasurements.get(i).get(j).
                         getAverageSizeOfBackupAcceptedReq();
                 out.print(pbAS[j] + "\t");
-                //soma do tamanho medio das replicações
+                //soma do tamanho medio das replicaÃ§Ãµes
                 sumAverageSize += pbAS[j];
             }
             //tamanho medio
             double mediaAS = sumAverageSize / numReplication;
             out.print(mediaAS + "\t");
-            //erro para o intervalo de confiança...............
+            //erro para o intervalo de confianÃ§a...............
             double erro = Statistics.calculateError(pbAS, mediaAS,
                     this.significativeLevel);
             out.println(erro + "\t");
-            //intervalo de confiança...............
+            //intervalo de confianÃ§a...............
         }
     }
     
 //------------------------------------------------------------------------------
     /**
-     * escreve no arquivo e na console o tamanho medio das requisições de backup bloqueidas.
+     * escreve no arquivo e na console o tamanho medio das requisiÃ§Ãµes de backup bloqueidas.
      * carga 1 media
      * carga n media
      * @param out Printer
@@ -719,22 +719,22 @@ public class SimulationManagement extends Thread {
             int numReplication = mainMeasurements.get(i).size();
             //para calculo do erro
             double[] pbAS = new double[numReplication];
-            //percorre as replicações para carga i
+            //percorre as replicaÃ§Ãµes para carga i
             for (int j = 0; j < numReplication; j++) {
                 pbAS[j] = mainMeasurements.get(i).get(j).
                         getAverageSizeOfBackupBlockedReq();
-                //soma do tamanho medio das replicações
+                //soma do tamanho medio das replicaÃ§Ãµes
                 out.print(pbAS[j] + "\t");
                 sumAverageSize += pbAS[j];
             }
             //tamanho medio
             double mediaAS = sumAverageSize / numReplication;
             out.print(mediaAS + "\t");
-            //erro para o intervalo de confiança...............
+            //erro para o intervalo de confianÃ§a...............
             double erro = Statistics.calculateError(pbAS, mediaAS,
                     this.significativeLevel);
             out.println(erro + "\t");
-            //intervalo de confiança...............
+            //intervalo de confianÃ§a...............
         }
     }
     

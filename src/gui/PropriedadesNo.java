@@ -45,7 +45,7 @@ public class PropriedadesNo extends javax.swing.JFrame {
         jLabelPeso = new javax.swing.JLabel();
         jSpinnerPeso = new javax.swing.JSpinner();
 
-        setTitle("Propriedades do Nó");
+        setTitle("Propriedades do NÃ³");
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(297, 381));
         setResizable(false);
@@ -115,7 +115,7 @@ public class PropriedadesNo extends javax.swing.JFrame {
         jTextAreaNoProp.setLineWrap(true);
         jTextAreaNoProp.setRows(3);
         jTextAreaNoProp.setTabSize(4);
-        jTextAreaNoProp.setText("WCR = Nó com Capacidade de Conversão de Comprimento de Onda. WCR TOTAL = Nó com Capacidade de Conversão Total. WCs: Número de Conversores de Comprimento de Onda. Tx = Transmissores. Rx = Receptores.");
+        jTextAreaNoProp.setText("WCR = NÃ³ com Capacidade de ConversÃ£o de Comprimento de Onda. WCR TOTAL = NÃ³ com Capacidade de ConversÃ£o Total. WCs: NÃºmero de Conversores de Comprimento de Onda. Tx = Transmissores. Rx = Receptores.");
         jTextAreaNoProp.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextAreaNoProp);
 
@@ -257,7 +257,7 @@ public class PropriedadesNo extends javax.swing.JFrame {
     
     private void initOtherComponents(NoGrf no) {
         this.no = no;        
-        this.setTitle("Nó "+no.getName()+" - Propriedades");
+        this.setTitle("NÃ³ "+no.getName()+" - Propriedades");
         this.jTextFieldNome.setText(no.getName());
         
         ComboBoxModel cbmWCR = this.jComboBoxWCR.getModel();
@@ -268,7 +268,7 @@ public class PropriedadesNo extends javax.swing.JFrame {
             if (this.no.isWcrTotal()){//wcr total     
                 cbmWCRTotal.setSelectedItem(cbmWCRTotal.getElementAt(1));//wcr total true
                 this.jSpinnerNConversores.setEnabled(false);
-            }else{//é wcr parcial.
+            }else{//Ã© wcr parcial.
                 cbmWCRTotal.setSelectedItem(cbmWCRTotal.getElementAt(0));//wcr total false
                 this.jSpinnerNConversores.setEnabled(true);
                 this.jSpinnerNConversores.setValue(no.getWcBank().getNumWcs());    

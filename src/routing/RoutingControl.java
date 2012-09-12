@@ -64,7 +64,7 @@ public class RoutingControl {
         break;
       }
       /**
-       * Roteamento Fixo ou Adaptativo, em função da utilização da rede.
+       * Roteamento Fixo ou Adaptativo, em funÃ§Ã£o da utilizaÃ§Ã£o da rede.
        * Uma rota
        */
       case 7: {
@@ -72,7 +72,7 @@ public class RoutingControl {
         break;
       }
       /**
-       * Roteamento Fixo ou Adaptativo, em função da utilização da rede.
+       * Roteamento Fixo ou Adaptativo, em funÃ§Ã£o da utilizaÃ§Ã£o da rede.
        * Duas rota
        */
       case 8: {
@@ -105,8 +105,8 @@ public class RoutingControl {
 
   //----------------------------------------------------------------------------
   /**
-   * Caso implemente sobrevivência retorna duas rotas disjuntas.
-   * Senão retorna uma rota.
+   * Caso implemente sobrevivÃªncia retorna duas rotas disjuntas.
+   * SenÃ£o retorna uma rota.
    * @param p Pair
    * @return Route[]
    */

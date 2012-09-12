@@ -19,7 +19,7 @@ public class ReqActRestoration
   //------------------------------------------------------------------------------
   /**
    *Define que os comprimentos de onda alocados ficam livres nos
-   *enlaces da rota utilizada pela requisição.
+   *enlaces da rota utilizada pela requisiÃ§Ã£o.
    */
   public void tearDownConnection() {
     for (int i = 0; i < this.waveList.length - 1; i++) {
@@ -36,7 +36,7 @@ public class ReqActRestoration
 //------------------------------------------------------------------------------
   /**
    *Define que os comprimentos de onda alocados ficam ocupados nos
-   *enlaces da rota utilizada pela requisição.
+   *enlaces da rota utilizada pela requisiÃ§Ã£o.
    */
   protected void establishConnection() {
     for (int i = 0; i < this.waveList.length - 1; i++) {
@@ -77,7 +77,7 @@ public class ReqActRestoration
 
   //------------------------------------------------------------------------------
   /**
-   * retorna uma nova requisição do mesmo tipo
+   * retorna uma nova requisiÃ§Ã£o do mesmo tipo
    * @param p Pair
    * @param m Mesh
    * @return RequestMother
@@ -89,8 +89,8 @@ public class ReqActRestoration
   //------------------------------------------------------------------------------
 
   /**
-   * computa as diferentes rotas para restoração para a possibilide de falha
-   * em cada enlace da rota primária.
+   * computa as diferentes rotas para restoraÃ§Ã£o para a possibilide de falha
+   * em cada enlace da rota primÃ¡ria.
    */
   private void preComputeActiveRestoration() {
     Vector<Link> linksWorkRoute = this.route.getLinkList();
@@ -107,7 +107,7 @@ public class ReqActRestoration
   //------------------------------------------------------------------------------
   /**
    * procura e retorna a rota que protege contra falha no link. Pode ser
-   * retornado null se não houver uma rota disjunta ao link falho.
+   * retornado null se nÃ£o houver uma rota disjunta ao link falho.
    * @param link Link
    * @return Route
    */
@@ -118,13 +118,13 @@ public class ReqActRestoration
       }
     }
     //System.out.println("Classe ReqActRestoration, metodo getRouteAR ");
-    //System.out.println("Não foi adicionada restauração para link "+link.getName());
+    //System.out.println("NÃ£o foi adicionada restauraÃ§Ã£o para link "+link.getName());
     return null;
   }
 
   //------------------------------------------------------------------------------
   /**
-   * sempre retorna false pois não implementa estratégia se sobrevivência.
+   * sempre retorna false pois nÃ£o implementa estratÃ©gia se sobrevivÃªncia.
    *
    * @param link Link
    * @param eMachine EventMachine
@@ -142,7 +142,7 @@ public class ReqActRestoration
       flag=false;
 
     if (flag == true) {
-      //estabelecer a rota de restaruação
+      //estabelecer a rota de restaruaÃ§Ã£o
       this.establishConnection();
     }
     else {

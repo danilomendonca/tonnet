@@ -22,7 +22,7 @@ public class FixOneRoute
   /**
    * Computa a rota de menor caminho para cada par (o,d) e armazena no routeList.
    * Roteamento fixo de menor caminho (Dijkstra) utilizando o custo de cada enlace.
-   * Se todos custos forem iguais, consequentemente o custo da rota será o menor nº de saltos.
+   * Se todos custos forem iguais, consequentemente o custo da rota serÃ¡ o menor nÂº de saltos.
    * @param pairList Vector
    */
   private void computeAllFixedRoutes(Vector<Pair> pairList) {

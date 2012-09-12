@@ -111,7 +111,7 @@ public class AdaptiveSRTSB
     
     //------------------------------------------------------------------------------
     /**
-     * backup dedicado fixo com geraÁ„o de falha
+     * backup dedicado fixo com gera√ß√£o de falha
      * @return boolean
      */
     protected boolean fixedDedicatedBackupWithFailure() {
@@ -119,8 +119,8 @@ public class AdaptiveSRTSB
         routeAux = this.mesh.getRoutingControl().getRoutes(this.pair).get(0);
         routeBackupAux = this.mesh.getRoutingControl().getRoutes(this.pair).get(1);
         /**
-         * … necess·rio testar se routeAux e RouteBackupAux s„o null pois o
-         * roteamento pode n„o encontrar uma rota para o par de nÛs em quest„o
+         * √â necess√°rio testar se routeAux e RouteBackupAux s√£o null pois o
+         * roteamento pode n√£o encontrar uma rota para o par de n√≥s em quest√£o
          */
         if (routeAux != null) {
             this.setRoute(routeAux);
@@ -159,7 +159,7 @@ public class AdaptiveSRTSB
     
 //------------------------------------------------------------------------------
     /**
-     * retorna uma nova requisiÁ„o do mesmo tipo
+     * retorna uma nova requisi√ß√£o do mesmo tipo
      * @param p Pair
      * @param m Mesh
      * @return RequestMother
@@ -192,7 +192,7 @@ public class AdaptiveSRTSB
             }
             
             if (flag == true) {
-                //estabelecer a rota de restauraÁ„o
+                //estabelecer a rota de restaura√ß√£o
                 this.establishConnection();
             } else {
                 this.setRoute(null);
@@ -205,7 +205,7 @@ public class AdaptiveSRTSB
     
     //------------------------------------------------------------------------------
     /**
-     * sempre retornara falso pois a rota de backup È disjunta
+     * sempre retornara falso pois a rota de backup √© disjunta
      * @param link Link
      * @return boolean
      */

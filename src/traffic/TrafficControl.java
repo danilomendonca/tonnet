@@ -12,17 +12,17 @@ public class TrafficControl {
       case 0: //uniforme
         this.traffic = new UniformTraffic(pairList, mesh);
         break;
-      case 1: //n„o uniforme em relaÁ„o ao nÛ
+      case 1: //n√£o uniforme em rela√ß√£o ao n√≥
         this.traffic = new NodeNonUniformTraffic(pairList, mesh);
         break;
-      case 2: //n„o uniforme em relaÁ„o ao par
+      case 2: //n√£o uniforme em rela√ß√£o ao par
         this.traffic = new PairNonUniformTraffic(pairList, mesh);
         break;
     }
   }
   //------------------------------------------------------------------------------
   /**
-   * Retorna um par aleatÛrio de acordo com o tipo de tr·fego.
+   * Retorna um par aleat√≥rio de acordo com o tipo de tr√°fego.
    * @return Pair
    */
   public Pair pairGenerator() {

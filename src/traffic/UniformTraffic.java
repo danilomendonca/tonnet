@@ -11,7 +11,7 @@ public class UniformTraffic extends Traffic {
   }
 
   /**
-   * Retorna um par aleatÛrio de acordo com o tipo de tr·fego.
+   * Retorna um par aleat√≥rio de acordo com o tipo de tr√°fego.
    * @return Pair
    */
   public Pair pairGenerator() {

@@ -33,29 +33,29 @@ public class ActiveRestoration extends RoutingWithSurvival {
   }
 
   /**
-   * procurar uma rota da origem da rota work até destino do enlace link,
+   * procurar uma rota da origem da rota work atÃ© destino do enlace link,
    * distunto do enlace link. Depois concatena com o restante da rota work (
-   * destino do enlace link até destino da rota work)
+   * destino do enlace link atÃ© destino da rota work)
    * @param work Route
    * @param failureLink Link
    * @return Route
    */
   public Route activeRestoration(Route work, Link failureLink) {
-    //nó destino do link falho
+    //nÃ³ destino do link falho
     Node immediate = this.getNode(failureLink.getDestination().getName());
 
-    //rota backup. rota da origem da rota work ate o nó destino do link falho
+    //rota backup. rota da origem da rota work ate o nÃ³ destino do link falho
     Route backup = disjointShortestPathOfLink(new Pair(work.getOrigem(),
         immediate), failureLink);
 
-    //lista de nós do backup
+    //lista de nÃ³s do backup
     if (backup == null) {
       return null;
     }
     else {
       Vector<Node> nodesBackup = backup.getNodeList();
 
-      //lista de nós restantes da rota work
+      //lista de nÃ³s restantes da rota work
       //(do destino do link falho ate o destino da rota work)
       Vector<Node> nodesRest = new Vector<Node> ();
       Node aux = immediate;

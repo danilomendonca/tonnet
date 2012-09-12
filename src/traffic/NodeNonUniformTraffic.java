@@ -15,7 +15,7 @@ public class NodeNonUniformTraffic extends Traffic {
   }
 
   /**
-   * Retorna um par aleatÛrio de acordo com o tipo de tr·fego.
+   * Retorna um par aleat√≥rio de acordo com o tipo de tr√°fego.
    * @return Pair
    */
   public Pair pairGenerator() {
@@ -24,7 +24,7 @@ public class NodeNonUniformTraffic extends Traffic {
 
   //----------------------------------------------------------------------------
   /**
-   * Retorna um par aleatÛrio com pesos diferenciados para cada nÛ
+   * Retorna um par aleat√≥rio com pesos diferenciados para cada n√≥
    * @return Pair
    */
   private Pair trafficNotUniformNode() {
@@ -44,8 +44,8 @@ public class NodeNonUniformTraffic extends Traffic {
 
   //----------------------------------------------------------------------------
   /**
-   * Configura o tr·fego n„o uniforme
-   * Cada N” tem um privilÈgio diferente.
+   * Configura o tr√°fego n√£o uniforme
+   * Cada N√ì tem um privil√©gio diferente.
    */
   private void configureTrafficNotUniformNode() {
     for (int i = 0; i < this.mesh.getNodeList().size(); i++) {

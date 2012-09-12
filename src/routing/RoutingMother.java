@@ -13,7 +13,7 @@ public abstract class RoutingMother {
    */
   protected Vector<Link> linkList;
   /**
-   * Representa um custo infinito para um nó.
+   * Representa um custo infinito para um nÃ³.
    */
   private final int infinite = Integer.MAX_VALUE;
 
@@ -24,7 +24,7 @@ public abstract class RoutingMother {
 
   //------------------------------------------------------------------------------
   /**
-   * A partir de uma lista de nós, retorna o nó que tem o menor length
+   * A partir de uma lista de nÃ³s, retorna o nÃ³ que tem o menor length
    * Apenas o shortestePath() utiliza este metodo.
    * @param nodes Vector.
    * @return Node.less-length Node of nodes.
@@ -44,7 +44,7 @@ public abstract class RoutingMother {
 
   //----------------------------------------------------------------------------
   /**
-   * Encontra o menor caminho entre os nós s e d.
+   * Encontra o menor caminho entre os nÃ³s s e d.
    * Ref. Book: Estrutura de Dados e Algoritmos. Bruno R. Praiss. Ed Campus. pag. 512.
    * @param s Node
    * @param t Node
@@ -116,7 +116,7 @@ public abstract class RoutingMother {
 
   //------------------------------------------------------------------------------
   /**
-   * Retorna um nó a partir do nome
+   * Retorna um nÃ³ a partir do nome
    * @param name String
    * @return Node
    */

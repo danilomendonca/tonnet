@@ -21,9 +21,9 @@ public class Simulator {
 
 //------------------------------------------------------------------------------
   /**
-   * Inicia a SimulaÁ„o. Para isso È necess·rio: (1) carregar a malha; (2)criar
-   * as inst‚ncias de arriveRequest e FinalizeRequest; (3) agendar os primeiro
-   * eventos de chegada de requisiÁ„o.
+   * Inicia a Simula√ß√£o. Para isso √© necess√°rio: (1) carregar a malha; (2)criar
+   * as inst√¢ncias de arriveRequest e FinalizeRequest; (3) agendar os primeiro
+   * eventos de chegada de requisi√ß√£o.
    * @return Measurements
    * @param failure boolean
    * @param fixLinkRate double
@@ -63,9 +63,9 @@ public class Simulator {
   private void reports() {
     //calcula as medidas dos links (num falhas, utilizacao por link)
     this.getSimulation().getMesh().calculateMeasureLink();
-    //calcula as medidas dos pares (bloq por par e n∫ de vezes q o par foi gerado)
+    //calcula as medidas dos pares (bloq por par e n¬∫ de vezes q o par foi gerado)
     this.getSimulation().getMesh().calculateMeasurePair();
-    //calcula as medidas dos nÛs
+    //calcula as medidas dos n√≥s
     this.getSimulation().getMesh().calculateMeasureNode();
 
     //---------------------------------------
@@ -77,8 +77,8 @@ public class Simulator {
 
   //------------------------------------------------------------------------------
   /**
-   * Agenda o primeiro eventos de chegada de requisiÁ„o. DefiniÁ„o do tipo de
-   * simulaÁ„o.
+   * Agenda o primeiro eventos de chegada de requisi√ß√£o. Defini√ß√£o do tipo de
+   * simula√ß√£o.
    * @param failure boolean
    */
   private void scheduleFirstEvents(boolean failure) {
@@ -97,12 +97,12 @@ public class Simulator {
          12.TSB - Fix
          13.TSB - LLR
 
-         20.RS  - Rota primaria Fixa e Rota Secundaria LLR.(S/ implementaÁ„o!!)
+         20.RS  - Rota primaria Fixa e Rota Secundaria LLR.(S/ implementa√ß√£o!!)
          21.RS  - Fixo
          22.RS  - LLR
          23.RS  - Fixo-ADP
          24.AR  - Fix
-         25.AR  - LLR  (Sem implementaÁ„o!!)
+         25.AR  - LLR  (Sem implementa√ß√£o!!)
 
          30.Adaptive (RS + TSB) - Fix
          31.Adaptive (RS + TSB) - LLR
@@ -110,8 +110,8 @@ public class Simulator {
     switch (this.simulation.getSimulationType()) {
 
       /**-----------------------------------------------------------------------
-       * N√O IMPLEMENTA T…CNICA DE SOBREVIV NCIA
-       * ROTEAMENTO FIXO DE MENOR CAMINHO (CUSTO = N∫ DE SALTOS)
+       * N√ÉO IMPLEMENTA T√âCNICA DE SOBREVIV√äNCIA
+       * ROTEAMENTO FIXO DE MENOR CAMINHO (CUSTO = N¬∫ DE SALTOS)
        */
       case 0:
         this.simulation.getMesh().startRouteControl(0);
@@ -119,8 +119,8 @@ public class Simulator {
                         this.simulation.getMesh());
         break;
         /**-----------------------------------------------------------------------
-         * N√O IMPLEMENTA T…CNICA DE SOBREVIV NCIA
-         * ROTEAMENTO FIXO ALTERNATIVO K=3 ROTAS DISTUNTAS (AINDA N√O FOI TESTADO !!!!!!!!!)
+         * N√ÉO IMPLEMENTA T√âCNICA DE SOBREVIV√äNCIA
+         * ROTEAMENTO FIXO ALTERNATIVO K=3 ROTAS DISTUNTAS (AINDA N√ÉO FOI TESTADO !!!!!!!!!)
          */
       case 1:
         this.simulation.getMesh().startRouteControl(9);
@@ -129,7 +129,7 @@ public class Simulator {
 
         break;
         /**-----------------------------------------------------------------------
-         * N√O IMPLEMENTA T…CNICA DE SOBREVIV NCIA
+         * N√ÉO IMPLEMENTA T√âCNICA DE SOBREVIV√äNCIA
          * ROTEAMENTO ADAPTATIVO (LLR)
          */
       case 2:
@@ -138,7 +138,7 @@ public class Simulator {
                         this.simulation.getMesh());
         break;
         /**-----------------------------------------------------------------------
-         * N√O IMPLEMENTA T…CNICA DE SOBREVIV NCIA
+         * N√ÉO IMPLEMENTA T√âCNICA DE SOBREVIV√äNCIA
          * ROTEAMENTO FIXO - ADAPTATIVO(LLR)
          */
       case 3:
@@ -148,7 +148,7 @@ public class Simulator {
         break;
         /**---------------------------------------------------------------------
          *TWO STEP
-         * ROTEAMENTO FIXO DE MENOR CAMINHO (CUSTO = N∫ DE SALTOS)
+         * ROTEAMENTO FIXO DE MENOR CAMINHO (CUSTO = N¬∫ DE SALTOS)
          */
       case 10:
         this.simulation.getMesh().startRouteControl(2);
@@ -167,7 +167,7 @@ public class Simulator {
 
         /**-----------------------------------------------------------------------
          * TWO STEP COM BACKTRACKING
-         * ROTEAMENTO FIXO DE MENOR CAMINHO (CUSTO = N∫ DE SALTOS)
+         * ROTEAMENTO FIXO DE MENOR CAMINHO (CUSTO = N¬∫ DE SALTOS)
          */
       case 12:
         this.simulation.getMesh().startRouteControl(3);
@@ -186,16 +186,16 @@ public class Simulator {
         break;
 
         /**---------------------------------------------------------------------
-         * RESTAURA«√O COM BACKTRACKING (ROTA PRIM¡RIA = FIXA;
-         * ROTA DE RESTAURA«√O … CALCULADA COM LLR) (FALTA IMPLEMENTAR !!!!!!!!)
+         * RESTAURA√á√ÉO COM BACKTRACKING (ROTA PRIM√ÅRIA = FIXA;
+         * ROTA DE RESTAURA√á√ÉO √â CALCULADA COM LLR) (FALTA IMPLEMENTAR !!!!!!!!)
          */
       case 20:
         System.out.println("FALTA IMPLEMENTAR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         break;
         /**---------------------------------------------------------------------
-         * RESTAURA«√O SIMPLES COM BACKTRACKIN.
-         * ROTEAMENTO FIXO DE MENOR CAMINHO (CUSTO = N∫ DE SALTOS)
-         * A ROTA DE RESTAURA«√O … A MESMA ROTA DE BACKUP DO TWO STEP COM BACKTRACKING.
+         * RESTAURA√á√ÉO SIMPLES COM BACKTRACKIN.
+         * ROTEAMENTO FIXO DE MENOR CAMINHO (CUSTO = N¬∫ DE SALTOS)
+         * A ROTA DE RESTAURA√á√ÉO √â A MESMA ROTA DE BACKUP DO TWO STEP COM BACKTRACKING.
          */
       case 21:
         this.simulation.getMesh().startRouteControl(3);
@@ -203,7 +203,7 @@ public class Simulator {
                                      this.simulation.getMesh());
         break;
         /**---------------------------------------------------------------------
-         * RESTAURA«√O SIMPLES COM BACKTACKING.
+         * RESTAURA√á√ÉO SIMPLES COM BACKTACKING.
          * ROTEAMENTO ADAPTATIVO (LLR)
          */
       case 22:
@@ -213,10 +213,10 @@ public class Simulator {
         break;
 
         /**---------------------------------------------------------------------
-         * RESTAURA«√O SIMPLES COM BACKTRACKIN.
+         * RESTAURA√á√ÉO SIMPLES COM BACKTRACKIN.
          * Roteamento Fixo-ADP:
-         * SE UTILIZA«√O DA REDE FOR MENOR QUE FATOR U
-         * ROTEAMENTO FIXO DE MENOR CAMINHO (CUSTO = N∫ DE SALTOS)
+         * SE UTILIZA√á√ÉO DA REDE FOR MENOR QUE FATOR U
+         * ROTEAMENTO FIXO DE MENOR CAMINHO (CUSTO = N¬∫ DE SALTOS)
          * SENAO ROTEAMENTO ADAPTATIVO (LLR)
          */
       case 23:
@@ -226,7 +226,7 @@ public class Simulator {
         break;
         /**---------------------------------------------------------------------
          * ACTIVE RESTORATION COM BACKTRACKING.
-         * ROTEAMENTO FIXO DE MENOR CAMINHO (CUSTO = N∫ DE SALTOS)
+         * ROTEAMENTO FIXO DE MENOR CAMINHO (CUSTO = N¬∫ DE SALTOS)
          */
       case 24:
         this.simulation.getMesh().startRouteControl(6);
@@ -243,7 +243,7 @@ public class Simulator {
         break;
         /**---------------------------------------------------------------------
          * ADAPTIVE (SR + TSB)
-         * ROTEAMENTO FIXO DE MENOR CAMINHO (CUSTO = N∫ DE SALTOS)
+         * ROTEAMENTO FIXO DE MENOR CAMINHO (CUSTO = N¬∫ DE SALTOS)
          */
       case 30:
         this.simulation.getMesh().startRouteControl(3);
@@ -262,7 +262,7 @@ public class Simulator {
 
     }
 
-    //Verifica se a simulaÁ„o vai gerar falhas
+    //Verifica se a simula√ß√£o vai gerar falhas
     if (failure) {
       this.occurFailure.scheduleFailureEvent(0);
     }

@@ -21,7 +21,7 @@ import org.jdesktop.swingx.JXMapViewer;
 /**
  *
  * <p>Title: Mouse Panel</p>
- * <p>Description: Esta classe é destinada ao Panel responsavel pela parte gráfica da modelagem da tiopologia;</p>
+ * <p>Description: Esta classe Ã© destinada ao Panel responsavel pela parte grÃ¡fica da modelagem da tiopologia;</p>
  * <p>Copyright: Copyright (c) 2003</p>
  * <p>Company: </p>
  * @author not attributable
@@ -60,10 +60,10 @@ public class MousePanel extends JPanel implements MouseMotionListener {
         g2.setPaint(Color.black);
         if (i == currentNo) {
             g2.setPaint(Color.red);
-            g2.drawString("Nó " + i.getName(), (a - 10), (b - 15));
+            g2.drawString("NÃ³ " + i.getName(), (a - 10), (b - 15));
             g2.drawImage(oxcSelectedImage, a - SQUARELENGTH / 2, b - SQUARELENGTH / 2, this);
         } else {            
-            g2.drawString("Nó " + i.getName(), (a - 10), (b - 15));
+            g2.drawString("NÃ³ " + i.getName(), (a - 10), (b - 15));
             g2.drawImage(oxcImage, a - SQUARELENGTH / 2, b - SQUARELENGTH / 2, this);
         }
     }
@@ -116,7 +116,7 @@ public class MousePanel extends JPanel implements MouseMotionListener {
                             current1 = findNo(x, y);
                         } else {
                             if (current1 != null) {
-                                //Remove seleção do nó caso seja clicado uma segunda vez
+                                //Remove seleÃ§Ã£o do nÃ³ caso seja clicado uma segunda vez
                                 if(current1 == currentNo){
                                     current1 = currentNo = null;
                                     return;
@@ -131,7 +131,7 @@ public class MousePanel extends JPanel implements MouseMotionListener {
                                         lc.setVisible(true);
 
                                     }
-                                    //current1 = current2 = null; //Modificado para permitir a construção dos enlaces em sequência
+                                    //current1 = current2 = null; //Modificado para permitir a construÃ§Ã£o dos enlaces em sequÃªncia
                                     current1 = current2;
                                     current2 = null;
                                 }
@@ -347,7 +347,7 @@ public class MousePanel extends JPanel implements MouseMotionListener {
     public void addNo(int x, int y) {
         if (topologia.getListaNo().size() < MAXNSQUARES) {
             currentNo = new NoGrf(new Point(x, y),nsquares+"");
-            current1 = null; //remove possível seleção deixada anteriormente na construção sequencial de enlaces
+            current1 = null; //remove possÃ­vel seleÃ§Ã£o deixada anteriormente na construÃ§Ã£o sequencial de enlaces
             topologia.adicionarNo(currentNo);
             nsquares++;
             repaint();
@@ -373,7 +373,7 @@ public class MousePanel extends JPanel implements MouseMotionListener {
     				id = Integer.parseInt(no.getName());
     		
     	}
-    	//seta nsquares para maior valor de id do nó encontrado mais 1
+    	//seta nsquares para maior valor de id do nÃ³ encontrado mais 1
     	nsquares = id + 1;
     }
     

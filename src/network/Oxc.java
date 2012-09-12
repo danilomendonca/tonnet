@@ -132,7 +132,7 @@ public class Oxc {
       if (auxLink.adjacent(x))
         return auxLink.getCost();
     }
-    //System.out.println("erro: O nó "+ x.getName()+" nao é adjacente ao "+getName());
+    //System.out.println("erro: O nÃ³ "+ x.getName()+" nao Ã© adjacente ao "+getName());
     return -1;
   }
 
@@ -152,7 +152,7 @@ public class Oxc {
   }
   //------------------------------------------------------------------------------
   /**
-   * Retorna o numero de interfaces do nó
+   * Retorna o numero de interfaces do nÃ³
    * @return int
    */
   public int getNumInterfaces(){

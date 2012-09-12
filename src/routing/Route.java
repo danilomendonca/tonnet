@@ -36,7 +36,7 @@ public class Route {
       return (nodeList.firstElement());
     }
     else {
-      System.out.println("lista de nÛ esta vazia");
+      System.out.println("lista de n√≥ esta vazia");
       return null;
     }
   }
@@ -51,7 +51,7 @@ public class Route {
       return (nodeList.lastElement());
     }
     else {
-      System.out.println("lista de nÛ esta vazia");
+      System.out.println("lista de n√≥ esta vazia");
       return null;
     }
   }
@@ -161,9 +161,9 @@ public class Route {
   //------------------------------------------------------------------------------
   /**
    * retorna true se a rota possuir pelo menos um comprimento de onda
-   * contÌnuo livre. AlÈm disso o mÈtodo define os comprimento de onda que ser„o
-   * utilizados em cada enlace da rota. Esse mÈtodo n„o faz o estabelecimento do
-   * lightpath.Se failure for true analisa se o link tem falha ou n„o.
+   * cont√≠nuo livre. Al√©m disso o m√©todo define os comprimento de onda que ser√£o
+   * utilizados em cada enlace da rota. Esse m√©todo n√£o faz o estabelecimento do
+   * lightpath.Se failure for true analisa se o link tem falha ou n√£o.
    * Se failure for true analisa se a rota possui enlaces com falha.
    * @param waveList int[]
    * @param m Mesh
@@ -189,9 +189,9 @@ public class Route {
   //----------------------------------------------------------------------------
   /**
    * retorna true se a rota possuir pelo menos um comprimento de onda
-   * em cada enlace da rota. AlÈm disso o mÈtodo define os
-   * comprimento de onda que ser„o utilizados em cada enlace da rota.
-   * Esse mÈtodo n„o faz o estabelecimento do lightpath.
+   * em cada enlace da rota. Al√©m disso o m√©todo define os
+   * comprimento de onda que ser√£o utilizados em cada enlace da rota.
+   * Esse m√©todo n√£o faz o estabelecimento do lightpath.
    * @param waveList int[]
    * @param failure boolean
    * @return boolean
@@ -294,24 +294,24 @@ public class Route {
   //----------------------------------------------------------------------------
   /**
    * retorna true se a rota possuir pelo menos um comprimento de onda em cada
-   * enlace da rota de acordo com a disposiÁ„o dos conversores.
-   * AlÈm disso o mÈtodo define os comprimento de onda que ser„o utilizados em
-   * cada enlace da rota. Esse mÈtodo n„o faz o estabelecimento do lightpath.
+   * enlace da rota de acordo com a disposi√ß√£o dos conversores.
+   * Al√©m disso o m√©todo define os comprimento de onda que ser√£o utilizados em
+   * cada enlace da rota. Esse m√©todo n√£o faz o estabelecimento do lightpath.
    * Se failure for true analisa se a rota possui enlaces com falha.
    * @param waveList int[]
    * @param m Mesh
-   * @param category int Categoria do par da requisiÁ„o
+   * @param category int Categoria do par da requisi√ß√£o
    * @param failure boolean
    * @return boolean
    */
   public boolean tryEstablish(int[] waveList, Mesh m, int category,
                               boolean failure) {
-    //...................rota com apenas um link ou SEM CONVERS√O...............
+    //...................rota com apenas um link ou SEM CONVERS√ÉO...............
     if ( (this.size() == 2) || (m.getConversionType() == 0)) {
       return this.tryEstablishWithoutConversion(waveList, m,
                                                 category, failure);
     }
-    //...................CONVERS√O TOTAL...................
+    //...................CONVERS√ÉO TOTAL...................
     else if (m.getConversionType() == 1) {
   /*    if (this.tryEstablishWithoutConversion(waveList, m, category, failure)) {
         return true;
@@ -320,7 +320,7 @@ public class Route {
  /*     return this.tryEstablishWithSparsePartialConversion(waveList, m,
           category, failure);*/
     }
-    //...................CONVERS√O ESPARSA-PARCIAL...................
+    //...................CONVERS√ÉO ESPARSA-PARCIAL...................
     return this.tryEstablishWithSparsePartialConversion(waveList, m,
         category, failure);
   }
@@ -353,7 +353,7 @@ public class Route {
 
   //------------------------------------------------------------------------------
   /**
-   * retorna os comprimentos de onda contÌnuos livres.
+   * retorna os comprimentos de onda cont√≠nuos livres.
    * Se failure for true analisa se a rota possui enlaces com falha.
    * @param failure boolean
    * @return int[]
@@ -392,7 +392,7 @@ public class Route {
 
   //------------------------------------------------------------------------------
   /**
-   * retorna os comprimentos de onda contÌnuos livres
+   * retorna os comprimentos de onda cont√≠nuos livres
    * Se failure for true analisa se a rota possui enlaces com falha.
    * @param a int indice do primeiro no subrota
    * @param b int indice do ultimo no da subrota
@@ -480,8 +480,8 @@ public class Route {
   }
 
   /**
-   * varre os nÛs intermedi·rios da rota e verifica se pelo menos um deles possui
-   * capacidade atual de convers„o.
+   * varre os n√≥s intermedi√°rios da rota e verifica se pelo menos um deles possui
+   * capacidade atual de convers√£o.
    * @return boolean
    */
   public boolean canConversion() {

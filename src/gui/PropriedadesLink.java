@@ -59,8 +59,8 @@ public class PropriedadesLink extends javax.swing.JFrame {
 
         jLabelBidirecional.setText("Bidirecional:");
 
-        jLabelW.setText("Número de comprimentos de onda:");
-        jLabelW.setToolTipText("número de comprimentos de onda");
+        jLabelW.setText("NÃºmero de comprimentos de onda:");
+        jLabelW.setToolTipText("nÃºmero de comprimentos de onda");
 
         jTextFieldNome.setEditable(false);
 
@@ -79,7 +79,7 @@ public class PropriedadesLink extends javax.swing.JFrame {
 
         jLabelCusto.setText("Custo:");
 
-        jLDistLink.setText("Distância:");
+        jLDistLink.setText("DistÃ¢ncia:");
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

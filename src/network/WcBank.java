@@ -31,7 +31,7 @@ public class WcBank {
   }
 
   /**
-   * retorna true se a convers„o foi realizada com sucesso
+   * retorna true se a convers√£o foi realizada com sucesso
    * @return boolean
    */
   public boolean useWC(){

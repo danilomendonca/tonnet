@@ -15,7 +15,7 @@ public class EventMachine {
 
 //------------------------------------------------------------------------------
   /**
-   *Insere um evento na m·quina de eventos.
+   *Insere um evento na m√°quina de eventos.
    * @param e Event
    */
   public void insert(Event e) {
@@ -31,8 +31,8 @@ public class EventMachine {
 
 //------------------------------------------------------------------------------
   /**
-   *Inicia a execuÁ„o da m·quina de eventos. A m·quina
-   *de eventos executa atÈ n„o existir mais eventos
+   *Inicia a execu√ß√£o da m√°quina de eventos. A m√°quina
+   *de eventos executa at√© n√£o existir mais eventos
    *no eventList.
    */
   public void executeEvents() {
@@ -44,7 +44,7 @@ public class EventMachine {
   }
 
   /**
-   *Retorna o n˙mero de eventos agendados (existente no eventList).
+   *Retorna o n√∫mero de eventos agendados (existente no eventList).
    * @return int
    */
   public int size() {
@@ -52,14 +52,14 @@ public class EventMachine {
   }
 
   /**
-   *Finaliza a m·quina de eventos (limpa eventList).
+   *Finaliza a m√°quina de eventos (limpa eventList).
    */
   public void stopMachine() {
     this.eventList.removeAllElements();
   }
 
   /**
-   * remove o evento que contem a requisiÁ„o
+   * remove o evento que contem a requisi√ß√£o
    * @param request RequestMother
    */
   public void remove(RequestMother request) {

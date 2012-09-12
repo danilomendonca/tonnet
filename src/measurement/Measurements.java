@@ -11,59 +11,59 @@ public class Measurements {
    */
   private double arrivedRate;
   /**
-   * numero da replicação
+   * numero da replicaÃ§Ã£o
    */
   private int replication;
   /**
-   *  nº de requisições bloqueadas.
+   *  nÂº de requisiÃ§Ãµes bloqueadas.
    */
   private double numBlocking;
 
   /**
-   * num de bloqueios de requsições (Proteção) por ausência exclusivamente de
+   * num de bloqueios de requsiÃ§Ãµes (ProteÃ§Ã£o) por ausÃªncia exclusivamente de
    * recurso para  rota de backup.
    */
   private double numBlockingAbsenceBackupProtection;
 
   /**
-   * nº de requisições geradas.
+   * nÂº de requisiÃ§Ãµes geradas.
    */
   private double numGeneratedReq;
 
   /**
-   * tamanho total de todas requisições atendidas
+   * tamanho total de todas requisiÃ§Ãµes atendidas
    */
   private double allSizeOfPrimaryAcceptedReq;
   /**
-   * tamanho total de todas requisições bloqueidas
+   * tamanho total de todas requisiÃ§Ãµes bloqueidas
    */
   private double allSizeOfPrimaryBlockedReq;
   /**
-   * tamanho total de todas requisições de backup atendidas
+   * tamanho total de todas requisiÃ§Ãµes de backup atendidas
    */
   private double allSizeOfBackupAcceptedReq;
   /**
-   * tamanho total de todas requisições de backup bloqueidas
+   * tamanho total de todas requisiÃ§Ãµes de backup bloqueidas
    */
   private double allSizeOfBackupBlockedReq;
 
   /**
-   * Nº de falhas geradas
+   * NÂº de falhas geradas
    */
   private double numGeneratedFailure;
 
   /**
-   * Nº de falhas geradas que geram de fato a falha de alguma conexão
+   * NÂº de falhas geradas que geram de fato a falha de alguma conexÃ£o
    */
   private double numGeneratedFailureEffective;
 
   /**
-   * para incremento da utilização
+   * para incremento da utilizaÃ§Ã£o
    */
   private double sumOfUtilization;
 
   /**
-   * para incremento da utilização por comprimento de onda
+   * para incremento da utilizaÃ§Ã£o por comprimento de onda
    */
   private double[] sumOfWavelenthUtilization;
 
@@ -72,7 +72,7 @@ public class Measurements {
    */
   private int sumMaximumWCUtilization;
   /**
-   * armazena o somatórios da probabilidade de restauração
+   * armazena o somatÃ³rios da probabilidade de restauraÃ§Ã£o
    */
   private double sumRestorability;
 
@@ -134,8 +134,8 @@ public class Measurements {
 
   //------------------------------------------------------------------------------
   /**
-   * soma do tamanho de todas requisições bloqueiadas dividido
-   * pelo nº de requisições bloqueidas
+   * soma do tamanho de todas requisiÃ§Ãµes bloqueiadas dividido
+   * pelo nÂº de requisiÃ§Ãµes bloqueidas
    * @return double
    */
   public double getAverageSizeOfPrimaryBlockedReq() {
@@ -144,8 +144,8 @@ public class Measurements {
 
   //------------------------------------------------------------------------------
   /**
-   * soma do tamanho de todas requisições atendidas dividido
-   * pelo nº de requisições atendidas
+   * soma do tamanho de todas requisiÃ§Ãµes atendidas dividido
+   * pelo nÂº de requisiÃ§Ãµes atendidas
    * @return double
    */
   public double getAverageSizeOfPrimaryAcceptedReq() {
@@ -155,8 +155,8 @@ public class Measurements {
 
   //------------------------------------------------------------------------------
   /**
-   * soma do tamanho de todas requisições de Backup bloqueiadas dividido
-   * pelo nº de requisições bloqueidas
+   * soma do tamanho de todas requisiÃ§Ãµes de Backup bloqueiadas dividido
+   * pelo nÂº de requisiÃ§Ãµes bloqueidas
    * @return double
    */
   public double getAverageSizeOfBackupBlockedReq() {
@@ -165,8 +165,8 @@ public class Measurements {
 
   //------------------------------------------------------------------------------
   /**
-   * soma do tamanho de todas requisições de Backup atendidas dividido
-   * pelo nº de requisições atendidas
+   * soma do tamanho de todas requisiÃ§Ãµes de Backup atendidas dividido
+   * pelo nÂº de requisiÃ§Ãµes atendidas
    * @return double
    */
   public double getAverageSizeOfBackupAcceptedReq() {
@@ -240,7 +240,7 @@ public class Measurements {
 
   //------------------------------------------------------------------------------
   /**
-   * incrementa o num. de requisições geradas.
+   * incrementa o num. de requisiÃ§Ãµes geradas.
    */
   public void incNumGeneratedReq() {
     this.numGeneratedReq++;
@@ -249,7 +249,7 @@ public class Measurements {
 
   //------------------------------------------------------------------------------
   /**
-   * soma ao tamanho de todas requisições atendidas
+   * soma ao tamanho de todas requisiÃ§Ãµes atendidas
    */
   public void sumAllSizeOfPrimaryAcceptedReq(double size) {
     this.allSizeOfPrimaryAcceptedReq += size;
@@ -257,7 +257,7 @@ public class Measurements {
 
   //------------------------------------------------------------------------------
   /**
-   * soma ao tamanho de todas requisições bloqueidas
+   * soma ao tamanho de todas requisiÃ§Ãµes bloqueidas
    */
   public void sumAllSizeOfPrimaryBloqckedReq(double size) {
     this.allSizeOfPrimaryBlockedReq += size;
@@ -265,7 +265,7 @@ public class Measurements {
 
   //------------------------------------------------------------------------------
   /**
-   * soma ao tamanho de todas requisições de backup atendidas
+   * soma ao tamanho de todas requisiÃ§Ãµes de backup atendidas
    */
   public void sumAllSizeOfBackupAcceptedReq(double size) {
     this.allSizeOfBackupAcceptedReq += size;
@@ -273,7 +273,7 @@ public class Measurements {
 
   //------------------------------------------------------------------------------
   /**
-   * soma ao tamanho de todas requisições de backup bloqueidas
+   * soma ao tamanho de todas requisiÃ§Ãµes de backup bloqueidas
    */
   public void sumAllSizeOfBackupBloqckedReq(double size) {
     this.allSizeOfBackupBlockedReq += size;
@@ -298,7 +298,7 @@ public class Measurements {
   //------------------------------------------------------------------------------
   /**
    * incrementa num. de bloqueios por inviabilidade da rota de backup na
-   * proteção
+   * proteÃ§Ã£o
    */
   public void incBlockingAbsenceBackupProtection() {
     this.numBlockingAbsenceBackupProtection++;
@@ -306,7 +306,7 @@ public class Measurements {
 
   //----------------------------------------------------------------------------
   /**
-   * incrementa o nº de falhas que de fato afeta alguma conexão
+   * incrementa o nÂº de falhas que de fato afeta alguma conexÃ£o
    */
   public void incNumGeneratedFailureEffective() {
     this.numGeneratedFailureEffective++;
@@ -314,8 +314,8 @@ public class Measurements {
 
   //----------------------------------------------------------------------------
   /**
-   * Faz o somatório da utilização da rede. Isto é feito toda vez que chega uma
-   * requisição de conexão.
+   * Faz o somatÃ³rio da utilizaÃ§Ã£o da rede. Isto Ã© feito toda vez que chega uma
+   * requisiÃ§Ã£o de conexÃ£o.
    * @param utilization double
    */
   public void sumOfUtilization(double utilization) {
@@ -324,8 +324,8 @@ public class Measurements {
 
   //----------------------------------------------------------------------------
   /**
-   * Faz o somatório da utilização da rede. Isto é feito toda vez que chega uma
-   * requisição de conexão.
+   * Faz o somatÃ³rio da utilizaÃ§Ã£o da rede. Isto Ã© feito toda vez que chega uma
+   * requisiÃ§Ã£o de conexÃ£o.
    * @param utilization double
    */
   public void sumOfWavelenghtUtilization(double[] waveUtilization) {

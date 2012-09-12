@@ -30,7 +30,7 @@ public class ReqSimpleRestoration
   //------------------------------------------------------------------------------
   /**
    *Define que os comprimentos de onda alocados ficam livres nos
-   *enlaces da rota utilizada pela requisição.
+   *enlaces da rota utilizada pela requisiÃ§Ã£o.
    */
   public void tearDownConnection() {
     for (int i = 0; i < this.waveList.length - 1; i++) {
@@ -46,7 +46,7 @@ public class ReqSimpleRestoration
 //------------------------------------------------------------------------------
   /**
    *Define que os comprimentos de onda alocados ficam ocupados nos
-   *enlaces da rota utilizada pela requisição.
+   *enlaces da rota utilizada pela requisiÃ§Ã£o.
    */
   protected void establishConnection() {
     for (int i = 0; i < this.waveList.length - 1; i++) {
@@ -62,7 +62,7 @@ public class ReqSimpleRestoration
 
   //------------------------------------------------------------------------------
   /**
-   * retorna uma nova requisição do mesmo tipo
+   * retorna uma nova requisiÃ§Ã£o do mesmo tipo
    * @param p Pair
    * @param m Mesh
    * @return RequestMother
@@ -73,8 +73,8 @@ public class ReqSimpleRestoration
 
   //------------------------------------------------------------------------------
   /**
-   * Retorna false se não conseguir sobreviver a falha do link. As rotas das
-   * requisições não recuperadas são definidas com null.
+   * Retorna false se nÃ£o conseguir sobreviver a falha do link. As rotas das
+   * requisiÃ§Ãµes nÃ£o recuperadas sÃ£o definidas com null.
    *
    * @param link Link
    * @param eMachine EventMachine
@@ -91,9 +91,9 @@ public class ReqSimpleRestoration
                                      this.pair.getCategory(), true);
     }
     if (flag == true) {
-      //estabelecer a rota de restauração
+      //estabelecer a rota de restauraÃ§Ã£o
       this.establishConnection();
-      //faz somatório dos tempos de restauração
+      //faz somatÃ³rio dos tempos de restauraÃ§Ã£o
       //this.mesh.getMeasurements().sumRestorationTime(calculateRestorationTime(link, restoration));
     }
     else {
@@ -105,12 +105,12 @@ public class ReqSimpleRestoration
 
   //------------------------------------------------------------------------------
   /**
-   *  A = TEMPO PARA DETECÇÃO DA FALHA
-   *  X = Nº DE SALTOS DO NO DE DESTINO DO ENLACE FALHO ATÉ O NÓ DE ORIGEM DA
-   *      REQUISIÇÃO
-   *  Y = Nº DE SALTOS DA ROTA DE BACKUP
-   *  P = ATRASO DE PROPAGAÇÃO ENLACE
-   *  B = TEMPO PARA PROCESSAMENTO DA MENSAGEM E TRANSMISSÃO EM CADA NÓ
+   *  A = TEMPO PARA DETECÃ‡ÃƒO DA FALHA
+   *  X = NÂº DE SALTOS DO NO DE DESTINO DO ENLACE FALHO ATÃ‰ O NÃ“ DE ORIGEM DA
+   *      REQUISIÃ‡ÃƒO
+   *  Y = NÂº DE SALTOS DA ROTA DE BACKUP
+   *  P = ATRASO DE PROPAGAÃ‡ÃƒO ENLACE
+   *  B = TEMPO PARA PROCESSAMENTO DA MENSAGEM E TRANSMISSÃƒO EM CADA NÃ“
    *  C = TEMPO PARA PROCESSAR A MENSAGEM DE CONTROLE E CONFIGURAR O OXC
    * @param linkAB Link
    * @param restorationRoute Route
@@ -122,8 +122,8 @@ public class ReqSimpleRestoration
     int X, Y;
     // tempo para detectar a falha.
     restorationTime = restorationTime + A;
-    // numero de enlaces do nó B (no de destino do enlace falho)
-    // para o nó de destino da rota primária.
+    // numero de enlaces do nÃ³ B (no de destino do enlace falho)
+    // para o nÃ³ de destino da rota primÃ¡ria.
     this.route.hopNumFromNodeBToNodeX(linkAB);
 
     return 0;

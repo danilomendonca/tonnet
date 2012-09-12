@@ -70,7 +70,7 @@ public class Node implements Serializable {
     
 //------------------------------------------------------------------------------
     /**
-     * Retorna o privilegio do nÛ
+     * Retorna o privilegio do n√≥
      * @return int
      */
     public int getPrivilege() {
@@ -88,7 +88,7 @@ public class Node implements Serializable {
     
     //------------------------------------------------------------------------------
     /**
-     * configura o privilegio do nÛ
+     * configura o privilegio do n√≥
      * @param privilege int
      */
     public void setPrivilege(int privilege) {
@@ -97,7 +97,7 @@ public class Node implements Serializable {
     
     //------------------------------------------------------------------------------
     /**
-     * Configura o nÛ para um WCR
+     * Configura o n√≥ para um WCR
      * @param numWcs int
      */
     public void setWcr(int numWcs) {
@@ -109,7 +109,7 @@ public class Node implements Serializable {
     
     //------------------------------------------------------------------------------
     /**
-     * retorna true se a convers„o foi realizada com sucesso
+     * retorna true se a convers√£o foi realizada com sucesso
      * @return boolean
      */
     public boolean useWc() {
@@ -127,7 +127,7 @@ public class Node implements Serializable {
     
     //------------------------------------------------------------------------------
     /**
-     * retorna true se o nÛ for WCR.
+     * retorna true se o n√≥ for WCR.
      * @return boolean
      */
     public boolean isWCR() {
@@ -140,7 +140,7 @@ public class Node implements Serializable {
     
     //------------------------------------------------------------------------------
     /**
-     * retorna true se o nÛ for um WCR e possuir conversores livres. Caso contr·rio
+     * retorna true se o n√≥ for um WCR e possuir conversores livres. Caso contr√°rio
      * retorna false.
      * @return boolean
      */
@@ -154,7 +154,7 @@ public class Node implements Serializable {
     }
 //------------------------------------------------------------------------------
     /**
-     * Retorna true se for wcr total; falso caso contr·rio;
+     * Retorna true se for wcr total; falso caso contr√°rio;
      * @return boolean wcrTotal
      */
     public boolean isWcrTotal() {
@@ -162,13 +162,13 @@ public class Node implements Serializable {
     }
 //------------------------------------------------------------------------------
     /**
-     *Configura se È wcr total
+     *Configura se √© wcr total
      *@param wcrTotal boolean
      */
     public void setWcrTotal(boolean wcrTotal) {
         this.wcrTotal = wcrTotal;
         
-        if (wcrTotal==true){//convers„o total. Configurando o numero ideal de conversores.
+        if (wcrTotal==true){//convers√£o total. Configurando o numero ideal de conversores.
             int numWc = 0;
             Vector<Link> interfaces = this.oxc.getLinksList();
             for (int j = 0; j < interfaces.size(); j++) {

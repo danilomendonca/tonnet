@@ -34,7 +34,7 @@ public class ReqDPPTwoStep
     
     //------------------------------------------------------------------------------
     /**
-     * backup dedicado fixo com geraÁ„o de falha
+     * backup dedicado fixo com gera√ß√£o de falha
      * @return boolean
      */
     protected boolean routing() {
@@ -44,8 +44,8 @@ public class ReqDPPTwoStep
         routeAux = routes.get(0);
         routeBackupAux = routes.get(1);
         /**
-         * … necess·rio testar se routeAux e RouteBackupAux s„o null pois o
-         * roteamento pode n„o encontrar uma rota para o par de nÛs em quest„o
+         * √â necess√°rio testar se routeAux e RouteBackupAux s√£o null pois o
+         * roteamento pode n√£o encontrar uma rota para o par de n√≥s em quest√£o
          */
         if (routeAux != null) {
             this.setRoute(routeAux);
@@ -74,7 +74,7 @@ public class ReqDPPTwoStep
     //------------------------------------------------------------------------------
     /**
      *Define que os comprimentos de onda alocados ficam ocupados nos
-     *enlaces das rotas prim·ria e segund·ria utilizadas pela requisiÁ„o.
+     *enlaces das rotas prim√°ria e segund√°ria utilizadas pela requisi√ß√£o.
      */
     protected void establishConnection() {
         //rota primaria
@@ -104,7 +104,7 @@ public class ReqDPPTwoStep
 //------------------------------------------------------------------------------
     /**
      *Define que os comprimentos de onda alocados ficam livres nos
-     *enlaces da rota utilizada pela requisiÁ„o.
+     *enlaces da rota utilizada pela requisi√ß√£o.
      */
     public void tearDownConnection() {
         //rota primaria
@@ -132,7 +132,7 @@ public class ReqDPPTwoStep
     
     //------------------------------------------------------------------------------
     /**
-     * retorna uma nova requisiÁ„o do mesmo tipo
+     * retorna uma nova requisi√ß√£o do mesmo tipo
      * @param p Pair
      * @param m Mesh
      * @return RequestMother
@@ -144,14 +144,14 @@ public class ReqDPPTwoStep
     
     //------------------------------------------------------------------------------
     /**
-     * retorna true se pelo menos uma das duas rotas prim·ria e secund·ria for
+     * retorna true se pelo menos uma das duas rotas prim√°ria e secund√°ria for
      * afetada pela falha. Marca a rota afedada.
      * @param link Link
      * @return boolean
      */
   /*  public boolean requestAffected(Link link) {
       boolean flag = false;
-      // verifica se a requisiÁ„o
+      // verifica se a requisi√ß√£o
       if ( (route.anyLinkFaild()) && (routeBackup.anyLinkFaild())) {
         return false;
       }
@@ -182,7 +182,7 @@ public class ReqDPPTwoStep
     
     //------------------------------------------------------------------------------
     /**
-     * sempre retornara falso pois a rota de backup È disjunta
+     * sempre retornara falso pois a rota de backup √© disjunta
      * @param link Link
      * @return boolean
      */

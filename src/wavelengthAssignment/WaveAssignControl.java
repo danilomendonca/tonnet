@@ -32,7 +32,7 @@ public class WaveAssignControl {
   }
 
   /**
-   * Define quais os comprimentos de onda que ser„o utilizados nos enlaces da
+   * Define quais os comprimentos de onda que ser√£o utilizados nos enlaces da
    * rota.
    * @param wAAlgorithm String
    * @param r Route

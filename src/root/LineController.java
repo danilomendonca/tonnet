@@ -1,6 +1,6 @@
 package root;
 
-//verificar atÈ qual vers„o n„o gr·fica tinha esta classe!!!
+//verificar at√© qual vers√£o n√£o gr√°fica tinha esta classe!!!
 public class LineController {
   private String line = null;
   private int a, b;

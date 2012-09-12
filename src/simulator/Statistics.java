@@ -54,28 +54,28 @@ public class Statistics {
   public static double getTStudent(double gl, double ns) {
     Hashtable<String,Double> tStudent = new Hashtable<String,Double>();
     //("grau de liberdade,nivel de significancia",t)
-    //2 replicações
+    //2 replicaÃ§Ãµes
     tStudent.put("1.0,0.01", 63.657);
     tStudent.put("1.0,0.03", 21.205);
     tStudent.put("1.0,0.05", 12.706);
-    //3 replicações
+    //3 replicaÃ§Ãµes
     tStudent.put("2.0,0.05", 4.303);
-    //4 replicações
+    //4 replicaÃ§Ãµes
     tStudent.put("3.0,0.05", 3.182);
-    //5 replicações
+    //5 replicaÃ§Ãµes
     tStudent.put("4.0,0.05", 2.776);
-    //6 replicações
+    //6 replicaÃ§Ãµes
     tStudent.put("5.0,0.05", 2.571);
-    //7 replicações
+    //7 replicaÃ§Ãµes
     tStudent.put("6.0,0.05", 2.447);
-    //8 replicações
+    //8 replicaÃ§Ãµes
     tStudent.put("7.0,0.05", 2.365);
-    //9 replicações
+    //9 replicaÃ§Ãµes
     tStudent.put("8.0,0.05", 2.306);
-    //10 replicações
+    //10 replicaÃ§Ãµes
     tStudent.put("9.0,0.01", 3.250);
     tStudent.put("9.0,0.05", 2.262);
-    //25 replicações
+    //25 replicaÃ§Ãµes
     tStudent.put("24.0,0.05", 2.064);
 
     String key = gl+","+ns;
@@ -87,7 +87,7 @@ public class Statistics {
   }
   //------------------------------------------------------------------------------
     /**
-     * Calcula o desvio padrão dos amostras
+     * Calcula o desvio padrÃ£o dos amostras
      * @param values double[] valores das amostras
      * @param media double media das amostras
      * @return double s
@@ -110,7 +110,7 @@ public class Statistics {
   }
 //------------------------------------------------------------------------------
   /**
-   * Calcula o erro para o intervalo de confiança da media
+   * Calcula o erro para o intervalo de confianÃ§a da media
    * @param values double[] valores das amostras
    * @param media double media das amostras
    * @param ns double Nivel de Significancia

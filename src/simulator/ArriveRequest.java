@@ -56,25 +56,25 @@ public class ArriveRequest
 
 //------------------------------------------------------------------------------
   /**
-   *Esse método é executado em função
+   *Esse mÃ©todo Ã© executado em funÃ§Ã£o
    *de um evento ArrivedRequest escutado.
    * @param e Event
    */
   public void execute(Event e) {
-    // incrementa o nº de requisições geradas
+    // incrementa o nÂº de requisiÃ§Ãµes geradas
     this.mesh.getMeasurements().incNumGeneratedReq();
-    //somatorio da utilização da rede.
+    //somatorio da utilizaÃ§Ã£o da rede.
     this.getMesh().getMeasurements().sumOfUtilization(this.mesh.calculateUtilization());
-    //somatorio da utilização por comprimento de onda.
+    //somatorio da utilizaÃ§Ã£o por comprimento de onda.
     this.getMesh().getMeasurements().sumOfWavelenghtUtilization(this.mesh.calculateWavelengthUtilization());
     //sommatorio da utilizao por enlace
     this.getMesh().getMeasurements().calcSumUtilizationPerLink();
 
     RequestMother request = (RequestMother) e.getObject();
-    // incrementa o nº de vezes que o par foi gerados
+    // incrementa o nÂº de vezes que o par foi gerados
     request.getPair().incNumGenerated();
 
-    //verifica se é necessário agendar a geração de novas requisições
+    //verifica se Ã© necessÃ¡rio agendar a geraÃ§Ã£o de novas requisiÃ§Ãµes
     if (this.mesh.getMeasurements().getNumGeneratedReq() < this.numMaxRequest && e.isGenerateNext())
       request.scheduleNewArrivedRequest(e.getTime(), this);
     
@@ -83,10 +83,10 @@ public class ArriveRequest
       double finalizeTime = e.getTime() + this.mesh.getRandomVar().negexp(this.holdRate);
       this.eMachine.insert(new Event(e.getObject(), this.finalizeRequest,finalizeTime));
 
-      //soma ao tamanho de todas requisições atendidas
+      //soma ao tamanho de todas requisiÃ§Ãµes atendidas
       this.mesh.getMeasurements().sumAllSizeOfPrimaryAcceptedReq(request.getRoute().
           getHops());
-      //soma ao tamanho de todas requisições de backup atendidas
+      //soma ao tamanho de todas requisiÃ§Ãµes de backup atendidas
       if (request.getProtection()) {
         Route bckp = null;
         if (request instanceof ReqDPPTwoStep){
@@ -102,11 +102,11 @@ public class ArriveRequest
       this.mesh.getMeasurements().incBlocked();
       //inc bloqueio do par
       request.getPair().incNumBlocked();
-      //soma ao tamanho de todas requisições bloqueidas
+      //soma ao tamanho de todas requisiÃ§Ãµes bloqueidas
       if (request.getRoute()!=null)
         this.mesh.getMeasurements().sumAllSizeOfPrimaryBloqckedReq(request.getRoute().
             getHops());
-      //soma ao tamanho de todas requisições de backup bloqueidas
+      //soma ao tamanho de todas requisiÃ§Ãµes de backup bloqueidas
       if (request.getProtection()) {
         Route bckp = null;
         if (request instanceof ReqDPPTwoStep){

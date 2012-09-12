@@ -8,8 +8,8 @@ public class Schedule {
   }
 
   /**
-   * Permite o agendamento de varias simulações.
-   * Cada parametro um path de uma simulação
+   * Permite o agendamento de varias simulaÃ§Ãµes.
+   * Cada parametro um path de uma simulaÃ§Ã£o
    * @param args String[]
    * @throws FileNotFoundException
    * @throws IOException

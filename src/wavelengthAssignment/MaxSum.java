@@ -14,7 +14,7 @@ import routing.Route;
 
 public class MaxSum extends WaveAlgo {
 	/**
-	   * método invocado pelas requisições
+	   * mÃ©todo invocado pelas requisiÃ§Ãµes
 	   *Dado uma lista de comprimentos de onda livres Comprimentos de onda livres continuos.cenario sem conversao
 	   *Seta em waveList quais os comprimentos de onda serao utilizados
 	   * @param waveList int[] comprimentos de onda serao utilizados

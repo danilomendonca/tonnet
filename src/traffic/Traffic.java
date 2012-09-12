@@ -16,14 +16,14 @@ public abstract class Traffic {
   }
 
   /**
-   * Retorna um par aleatÛrio de acordo com o tipo de tr·fego.
+   * Retorna um par aleat√≥rio de acordo com o tipo de tr√°fego.
    * @return Pair
    */
   public abstract Pair pairGenerator();
 
   //----------------------------------------------------------------------------
   /**
-   * Localiza um par em funÁ„o dos nos origem-destino.
+   * Localiza um par em fun√ß√£o dos nos origem-destino.
    * @param source Node
    * @param destination Node
    * @return Pair

@@ -8,9 +8,9 @@ public class Convert {
 
   //----------------------------------------------------------------------------
   /**
-   * Converte um numero decimal para um numero bin·rio
+   * Converte um numero decimal para um numero bin√°rio
    * @param dec O numero decimal para converter
-   * @return String contendo o numero bin·rio.
+   * @return String contendo o numero bin√°rio.
    */
   public static String decToBinary(int dec) {
     String result = "";
@@ -25,8 +25,8 @@ public class Convert {
 
   //----------------------------------------------------------------------------
   /**
-   * Converte um numero decimal em um numero bin·rio
-   * @param bin O numero bin·rio para converter
+   * Converte um numero decimal em um numero bin√°rio
+   * @param bin O numero bin√°rio para converter
    * @return int contendo o numero decimal.
    */
   public static int binaryToDec(String bin) {
@@ -49,14 +49,14 @@ public class Convert {
     * @return Vector contendo todas as combinacoes.
     */
    public static Vector<String> binaryCombination(int max){
-     //numero maximo de combinacoes possÌveis
+     //numero maximo de combinacoes poss√≠veis
      int combinationNumber = ( (Double) Math.pow(2, max)).intValue();
      Vector<String> result = new Vector<String>(combinationNumber-1);
    //  result.add("000");
      for (int i = 0; i < combinationNumber; i++) {
        //combinacao i
        String aux = Convert.decToBinary(i);
-       //completando com "0" ‡ esquerda
+       //completando com "0" √† esquerda
          while (aux.length()<max){
            String tmp = "0";
            tmp+=aux;
@@ -97,14 +97,14 @@ public class Convert {
    * @return Vector contendo todas as combinacoes.
    */
   public static Vector<String> binaryCombination2(int max){
-    //numero maximo de combinacoes possÌveis
+    //numero maximo de combinacoes poss√≠veis
     int combinationNumber = ( (Double) Math.pow(2, max)).intValue();
     Vector<String> result = new Vector<String>(combinationNumber-1);
   //  result.add("000");
     for (int i = 0; i < combinationNumber; i++) {
       //combinacao i
       String aux = Convert.decToBinary(i);
-      //completando com "0" ‡ esquerda
+      //completando com "0" √† esquerda
         while (aux.length()<max){
           String tmp = "0";
           tmp+=aux;

@@ -80,61 +80,61 @@ public class Chart
         String xLabel="";
         String yLabel="";
         if (title.equals("Probabilidade de Bloqueio Geral")) {
-            xLabel="Intensidade de Tráfego Gerada na Rede em Erlang";
+            xLabel="Intensidade de TrÃ¡fego Gerada na Rede em Erlang";
             yLabel="Probabilidade de Bloqueio Geral";
             
-        }else if (title.equals("PB por Ausência de Backup")) {
-            xLabel="Intensidade de Tráfego Gerada na Rede em Erlang";
-            yLabel="Probabilidade de Bloqueio por Ausência de Backup";
+        }else if (title.equals("PB por AusÃªncia de Backup")) {
+            xLabel="Intensidade de TrÃ¡fego Gerada na Rede em Erlang";
+            yLabel="Probabilidade de Bloqueio por AusÃªncia de Backup";
             
         }else if ((title.equals("PB por Par(Origem, Destino)"))||(title.equals("Probabilidade de Bloqueio por Par"))) {
-            xLabel="Intensidade de Tráfego Gerada na Rede em Erlang";
+            xLabel="Intensidade de TrÃ¡fego Gerada na Rede em Erlang";
             yLabel="Probabilidade de Bloqueio";
             legend=true;
             
-        }else if (title.equals("Utilização Geral")) {
-            xLabel="Intensidade de Tráfego Gerada na Rede em Erlang";
-            yLabel="Utilização Geral da Rede";
+        }else if (title.equals("UtilizaÃ§Ã£o Geral")) {
+            xLabel="Intensidade de TrÃ¡fego Gerada na Rede em Erlang";
+            yLabel="UtilizaÃ§Ã£o Geral da Rede";
             
-        }else if (title.equals("Utilização por Link")) {
-            xLabel="Intensidade de Tráfego Gerada na Rede em Erlang";
-            yLabel="Utilização Média";
+        }else if (title.equals("UtilizaÃ§Ã£o por Link")) {
+            xLabel="Intensidade de TrÃ¡fego Gerada na Rede em Erlang";
+            yLabel="UtilizaÃ§Ã£o MÃ©dia";
             legend=true;
             typeChart=1;
             
-        }else if (title.equals("Utilização por Comprimento de Onda")) {
-            xLabel="Intensidade de Tráfego Gerada na Rede em Erlang";
-            yLabel="Utilização por Comprimento de Onda";
+        }else if (title.equals("UtilizaÃ§Ã£o por Comprimento de Onda")) {
+            xLabel="Intensidade de TrÃ¡fego Gerada na Rede em Erlang";
+            yLabel="UtilizaÃ§Ã£o por Comprimento de Onda";
             legend=true;
             typeChart=1;
             
         }else if (title.equals("Restaurabilidade")) {
-            xLabel="Intensidade de Tráfego Gerada na Rede em Erlang";
+            xLabel="Intensidade de TrÃ¡fego Gerada na Rede em Erlang";
             yLabel="Restaurabilidade";
             
-        }else if (title.equals("TM das Requisições Atendidas")) {
-            xLabel="Intensidade de Tráfego Gerada na Rede em Erlang";
-            yLabel="Tamanho Médio das Requisições Atendidas";
+        }else if (title.equals("TM das RequisiÃ§Ãµes Atendidas")) {
+            xLabel="Intensidade de TrÃ¡fego Gerada na Rede em Erlang";
+            yLabel="Tamanho MÃ©dio das RequisiÃ§Ãµes Atendidas";
             
-        }else if (title.equals("TM das Requisições Bloqueadas")) {
-            xLabel="Intensidade de Tráfego Gerada na Rede em Erlang";
-            yLabel="Tamanho Médio das Requisições Bloqueadas";
+        }else if (title.equals("TM das RequisiÃ§Ãµes Bloqueadas")) {
+            xLabel="Intensidade de TrÃ¡fego Gerada na Rede em Erlang";
+            yLabel="Tamanho MÃ©dio das RequisiÃ§Ãµes Bloqueadas";
             
-        }else if (title.equals("Número de Falhas por Link")) {
-            xLabel="Intensidade de Tráfego Gerada na Rede em Erlang";
-            yLabel="Número de Falhas";
+        }else if (title.equals("NÃºmero de Falhas por Link")) {
+            xLabel="Intensidade de TrÃ¡fego Gerada na Rede em Erlang";
+            yLabel="NÃºmero de Falhas";
             legend=true;
             typeChart=1;
             
-        }else if (title.equals("Número de Rotas por Link")) {
+        }else if (title.equals("NÃºmero de Rotas por Link")) {
             xLabel="Link";
-            yLabel="Número de Rotas";
+            yLabel="NÃºmero de Rotas";
             legend=false;
             typeChart=2;
             
-        }else if (title.equals("Número de Requisições por Par")) {
-            xLabel="Intensidade de Tráfego Gerada na Rede em Erlang";
-            yLabel="Número de Requisições";
+        }else if (title.equals("NÃºmero de RequisiÃ§Ãµes por Par")) {
+            xLabel="Intensidade de TrÃ¡fego Gerada na Rede em Erlang";
+            yLabel="NÃºmero de RequisiÃ§Ãµes";
             legend=true;
             typeChart=1;
         }
@@ -212,26 +212,26 @@ public class Chart
         
         
         if (mainMeasurements!=null){
-            if (title.equals("Utilização por Link")) {
+            if (title.equals("UtilizaÃ§Ã£o por Link")) {
                 //numero de links
                 int numLinks = mainMeasurements.get(0).get(0).getListLinkMeasure().size();
                 //percorre a carga
                 for (int c = 0; c < mainMeasurements.size(); c++) {
-                    //parametro=nome da série
+                    //parametro=nome da sÃ©rie
                     String serieC = mainMeasurements.get(c).get(0).getArrivedRate()+"";
                     //percorre a lista de links da carga (c)
                     for (int l = 0; l < numLinks; l++) {
                         double sumUtiliLink = 0;
                         int numReplication = mainMeasurements.get(c).size();
-                        //percorre as replicações do Link (l)
+                        //percorre as replicaÃ§Ãµes do Link (l)
                         for (int r = 0; r < numReplication; r++) {
-                            //soma utilizacao (replicações)
+                            //soma utilizacao (replicaÃ§Ãµes)
                             sumUtiliLink += mainMeasurements.get(c).get(r).getListLinkMeasure().
                                     get(l).
                                     getUtilization();
                         }
                         
-                        //calcula a a utilização media do link
+                        //calcula a a utilizaÃ§Ã£o media do link
                         double averageUtil = sumUtiliLink / numReplication;
                         
                         // double x = mainMeasurements.get(c).get(0).getListLinkMeasure().
@@ -242,44 +242,44 @@ public class Chart
                     
                 }
                 
-            }else if (title.equals("Utilização por Comprimento de Onda")) {
+            }else if (title.equals("UtilizaÃ§Ã£o por Comprimento de Onda")) {
                 //numero de comprimentos de onda
                 int numWaves = mainMeasurements.get(0).get(0).getLinkList().get(0).getNumWave();
                 //percorre a carga
                 for (int c = 0; c < mainMeasurements.size(); c++) {
-                    //parametro=nome da série
+                    //parametro=nome da sÃ©rie
                     String seriesC = mainMeasurements.get(c).get(0).getArrivedRate()+"";
                     //percorre a lista de links de comprimentos de onda da carga (c)
                     for (int w = 0; w < numWaves; w++) {
                         double sumWaveUtil = 0;
                         int numReplication = mainMeasurements.get(c).size();
-                        //percorre as replicações da carga (c)
+                        //percorre as replicaÃ§Ãµes da carga (c)
                         for (int r = 0; r < numReplication; r++) {
-                            //soma utilizacao do comprimento de onda (replicações)
+                            //soma utilizacao do comprimento de onda (replicaÃ§Ãµes)
                             sumWaveUtil += mainMeasurements.get(c).get(r).
                                     getWavelenghUtilization()[w];
                         }
-                        //calcula a a utilização media do comprimento de onda
+                        //calcula a a utilizaÃ§Ã£o media do comprimento de onda
                         double averageUtil = sumWaveUtil / numReplication;
                         double y=averageUtil;
                         dataset.addValue(y,w+"",seriesC);
                     }
                 }
-            }else if(title.equals("Número de Falhas por Link")){
+            }else if(title.equals("NÃºmero de Falhas por Link")){
                 //numero de links
                 int numLinks = mainMeasurements.get(0).get(0).getListLinkMeasure().size();
                 //percorre a carga
                 for (int c = 0; c < mainMeasurements.size(); c++) {
                     //exibe a carga c
-                    //parametro=nome da série
+                    //parametro=nome da sÃ©rie
                     String seriesC = mainMeasurements.get(c).get(0).getArrivedRate()+"";
                     //percorre a lista de links da carga (c)
                     for (int l = 0; l < numLinks; l++) {
                         double sumFailLink = 0;
                         int numReplication = mainMeasurements.get(c).size();
-                        //percorre as replicações do Link (l)
+                        //percorre as replicaÃ§Ãµes do Link (l)
                         for (int r = 0; r < numReplication; r++) {
-                            //soma as replicações
+                            //soma as replicaÃ§Ãµes
                             sumFailLink +=
                                     mainMeasurements.get(c).get(r).getListLinkMeasure().get(l).
                                     getNumberFailure();
@@ -293,17 +293,17 @@ public class Chart
                 }
                 
                 
-            }else if(title.equals("Número de Rotas por Link")){
+            }else if(title.equals("NÃºmero de Rotas por Link")){
                 //numero de links
                 int numLinks = mainMeasurements.get(0).get(0).getListLinkMeasure().size();
-                //percorre a lista de links(Measure) da primeira simulação
+                //percorre a lista de links(Measure) da primeira simulaÃ§Ã£o
                 for (int l = 0; l < numLinks; l++) {
                     LinkMeasure linkMeasure = mainMeasurements.get(0).get(0).getListLinkMeasure().get(l);
                     double y = linkMeasure.getRoutes().size();
                     dataset.addValue(y,"",linkMeasure.getName());
                 }
                 
-            }else if(title.equals("Número de Requisições por Par")){
+            }else if(title.equals("NÃºmero de RequisiÃ§Ãµes por Par")){
                 //numero de pares
                 int numOfPair = mainMeasurements.get(0).get(0).getListPairMeasure().size();
                 //percorre a lista de pares
@@ -315,16 +315,16 @@ public class Chart
                         String seriesC = mainMeasurements.get(c).get(0).getArrivedRate()+"";
                         double sumReqPair = 0;
                         int numReplication = mainMeasurements.get(c).size();
-                        //percorre as replicações do par (p)
+                        //percorre as replicaÃ§Ãµes do par (p)
                         for (int r = 0; r < numReplication; r++) {
-                            //soma as requisições de todas replicações do par p para carga c
+                            //soma as requisiÃ§Ãµes de todas replicaÃ§Ãµes do par p para carga c
                             sumReqPair +=
                                     mainMeasurements.get(c).get(r).getListPairMeasure().get(p).
                                     getNumberReq();
                         }
-                        //calcula o numero medio de requisições do par p para carga c
+                        //calcula o numero medio de requisiÃ§Ãµes do par p para carga c
                         double averageReq = sumReqPair / numReplication;
-                        //grava o numero medio de requisições do par p
+                        //grava o numero medio de requisiÃ§Ãµes do par p
                         double y = averageReq;
                         dataset.addValue(y,categPar,seriesC);
                     }
@@ -342,14 +342,14 @@ public class Chart
      * @return a sample dataset.
      */
     public XYDataset createDataset(Vector<Vector<Measurements>> mainMeasurements,String title) {
-        //nome da série = algorimo WA
+        //nome da sÃ©rie = algorimo WA
         String algo = gui.getWAssingAlgo();
         
         XYSeriesCollection dataset = new XYSeriesCollection();
         
         if (mainMeasurements != null) {
             
-            XYSeries series1 = new XYSeries(algo);//parametro=nome da série
+            XYSeries series1 = new XYSeries(algo);//parametro=nome da sÃ©rie
             
             if (title.equals("Probabilidade de Bloqueio Geral")) {
                 //percorre a carga
@@ -358,42 +358,42 @@ public class Chart
                     int numReplication = mainMeasurements.get(i).size();
                     //para calculo da media
                     double[] pb = new double[numReplication];
-                    //percorre as replicações para carga i
+                    //percorre as replicaÃ§Ãµes para carga i
                     for (int j = 0; j < numReplication; j++) {
-                        //soma das replicações
+                        //soma das replicaÃ§Ãµes
                         pb[j] = mainMeasurements.get(i).get(j).getPb();
                         sumPB += pb[j];
                     }
                     double mediaPB = sumPB / numReplication;
                     //carga i
                     double x = mainMeasurements.get(i).get(0).getArrivedRate();
-                    //Pb Bloqueio Médio
+                    //Pb Bloqueio MÃ©dio
                     double y=mediaPB;
                     series1.add(x,y);
                 }
                 
-            }else if (title.equals("PB por Ausência de Backup")) {
+            }else if (title.equals("PB por AusÃªncia de Backup")) {
                 //percorre a carga
                 for (int i = 0; i < mainMeasurements.size(); i++) {
                     double sumPB = 0;
                     int numReplication = mainMeasurements.get(i).size();
                     //para calculo da media
                     double[] pb = new double[numReplication];
-                    //percorre as replicações para carga i
+                    //percorre as replicaÃ§Ãµes para carga i
                     for (int j = 0; j < numReplication; j++) {
-                        //soma das replicações
+                        //soma das replicaÃ§Ãµes
                         pb[j] = mainMeasurements.get(i).get(j).getPbBlockingAbsenceBackupProtection();
                         sumPB += pb[j];
                     }
                     double mediaPB = sumPB / numReplication;
                     //carga i
                     double x = mainMeasurements.get(i).get(0).getArrivedRate();
-                    //Pb Bloqueio Médio
+                    //Pb Bloqueio MÃ©dio
                     double y=mediaPB;
                     series1.add(x,y);
                 }
                 
-            }else if (title.equals("Utilização Geral")) {
+            }else if (title.equals("UtilizaÃ§Ã£o Geral")) {
                 
                 //percorre a carga
                 for (int i = 0; i < mainMeasurements.size(); i++) {
@@ -401,40 +401,40 @@ public class Chart
                     int numReplication = mainMeasurements.get(i).size();
                     //para calculo da media
                     double[] pb = new double[numReplication];
-                    //percorre as replicações para carga i
+                    //percorre as replicaÃ§Ãµes para carga i
                     for (int j = 0; j < numReplication; j++) {
-                        //soma das replicações
+                        //soma das replicaÃ§Ãµes
                         pb[j] = mainMeasurements.get(i).get(j).getUtilization();
                         sumPB += pb[j];
                     }
                     double mediaPB = sumPB / numReplication;
                     //carga i
                     double x = mainMeasurements.get(i).get(0).getArrivedRate();
-                    //Pb Bloqueio Médio
+                    //Pb Bloqueio MÃ©dio
                     double y=mediaPB;
                     series1.add(x,y);
                 }
                 
-            }else if (title.equals("Utilização por Link")) {
+            }else if (title.equals("UtilizaÃ§Ã£o por Link")) {
                 //numero de links
                 int numLinks = mainMeasurements.get(0).get(0).getListLinkMeasure().size();
                 //percorre a carga
                 for (int c = 0; c < mainMeasurements.size(); c++) {
-                    //parametro=nome da série
+                    //parametro=nome da sÃ©rie
                     series1 = new XYSeries(mainMeasurements.get(c).get(0).getArrivedRate()+"");
                     //percorre a lista de links da carga (c)
                     for (int l = 0; l < numLinks; l++) {
                         double sumUtiliLink = 0;
                         int numReplication = mainMeasurements.get(c).size();
-                        //percorre as replicações do Link (l)
+                        //percorre as replicaÃ§Ãµes do Link (l)
                         for (int r = 0; r < numReplication; r++) {
-                            //soma utilizacao (replicações)
+                            //soma utilizacao (replicaÃ§Ãµes)
                             sumUtiliLink += mainMeasurements.get(c).get(r).getListLinkMeasure().
                                     get(l).
                                     getUtilization();
                         }
                         
-                        //calcula a a utilização media do link
+                        //calcula a a utilizaÃ§Ã£o media do link
                         double averageUtil = sumUtiliLink / numReplication;
                         
                         // double x = mainMeasurements.get(c).get(0).getListLinkMeasure().
@@ -447,24 +447,24 @@ public class Chart
                     }
                 }
                 
-            }else if (title.equals("Utilização por Comprimento de Onda")) {
+            }else if (title.equals("UtilizaÃ§Ã£o por Comprimento de Onda")) {
                 //numero de comprimentos de onda
                 int numWaves = mainMeasurements.get(0).get(0).getLinkList().get(0).getNumWave();
                 //percorre a carga
                 for (int c = 0; c < mainMeasurements.size(); c++) {
-                    //parametro=nome da série
+                    //parametro=nome da sÃ©rie
                     series1 = new XYSeries(mainMeasurements.get(c).get(0).getArrivedRate()+"");
                     //percorre a lista de links de comprimentos de onda da carga (c)
                     for (int w = 0; w < numWaves; w++) {
                         double sumWaveUtil = 0;
                         int numReplication = mainMeasurements.get(c).size();
-                        //percorre as replicações da carga (c)
+                        //percorre as replicaÃ§Ãµes da carga (c)
                         for (int r = 0; r < numReplication; r++) {
-                            //soma utilizacao do comprimento de onda (replicações)
+                            //soma utilizacao do comprimento de onda (replicaÃ§Ãµes)
                             sumWaveUtil += mainMeasurements.get(c).get(r).
                                     getWavelenghUtilization()[w];
                         }
-                        //calcula a a utilização media do comprimento de onda
+                        //calcula a a utilizaÃ§Ã£o media do comprimento de onda
                         double averageUtil = sumWaveUtil / numReplication;
                         double x = w;
                         double y=averageUtil;
@@ -481,30 +481,30 @@ public class Chart
                     int numReplication = mainMeasurements.get(i).size();
                     //para calculo da media
                     double[] pb = new double[numReplication];
-                    //percorre as replicações para carga i
+                    //percorre as replicaÃ§Ãµes para carga i
                     for (int j = 0; j < numReplication; j++) {
-                        //soma das replicações
+                        //soma das replicaÃ§Ãµes
                         pb[j] = mainMeasurements.get(i).get(j).getPbRestorability();
                         sumPB += pb[j];
                     }
                     double mediaPB = sumPB / numReplication;
                     //carga i
                     double x = mainMeasurements.get(i).get(0).getArrivedRate();
-                    //Pb Bloqueio Médio
+                    //Pb Bloqueio MÃ©dio
                     double y=mediaPB;
                     series1.add(x,y);
                 }
                 
-            }else if (title.equals("TM das Requisições Atendidas")) {
+            }else if (title.equals("TM das RequisiÃ§Ãµes Atendidas")) {
                 //percorre a carga
                 for (int i = 0; i < mainMeasurements.size(); i++) {
                     double sumPB = 0;
                     int numReplication = mainMeasurements.get(i).size();
                     //para calculo da media
                     double[] pb = new double[numReplication];
-                    //percorre as replicações para carga i
+                    //percorre as replicaÃ§Ãµes para carga i
                     for (int j = 0; j < numReplication; j++) {
-                        //soma das replicações
+                        //soma das replicaÃ§Ãµes
                         pb[j] = mainMeasurements.get(i).get(j).getAverageSizeOfPrimaryAcceptedReq();
                         //pb[j] += mainMeasurements.get(i).get(j).getAverageSizeOfBackupAcceptedReq();
                         sumPB += pb[j];
@@ -512,22 +512,22 @@ public class Chart
                     double mediaPB = sumPB / numReplication;
                     //carga i
                     double x = mainMeasurements.get(i).get(0).getArrivedRate();
-                    //Pb Bloqueio Médio
+                    //Pb Bloqueio MÃ©dio
                     double y=mediaPB;
                     series1.add(x,y);
                 }
                 
                 
-            }else if (title.equals("TM das Requisições Bloqueadas")) {
+            }else if (title.equals("TM das RequisiÃ§Ãµes Bloqueadas")) {
                 //percorre a carga
                 for (int i = 0; i < mainMeasurements.size(); i++) {
                     double sumPB = 0;
                     int numReplication = mainMeasurements.get(i).size();
                     //para calculo da media
                     double[] pb = new double[numReplication];
-                    //percorre as replicações para carga i
+                    //percorre as replicaÃ§Ãµes para carga i
                     for (int j = 0; j < numReplication; j++) {
-                        //soma das replicações
+                        //soma das replicaÃ§Ãµes
                         pb[j] = mainMeasurements.get(i).get(j).getAverageSizeOfPrimaryBlockedReq();
                         //pb[j] += mainMeasurements.get(i).get(j).getAverageSizeOfBackupBlockedReq();
                         sumPB += pb[j];
@@ -535,7 +535,7 @@ public class Chart
                     double mediaPB = sumPB / numReplication;
                     //carga i
                     double x = mainMeasurements.get(i).get(0).getArrivedRate();
-                    //Pb Bloqueio Médio
+                    //Pb Bloqueio MÃ©dio
                     double y=mediaPB;
                     series1.add(x,y);
                 }
@@ -543,7 +543,7 @@ public class Chart
             }else if ((title.equals("PB por Par(Origem, Destino)"))||(title.equals("Probabilidade de Bloqueio por Par"))) {
                 //numero de pares
                         int numOfPair = mainMeasurements.get(0).get(0).getListPairMeasure().size();
-                //para calculo da justiça
+                //para calculo da justiÃ§a
                 double[][] average = new double[mainMeasurements.size()][numOfPair];
                 //percorre a lista de pares                
                 for (int p = 0; p < numOfPair; p++) {
@@ -553,7 +553,7 @@ public class Chart
                     for (int c = 0; c < mainMeasurements.size(); c++) {
                         double sumBlockPair = 0;
                         int numReplication = mainMeasurements.get(c).size();
-                        //percorre as replicações do par (p) para a carga c
+                        //percorre as replicaÃ§Ãµes do par (p) para a carga c
                         for (int r = 0; r < numReplication; r++) {
                             //soma bloqueio
                             sumBlockPair += mainMeasurements.get(c).get(r).getListPairMeasure().

@@ -59,7 +59,7 @@ public class Pair {
   }
 
   /**
-   * retorna o numero de requisições geradas por este par
+   * retorna o numero de requisiÃ§Ãµes geradas por este par
    * @return double
    */
   public double getNumGenerated() {
@@ -95,7 +95,7 @@ public class Pair {
   }
 
   /**
-   * incrementa o numero de requisições geradas por este par
+   * incrementa o numero de requisiÃ§Ãµes geradas por este par
    */
   public void incNumGenerated() {
     this.numGenerated++;

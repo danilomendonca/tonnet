@@ -54,7 +54,7 @@ public class LLRDoubleRoute
   //............................................................................
   /**
    * Retorna as duas menores rotas disjuntas.
-   * o custo é a atual utilização do enlaces.
+   * o custo Ã© a atual utilizaÃ§Ã£o do enlaces.
    * @param p Pair
    * @return Route[]
    */

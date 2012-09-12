@@ -19,7 +19,7 @@ public class FinalizeRequest
 
 //------------------------------------------------------------------------------
   /**
-   *Esse método é executado em função
+   *Esse mÃ©todo Ã© executado em funÃ§Ã£o
    *de um evento FinalizeRequest escutado.
    * @param e Event
    */

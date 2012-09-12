@@ -13,7 +13,7 @@ public class Request
 
   //------------------------------------------------------------------------------
   /**
-   * Roteamento Fixo Sem proteção com conversao total
+   * Roteamento Fixo Sem proteÃ§Ã£o com conversao total
    * Verifica se ha possibilidade de atender a requisicao
    * e seta a rota a ser utilizada
    * @return boolean
@@ -32,7 +32,7 @@ public class Request
   //------------------------------------------------------------------------------
   /**
    *Define que os comprimentos de onda alocados ficam livres nos
-   *enlaces da rota utilizada pela requisição.
+   *enlaces da rota utilizada pela requisiÃ§Ã£o.
    */
   public void tearDownConnection() {
     for (int i = 0; i < this.waveList.length - 1; i++) {
@@ -49,7 +49,7 @@ public class Request
 //------------------------------------------------------------------------------
   /**
    *Define que os comprimentos de onda alocados ficam ocupados nos
-   *enlaces da rota utilizada pela requisição.
+   *enlaces da rota utilizada pela requisiÃ§Ã£o.
    */
   protected void establishConnection() {
     for (int i = 0; i < this.waveList.length - 1; i++) {
@@ -69,7 +69,7 @@ public class Request
   }
 
   /**
-   * retorna uma nova requisição do mesmo tipo
+   * retorna uma nova requisiÃ§Ã£o do mesmo tipo
    * @param p Pair
    * @param m Mesh
    * @return RequestMother

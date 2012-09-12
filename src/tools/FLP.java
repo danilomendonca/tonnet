@@ -24,7 +24,7 @@ public class FLP {
   }
 
   /**
-   * Configura o numero de replicações
+   * Configura o numero de replicaÃ§Ãµes
    * a serem feitas para calcular o FL
    * @param replyForComputeFL int
    */
@@ -33,7 +33,7 @@ public class FLP {
   }
 
   /**
-   * Configura o numero de replicações
+   * Configura o numero de replicaÃ§Ãµes
    * a serem feitas na segunda etapa do algoritmo
    * @param replyForSecStep int
    */
@@ -44,7 +44,7 @@ public class FLP {
   /**
    * Executa o FLP em duas etapas
    * E1 - encontra o FL
-   * E2 - Executa replicações com a carga FL
+   * E2 - Executa replicaÃ§Ãµes com a carga FL
    * @param flMin int
    * @param flMax int
    * @param inc int
@@ -59,9 +59,9 @@ public class FLP {
     measurements = this.runSimulation(firstLoad, this.replyForSecStep);
 
     Vector<NodeMeasure> nodeMList = measurements.get(0).getListNodeMeasure();
-    //percorre os nós
+    //percorre os nÃ³s
     for (int i = 0; i < nodeMList.size(); i++) {
-      //pecorre as replicações
+      //pecorre as replicaÃ§Ãµes
       int sum = 0;
       for (int j = 0; j < this.replyForSecStep; j++) {
         sum += measurements.get(j).getListNodeMeasure().get(i).
@@ -250,7 +250,7 @@ public class FLP {
   }
   //------------------------------------------------------------------------------
   /**
-   * Executa uma simulação para uma determinada carga
+   * Executa uma simulaÃ§Ã£o para uma determinada carga
    * Retorna um Vector<Measurements>
    * @param arriveRate int
    * @param replyNumber int
@@ -266,14 +266,14 @@ public class FLP {
     Simulation simulacao = SimulationFileController.readFile(sim, config); //parametros da simulacao
 
     /**
-     * allSimulations é um Vector de Vector. Isto é, o 1º Vector armazena Vectors
-     * com todas as replicações simuladas para uma mesma carga de tráfego.
+     * allSimulations Ã© um Vector de Vector. Isto Ã©, o 1Âº Vector armazena Vectors
+     * com todas as replicaÃ§Ãµes simuladas para uma mesma carga de trÃ¡fego.
      */
     Vector<Vector<Simulation>> allSimulations = new Vector<Vector<Simulation>> ();
 
     allSimulations.add(new Vector<Simulation> ());
 
-    //loop para geração das replicações
+    //loop para geraÃ§Ã£o das replicaÃ§Ãµes
     for (int j = 0; j < replyNumber; j++) {
       Simulation s = new Simulation(simulacao.getHoldRate(),
                                     arriveRate,

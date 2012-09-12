@@ -54,7 +54,7 @@ public class PairMeasure {
   }
   //------------------------------------------------------------------------------
   /**
-   * retorna o tamanho das requisições deste par
+   * retorna o tamanho das requisiÃ§Ãµes deste par
    * @return double
    */
   public double getSize() {
@@ -71,7 +71,7 @@ public class PairMeasure {
 
 //------------------------------------------------------------------------------
   /**
-   * configura o numero de requisições des par
+   * configura o numero de requisiÃ§Ãµes des par
    * @param numberReq double
    */
   public void setNumberReq(double numberReq) {
@@ -79,7 +79,7 @@ public class PairMeasure {
   }
   //------------------------------------------------------------------------------
   /**
-   * configura o tamanho das requisições deste par
+   * configura o tamanho das requisiÃ§Ãµes deste par
    * @param size double
    */
   public void setSize(double size){

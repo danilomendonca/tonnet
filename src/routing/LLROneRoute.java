@@ -35,7 +35,7 @@ public class LLROneRoute
 
   //............................................................................
   /**
-   * Retorna a menor rota adaptativa cujo custo é a atual utilização do enlaces
+   * Retorna a menor rota adaptativa cujo custo Ã© a atual utilizaÃ§Ã£o do enlaces
    * @param p Pair
    * @return Route
    */

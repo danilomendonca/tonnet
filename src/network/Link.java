@@ -96,7 +96,7 @@ public class Link {
   //------------------------------------------------------------------------------
   /**
    * Retorna true se o comprimento de onda i estiver livre.
-   * Se failure for true analisa se o link tem falha ou n„o.
+   * Se failure for true analisa se o link tem falha ou n√£o.
    * @param i int indice do comprimento de onda
    * @param failure boolean
    * @return boolean
@@ -104,8 +104,8 @@ public class Link {
   public boolean waveEmpty(int i,boolean failure) {
       if ((this.faild == true)&&(failure))
         return false;
-      else { // se o enlace n„o tiver falhas
-        if (i < wavelength.length && wavelength[i] == false) { //adicionada verificaÁ„o da existÍncia do lambda dfmendonca
+      else { // se o enlace n√£o tiver falhas
+        if (i < wavelength.length && wavelength[i] == false) { //adicionada verifica√ß√£o da exist√™ncia do lambda dfmendonca
           return true;
         }
         else {
@@ -115,7 +115,7 @@ public class Link {
   }
   //------------------------------------------------------------------------------
   /**
-   * retorna o Ìndice de um comprimento de onda livre.
+   * retorna o √≠ndice de um comprimento de onda livre.
    * Se failure for true considera falha no enlace
    * @param failure boolean
    * @return int
@@ -124,7 +124,7 @@ public class Link {
 
       if ((this.faild == true)&&(failure))
         return -1;
-      else { // se o enlace n„o tiver falhas
+      else { // se o enlace n√£o tiver falhas
         for (int i = 0; i < this.wavelength.length; i++) {
           if (wavelength[i] == false)
             return i;
@@ -195,7 +195,7 @@ public class Link {
   
   //------------------------------------------------------------------------------
   /**
-   * configura o enlace como falho. retorna true se a operaÁ„o foi feita com
+   * configura o enlace como falho. retorna true se a opera√ß√£o foi feita com
    * sucesso.
    * @return boolean
    */
@@ -215,7 +215,7 @@ public class Link {
   }
   //------------------------------------------------------------------------------
   /**
-   * corrigi a falha do enlace. retorna true se a operaÁ„o foi feita com
+   * corrigi a falha do enlace. retorna true se a opera√ß√£o foi feita com
    * sucesso.
    * @return boolean
    */
@@ -260,9 +260,9 @@ public class Link {
   }
   //------------------------------------------------------------------------------
   /**
-   * Faz o somatÛrio da utilizaÁ„o do enlace e contabiliza o n∫ de vezes que
-   * essa medida foi feita para posteriormente calcular a utilizaÁ„o mÈdia do
-   * enlace. utilizaÁ„o mÈdia = sumUtilization/numAnalysesUtilization.
+   * Faz o somat√≥rio da utiliza√ß√£o do enlace e contabiliza o n¬∫ de vezes que
+   * essa medida foi feita para posteriormente calcular a utiliza√ß√£o m√©dia do
+   * enlace. utiliza√ß√£o m√©dia = sumUtilization/numAnalysesUtilization.
    */
   public void calcSumUtilization() {
     this.sumUtilization=this.sumUtilization+(this.numWaveBusy()/this.numberWave);
@@ -270,7 +270,7 @@ public class Link {
   }
   //------------------------------------------------------------------------------
   /**
-   * retorna a utilizaÁ„o media
+   * retorna a utiliza√ß√£o media
    * @return double
    */
   public double getUtilization(){

@@ -15,7 +15,7 @@ public class PairNonUniformTraffic extends Traffic {
   }
 
   /**
-   * Retorna um par aleatÛrio de acordo com o tipo de tr·fego.
+   * Retorna um par aleat√≥rio de acordo com o tipo de tr√°fego.
    * @return Pair
    */
   public Pair pairGenerator() {
@@ -24,7 +24,7 @@ public class PairNonUniformTraffic extends Traffic {
 
   //------------------------------------------------------------------------------
   /**
-   * Gera um par aleatorio n„o uniforme com pesos diferentes para cada par
+   * Gera um par aleatorio n√£o uniforme com pesos diferentes para cada par
    * @return Pair
    */
   public Pair trafficNotUniformPair() {
@@ -38,8 +38,8 @@ public class PairNonUniformTraffic extends Traffic {
   }
   //----------------------------------------------------------------------------
   /**
-   * Configura o tr·fego n„o uniforme
-   * Cada PAR tem um privilÈgio diferente.
+   * Configura o tr√°fego n√£o uniforme
+   * Cada PAR tem um privil√©gio diferente.
    */
   private void configureTrafficNotUniformPair() {
     if (this.pairList.get(0).getPrivilege() != 0) {

@@ -58,10 +58,10 @@ public class OccurFailure implements EventListener {
       // configura o enlace como falho
       ( (Failure) e.getObject()).fail();
 
-      // iniciar o mecanismo de detecção de falha e sobrevivencia
+      // iniciar o mecanismo de detecÃ§Ã£o de falha e sobrevivencia
       this.mesh.getConnectionControl().failureDetect(failure.getListLink(),this.eMachine);
 
-      //agenda evento para reparação dos enlaces.
+      //agenda evento para reparaÃ§Ã£o dos enlaces.
       this.scheduleFixFailureEvent(e);
 
     //}
@@ -78,8 +78,8 @@ public class OccurFailure implements EventListener {
   }
 
   /**
-   * retorna um enlace sorteado aleatoriamente dentre todos os enlaces possíveis.
-   * Assume que o enlace é bidirecional. Isto é, o método retorna o enlace de
+   * retorna um enlace sorteado aleatoriamente dentre todos os enlaces possÃ­veis.
+   * Assume que o enlace Ã© bidirecional. Isto Ã©, o mÃ©todo retorna o enlace de
    * ida e o enlace de volta.
    * @return Link
    */
@@ -94,7 +94,7 @@ public class OccurFailure implements EventListener {
   }
 
   /**
-   * agenda um evento de falha de um único enlace
+   * agenda um evento de falha de um Ãºnico enlace
    * @param time double
    */
   public void scheduleFailureEvent(double time){
@@ -104,7 +104,7 @@ public class OccurFailure implements EventListener {
  }
 
  /**
-  * agenda um evento de reparação de falha
+  * agenda um evento de reparaÃ§Ã£o de falha
   * @param e Event
   */
  public void scheduleFixFailureEvent(Event e){

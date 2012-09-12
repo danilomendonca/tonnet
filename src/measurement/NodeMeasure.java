@@ -18,7 +18,7 @@ public class NodeMeasure {
   }
 
   /**
-   * Retorna o nome do nÛ
+   * Retorna o nome do n√≥
    * @return String
    */
   public String getName() {
@@ -65,7 +65,7 @@ public class NodeMeasure {
 
   //------------------------------------------------------------------------------
   /**
-   * Retorna as rotas que passam por este nÛ (sendo intermedi·rio)
+   * Retorna as rotas que passam por este n√≥ (sendo intermedi√°rio)
    * @return Vector<Route>
    */
   public Vector<Route> getRoutesCrossingThisNode() {
@@ -82,7 +82,7 @@ public class NodeMeasure {
 
   //------------------------------------------------------------------------------
   /**
-   * Configura as rotas que passam por este nÛ (sendo intermedi·rio)
+   * Configura as rotas que passam por este n√≥ (sendo intermedi√°rio)
    * @param routesCrossingThisNode Vector
    */
   public void setRoutesCrossingThisNode(Vector<Route> routesCrossingThisNode) {
@@ -90,7 +90,7 @@ public class NodeMeasure {
   }
   //------------------------------------------------------------------------------
   /**
-   * Configura o numero maximo de WC possÌveis
+   * Configura o numero maximo de WC poss√≠veis
    * @param numMaxWC int
    */
   public void setNumMaxWC(int numMaxWC) {
@@ -99,7 +99,7 @@ public class NodeMeasure {
 
   //------------------------------------------------------------------------------
   /**
-   * Adiciona uma rota na lista de rotas que passam por este nÛ (sendo intermedi·rio)
+   * Adiciona uma rota na lista de rotas que passam por este n√≥ (sendo intermedi√°rio)
    * @param r Route
    */
   public void addRoute(Route r) {

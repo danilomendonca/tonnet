@@ -386,7 +386,7 @@ public class Topologia {
   }
 
   /**
-   *Configura o link - se é bidirecional.
+   *Configura o link - se Ã© bidirecional.
    *@param indexOfLink int indice do link
    *@param bi boolean bidirecional
    */

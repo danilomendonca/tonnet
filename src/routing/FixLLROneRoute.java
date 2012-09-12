@@ -10,8 +10,8 @@ public class FixLLROneRoute
 
   /**
    * Valor da utilizacao que define o tipo de roteamento a ser utilizado..
-   * Se utilização da rede for menor que 'utilizationPoint' utiliza rot. fixo,
-   * Senão roteamento Adaptativo.
+   * Se utilizaÃ§Ã£o da rede for menor que 'utilizationPoint' utiliza rot. fixo,
+   * SenÃ£o roteamento Adaptativo.
    */
   private int utilizationPoint;
 
@@ -24,7 +24,7 @@ public class FixLLROneRoute
 
   //----------------------------------------------------------------------------
   /**
-   * Configura o ponto de utilização.
+   * Configura o ponto de utilizaÃ§Ã£o.
    * @param utilizationPoint int
    */
   public void setUtilizationPoint(int utilizationPoint){
@@ -35,7 +35,7 @@ public class FixLLROneRoute
   /**
    * Computa a rota de menor caminho para cada par (o,d) e armazena no routeList.
    * Roteamento fixo de menor caminho (Dijkstra) utilizando o custo de cada enlace.
-   * Se todos custos forem iguais, consequentemente o custo da rota será o menor nº de saltos.
+   * Se todos custos forem iguais, consequentemente o custo da rota serÃ¡ o menor nÂº de saltos.
    * @param pairList Vector
    */
   private void computeAllFixedRoutes(Vector<Pair> pairList) {
@@ -79,8 +79,8 @@ public class FixLLROneRoute
 
   //----------------------------------------------------------------------------
   /**
-   * calcula a utilização da rede. Faz o somatorio do número de comprimentos
-   * de onda ocupados em todos os enlaces e divide pelo número total de
+   * calcula a utilizaÃ§Ã£o da rede. Faz o somatorio do nÃºmero de comprimentos
+   * de onda ocupados em todos os enlaces e divide pelo nÃºmero total de
    * comprimentos de onda da rede.
    * @return double
    */
@@ -96,7 +96,7 @@ public class FixLLROneRoute
 
   /**
    * Retorna uma rota fixa ou adaptativa(LEAST LOADED ROUTING)
-   * em função da utilização da rede.
+   * em funÃ§Ã£o da utilizaÃ§Ã£o da rede.
    * @param p Pair
    * @return Vector
    */

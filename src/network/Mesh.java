@@ -53,7 +53,7 @@ public class Mesh {
   }
 
   /**
-   * retorna o tipo de convers„o
+   * retorna o tipo de convers√£o
    * @return int
    */
   public int getConversionType() {
@@ -61,8 +61,8 @@ public class Mesh {
   }
 
   /**
-   * calcula a utilizaÁ„o da rede. Faz o somatorio do n˙mero de comprimentos
-   * de onda ocupados em todos os enlaces e divide pelo n˙mero total de
+   * calcula a utiliza√ß√£o da rede. Faz o somatorio do n√∫mero de comprimentos
+   * de onda ocupados em todos os enlaces e divide pelo n√∫mero total de
    * comprimentos de onda da rede.
    * @return double
    */
@@ -77,8 +77,8 @@ public class Mesh {
   }
 
   /**
-   * calcula a utilizaÁ„o de cada comprimento de onda.
-   * Faz o somatorio do n˙mero enlaces que o comprimentos de onda ocupada
+   * calcula a utiliza√ß√£o de cada comprimento de onda.
+   * Faz o somatorio do n√∫mero enlaces que o comprimentos de onda ocupada
    * e divide pela quantidade de enlaces da da rede.
    * @return double[]
    */
@@ -104,7 +104,7 @@ public class Mesh {
   }
 
   /**
-   * retorna true se o algoritmo de alocaÁ„o alocou um comprimento de onda para
+   * retorna true se o algoritmo de aloca√ß√£o alocou um comprimento de onda para
    * a rota r com sucesso.
    * @param waveList int[]
    * @param freeWaves int[]
@@ -167,8 +167,8 @@ public class Mesh {
   }
 
   /**
-   * retorna um enlace sorteado aleatoriamente dentre todos os enlaces possÌveis.
-   * Assume que o enlace È bidirecional. Isto È, o mÈtodo retorna o enlace de
+   * retorna um enlace sorteado aleatoriamente dentre todos os enlaces poss√≠veis.
+   * Assume que o enlace √© bidirecional. Isto √©, o m√©todo retorna o enlace de
    * ida e o enlace de volta.
    * @return Link
    */
@@ -186,7 +186,7 @@ public class Mesh {
   }
 
   /**
-   * gera um enlace que ser· falhado, mas que atualmente est· funcionando
+   * gera um enlace que ser√° falhado, mas que atualmente est√° funcionando
    * normalmente no instante atual.
    * @return Vector
    */
@@ -203,8 +203,8 @@ public class Mesh {
   }
 
   /**
-   * retorna true se pelo menos um dos enlaces passados no Vector links j·
-   * estiver definido como falho. Est· assumindo que o Vector links possui
+   * retorna true se pelo menos um dos enlaces passados no Vector links j√°
+   * estiver definido como falho. Est√° assumindo que o Vector links possui
    * dois links <a,b> e <b,a>
    * @param links Vector
    * @return boolean
@@ -269,7 +269,7 @@ public class Mesh {
 
 //------------------------------------------------------------------------------
   /**
-   * Localiza um Node em funÁ„o do nome.
+   * Localiza um Node em fun√ß√£o do nome.
    * @param name String
    * @return Node
    */
@@ -297,7 +297,7 @@ public class Mesh {
 
   //------------------------------------------------------------------------------
   /**
-   * Inicializa o tr·fego com os pares
+   * Inicializa o tr√°fego com os pares
    * @param trafficType int
    * @param pairFile String
    */
@@ -328,7 +328,7 @@ public class Mesh {
           String nameD = line.nextToken(); //lendo o Destino
           //lendo a categoria
           int category = Integer.parseInt(line.nextToken());
-          //lendo o privilegio do par (para tr·fego n„o uniforme)
+          //lendo o privilegio do par (para tr√°fego n√£o uniforme)
           int privilege = Integer.parseInt(line.nextToken());
           Pair p = new Pair(searchNode(nameS), searchNode(nameD));
           pairList.add(p);
@@ -349,7 +349,7 @@ public class Mesh {
 
 //------------------------------------------------------------------------------
   /**
-   * Calcula todas as combinaÁıes de pares e armazena em pairList
+   * Calcula todas as combina√ß√µes de pares e armazena em pairList
    * @return Vector
    */
   private Vector<Pair> computeAllPairs() {
@@ -464,7 +464,7 @@ public void calculateMeasureNode() {
         getRoutesForAllPairs();
     for (int i = 0; i < allRoutes.size(); i++) {
       Route r = allRoutes.get(i);
-      for (int j = 1; j < r.size()-1; j++) {//apenas nÛs intermÈdi·rios
+      for (int j = 1; j < r.size()-1; j++) {//apenas n√≥s interm√©di√°rios
         Node nodeOfRoute = r.getNode(j);
         for (int l = 0; l < listNodeMeasure.size(); l++) {
           if (nodeOfRoute.getName().equals(listNodeMeasure.get(l).getName())) {
@@ -486,7 +486,7 @@ public void calculateMeasureNode() {
       for (int r = 0; r < routes.size(); r++) {
         Route route = routes.get(r);
         if (route != null) {
-          for (int j = 1; j < route.size()-1; j++) {//apenas nÛs intermÈdi·rios
+          for (int j = 1; j < route.size()-1; j++) {//apenas n√≥s interm√©di√°rios
             Node nodeOfRoute = route.getNode(j);
             for (int l = 0; l < listNodeMeasure.size(); l++) {
               if (nodeOfRoute.getName().equals(listNodeMeasure.get(l).getName())) {

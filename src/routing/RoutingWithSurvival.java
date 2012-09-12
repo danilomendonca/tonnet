@@ -25,9 +25,9 @@ public abstract class RoutingWithSurvival
   //------------------------------------------------------------------------------
   /**
    * computa os k menores caminhos disjuntos, retornado um Vector de k rotas.
-   * para cada posicao, n„o encontrando a rota, retorna null.
-   * Obs. nao È possÌvel uma rota usar um enlace <a,b> em uma rota prim·ria
-   * e o enlace <b,a> em uma rota secund·ria.
+   * para cada posicao, n√£o encontrando a rota, retorna null.
+   * Obs. nao √© poss√≠vel uma rota usar um enlace <a,b> em uma rota prim√°ria
+   * e o enlace <b,a> em uma rota secund√°ria.
    * @param s Node
    * @param t Node
    * @param k int
