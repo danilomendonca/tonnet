@@ -93,6 +93,7 @@ public class Main extends javax.swing.JFrame {
         jToggleButtonTopology1 = new javax.swing.JToggleButton();
         jToggleButtonTopology2 = new javax.swing.JToggleButton();
         jToggleButtonTopology3 = new javax.swing.JToggleButton();
+        jToggleButtonTopology4 = new javax.swing.JToggleButton();
         jPanelTrafego = new javax.swing.JPanel();
         jPanelEsq = new javax.swing.JPanel();
         jLabelIntensInicial = new javax.swing.JLabel();
@@ -267,7 +268,7 @@ public class Main extends javax.swing.JFrame {
                     .add(jToggleButtonDelete, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
                     .add(jToggleButtonMapActive, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jToggleButtonMap, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(jToggleButtonMapLock, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 67, Short.MAX_VALUE))
+                    .add(jToggleButtonMapLock, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelFerramentasLayout.setVerticalGroup(
@@ -346,17 +347,29 @@ public class Main extends javax.swing.JFrame {
         jToggleButtonTopology3.setBounds(250, 10, 119, 23);
         jLayeredPane1.add(jToggleButtonTopology3, javax.swing.JLayeredPane.POPUP_LAYER);
 
+        jToggleButtonTopology4.setText(messages.recuperarMsg("topology_3"));
+        jToggleButtonTopology4.setMaximumSize(new java.awt.Dimension(57, 33));
+        jToggleButtonTopology4.setMinimumSize(new java.awt.Dimension(57, 33));
+        jToggleButtonTopology4.setPreferredSize(new java.awt.Dimension(57, 33));
+        jToggleButtonTopology4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButtonTopology4ActionPerformed(evt);
+            }
+        });
+        jToggleButtonTopology4.setBounds(370, 10, 119, 23);
+        jLayeredPane1.add(jToggleButtonTopology4, javax.swing.JLayeredPane.POPUP_LAYER);
+
         jScrollPaneTopologia.setViewportView(jLayeredPane1);
 
         org.jdesktop.layout.GroupLayout jPanelDesenhoTopLayout = new org.jdesktop.layout.GroupLayout(jPanelDesenhoTop);
         jPanelDesenhoTop.setLayout(jPanelDesenhoTopLayout);
         jPanelDesenhoTopLayout.setHorizontalGroup(
             jPanelDesenhoTopLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jScrollPaneTopologia, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 1067, Short.MAX_VALUE)
+            .add(jScrollPaneTopologia, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 1062, Short.MAX_VALUE)
         );
         jPanelDesenhoTopLayout.setVerticalGroup(
             jPanelDesenhoTopLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jScrollPaneTopologia, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
+            .add(jScrollPaneTopologia, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
         );
 
         jPanelDesenho.add(jPanelDesenhoTop);
@@ -368,11 +381,11 @@ public class Main extends javax.swing.JFrame {
             .add(jPanelTopologiaLayout.createSequentialGroup()
                 .add(jPanelFerramentas, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanelDesenho, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 1071, Short.MAX_VALUE))
+                .add(jPanelDesenho, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 1066, Short.MAX_VALUE))
         );
         jPanelTopologiaLayout.setVerticalGroup(
             jPanelTopologiaLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanelDesenho, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanelDesenho, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
             .add(jPanelFerramentas, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -395,14 +408,10 @@ public class Main extends javax.swing.JFrame {
         jRadioButtonUniforme.setSelected(true);
         jRadioButtonUniforme.setText("Uniforme");
         jRadioButtonUniforme.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jRadioButtonUniforme.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jRadioButtonUniforme.setOpaque(false);
 
         buttonGroupTipoTrafego.add(jRadioButtonNaoUniforme);
         jRadioButtonNaoUniforme.setText("Não Uniforme");
         jRadioButtonNaoUniforme.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jRadioButtonNaoUniforme.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jRadioButtonNaoUniforme.setOpaque(false);
         jRadioButtonNaoUniforme.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jRadioButtonNaoUniformeItemStateChanged(evt);
@@ -417,8 +426,6 @@ public class Main extends javax.swing.JFrame {
         jRadioButtonTNUPar.setText("por Par");
         jRadioButtonTNUPar.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jRadioButtonTNUPar.setEnabled(false);
-        jRadioButtonTNUPar.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jRadioButtonTNUPar.setOpaque(false);
         jRadioButtonTNUPar.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jRadioButtonTNUParItemStateChanged(evt);
@@ -429,8 +436,6 @@ public class Main extends javax.swing.JFrame {
         jRadioButtonTNUNo.setText("por Nó");
         jRadioButtonTNUNo.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jRadioButtonTNUNo.setEnabled(false);
-        jRadioButtonTNUNo.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jRadioButtonTNUNo.setOpaque(false);
 
         jTextAreaTrafego.setColumns(20);
         jTextAreaTrafego.setEditable(false);
@@ -458,12 +463,13 @@ public class Main extends javax.swing.JFrame {
                             .add(jTextFieldintensInicial, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
                         .addContainerGap())
                     .add(jPanelEsqLayout.createSequentialGroup()
-                        .add(jRadioButtonUniforme)
-                        .addContainerGap(181, Short.MAX_VALUE))
-                    .add(jRadioButtonNaoUniforme)
-                    .add(jPanelEsqLayout.createSequentialGroup()
                         .add(jLabelGerTrafego, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
-                        .add(20, 20, 20))))
+                        .add(20, 20, 20))
+                    .add(jPanelEsqLayout.createSequentialGroup()
+                        .add(jPanelEsqLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jRadioButtonUniforme)
+                            .add(jRadioButtonNaoUniforme))
+                        .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .add(jPanelEsqLayout.createSequentialGroup()
                 .add(58, 58, 58)
                 .add(jPanelEsqLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -534,11 +540,11 @@ public class Main extends javax.swing.JFrame {
         jPanelDir.setLayout(jPanelDirLayout);
         jPanelDirLayout.setHorizontalGroup(
             jPanelDirLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jScrollPaneTrafegoPar, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
+            .add(jScrollPaneTrafegoPar, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 840, Short.MAX_VALUE)
         );
         jPanelDirLayout.setVerticalGroup(
             jPanelDirLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jScrollPaneTrafegoPar, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
+            .add(jScrollPaneTrafegoPar, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
         );
 
         org.jdesktop.layout.GroupLayout jPanelTrafegoLayout = new org.jdesktop.layout.GroupLayout(jPanelTrafego);
@@ -620,7 +626,6 @@ public class Main extends javax.swing.JFrame {
 
         jCheckBoxSobrevivencia.setText("Estrategia de Sobrevivência");
         jCheckBoxSobrevivencia.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jCheckBoxSobrevivencia.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jCheckBoxSobrevivencia.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jCheckBoxSobrevivenciaItemStateChanged(evt);
@@ -634,7 +639,6 @@ public class Main extends javax.swing.JFrame {
         jRadioButtonProtecao.setText("Proteção");
         jRadioButtonProtecao.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jRadioButtonProtecao.setEnabled(false);
-        jRadioButtonProtecao.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jRadioButtonProtecao.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jRadioButtonProtecaoItemStateChanged(evt);
@@ -646,7 +650,6 @@ public class Main extends javax.swing.JFrame {
         jRadioButtonRestauracao.setText("Restauração");
         jRadioButtonRestauracao.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jRadioButtonRestauracao.setEnabled(false);
-        jRadioButtonRestauracao.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jRadioButtonRestauracao.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jRadioButtonRestauracaoItemStateChanged(evt);
@@ -655,18 +658,17 @@ public class Main extends javax.swing.JFrame {
 
         jRadioButtonAdaptive.setBackground(new java.awt.Color(227, 241, 241));
         buttonGroupSobrevivencia.add(jRadioButtonAdaptive);
-        jRadioButtonAdaptive.setFont(new java.awt.Font("Tahoma", 2, 11));
+        jRadioButtonAdaptive.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         jRadioButtonAdaptive.setText("Adaptative");
         jRadioButtonAdaptive.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jRadioButtonAdaptive.setEnabled(false);
-        jRadioButtonAdaptive.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jRadioButtonAdaptive.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jRadioButtonAdaptiveItemStateChanged(evt);
             }
         });
 
-        jComboBoxSobrevivencia.setFont(new java.awt.Font("Tahoma", 2, 11));
+        jComboBoxSobrevivencia.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         jComboBoxSobrevivencia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Two Step", "Two Step com backtracking" }));
         jComboBoxSobrevivencia.setEnabled(false);
 
@@ -706,21 +708,18 @@ public class Main extends javax.swing.JFrame {
             .add(jPanelRWASobrevivenciaLayout.createSequentialGroup()
                 .add(320, 320, 320)
                 .add(jPanelRWASobrevivenciaLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                    .add(jPanelRWASobrevivenciaLayout.createSequentialGroup()
-                        .add(jCheckBoxSobrevivencia)
-                        .addContainerGap())
-                    .add(jPanelRWASobrevivenciaLayout.createSequentialGroup()
-                        .add(jLabelRoteamento)
-                        .addContainerGap())
-                    .add(jPanelRWASobrevivenciaLayout.createSequentialGroup()
-                        .add(jLabelAlgoWA)
-                        .addContainerGap())
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanelRWASobrevivenciaLayout.createSequentialGroup()
                         .add(jPanelRWASobrevivenciaLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
                             .add(org.jdesktop.layout.GroupLayout.LEADING, jPanelSobrevivencia, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .add(org.jdesktop.layout.GroupLayout.LEADING, jPanelAlgoritmosWA, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .add(org.jdesktop.layout.GroupLayout.LEADING, jPanelRoteamento, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .add(151, 151, 151))))
+                        .add(151, 151, 151))
+                    .add(jPanelRWASobrevivenciaLayout.createSequentialGroup()
+                        .add(jPanelRWASobrevivenciaLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jCheckBoxSobrevivencia)
+                            .add(jLabelRoteamento)
+                            .add(jLabelAlgoWA))
+                        .addContainerGap())))
         );
         jPanelRWASobrevivenciaLayout.setVerticalGroup(
             jPanelRWASobrevivenciaLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -737,7 +736,7 @@ public class Main extends javax.swing.JFrame {
                 .add(jCheckBoxSobrevivencia)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanelSobrevivencia, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(265, Short.MAX_VALUE))
+                .addContainerGap(225, Short.MAX_VALUE))
         );
 
         jTabbedPaneTelas.addTab("RWA e Sobrevivência", jPanelRWASobrevivencia);
@@ -753,7 +752,6 @@ public class Main extends javax.swing.JFrame {
         jRadioButtonSemConversao.setSelected(true);
         jRadioButtonSemConversao.setText("Sem Conversão");
         jRadioButtonSemConversao.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jRadioButtonSemConversao.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jRadioButtonSemConversao.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jRadioButtonSemConversaoStateChanged(evt);
@@ -764,7 +762,6 @@ public class Main extends javax.swing.JFrame {
         buttonGroupArqtConversao.add(jRadioButtonConversaoP);
         jRadioButtonConversaoP.setText("Parcial");
         jRadioButtonConversaoP.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jRadioButtonConversaoP.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jRadioButtonConversaoP.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jRadioButtonConversaoPStateChanged(evt);
@@ -775,7 +772,6 @@ public class Main extends javax.swing.JFrame {
         buttonGroupArqtConversao.add(jRadioButtonConversaoE);
         jRadioButtonConversaoE.setText("Esparsa");
         jRadioButtonConversaoE.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jRadioButtonConversaoE.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jRadioButtonConversaoE.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jRadioButtonConversaoEStateChanged(evt);
@@ -786,7 +782,6 @@ public class Main extends javax.swing.JFrame {
         buttonGroupArqtConversao.add(jRadioButtonConversaoEP);
         jRadioButtonConversaoEP.setText("Esparsa - Parcial");
         jRadioButtonConversaoEP.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jRadioButtonConversaoEP.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jRadioButtonConversaoEP.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jRadioButtonConversaoEPStateChanged(evt);
@@ -797,7 +792,6 @@ public class Main extends javax.swing.JFrame {
         buttonGroupArqtConversao.add(jRadioButtonConversaoT);
         jRadioButtonConversaoT.setText("Conversão Total");
         jRadioButtonConversaoT.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jRadioButtonConversaoT.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jRadioButtonConversaoT.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jRadioButtonConversaoTStateChanged(evt);
@@ -853,7 +847,7 @@ public class Main extends javax.swing.JFrame {
             .add(jPanelPosConversoresLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(jComboBoxPosConversores, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabelPosConversores.setText("Posicionamento de Conversores");
@@ -876,7 +870,7 @@ public class Main extends javax.swing.JFrame {
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanelConversoresLayout.createSequentialGroup()
                         .add(jPanelPosConversores, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(202, 202, 202)))
-                .add(0, 347, Short.MAX_VALUE))
+                .add(0, 284, Short.MAX_VALUE))
         );
         jPanelConversoresLayout.setVerticalGroup(
             jPanelConversoresLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -889,7 +883,7 @@ public class Main extends javax.swing.JFrame {
                 .add(jLabelPosConversores)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanelPosConversores, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(284, Short.MAX_VALUE))
+                .addContainerGap(245, Short.MAX_VALUE))
         );
 
         jTabbedPaneTelas.addTab("Conversores", jPanelConversores);
@@ -915,7 +909,6 @@ public class Main extends javax.swing.JFrame {
         jCheckBoxGerarFalhas.setBackground(new java.awt.Color(227, 241, 241));
         jCheckBoxGerarFalhas.setText("Gerar Falhas");
         jCheckBoxGerarFalhas.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jCheckBoxGerarFalhas.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
         org.jdesktop.layout.GroupLayout jPanelParametrosSimLayout = new org.jdesktop.layout.GroupLayout(jPanelParametrosSim);
         jPanelParametrosSim.setLayout(jPanelParametrosSimLayout);
@@ -969,14 +962,14 @@ public class Main extends javax.swing.JFrame {
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanelParametrosSimulacaoLayout.createSequentialGroup()
                 .add(355, 355, 355)
                 .add(jPanelParametrosSim, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(585, Short.MAX_VALUE))
+                .addContainerGap(514, Short.MAX_VALUE))
         );
         jPanelParametrosSimulacaoLayout.setVerticalGroup(
             jPanelParametrosSimulacaoLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanelParametrosSimulacaoLayout.createSequentialGroup()
                 .add(48, 48, 48)
                 .add(jPanelParametrosSim, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(338, Short.MAX_VALUE))
+                .addContainerGap(304, Short.MAX_VALUE))
         );
 
         jTabbedPaneTelas.addTab("Parâmetros de Simulação", jPanelParametrosSimulacao);
@@ -1062,14 +1055,14 @@ public class Main extends javax.swing.JFrame {
             .add(jPanelAgendaSimulacoesLayout.createSequentialGroup()
                 .add(316, 316, 316)
                 .add(jPanelAgenda, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(544, Short.MAX_VALUE))
+                .addContainerGap(540, Short.MAX_VALUE))
         );
         jPanelAgendaSimulacoesLayout.setVerticalGroup(
             jPanelAgendaSimulacoesLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanelAgendaSimulacoesLayout.createSequentialGroup()
                 .add(44, 44, 44)
                 .add(jPanelAgenda, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(285, Short.MAX_VALUE))
+                .addContainerGap(276, Short.MAX_VALUE))
         );
 
         jTabbedPaneTelas.addTab("Agenda de Simulações", jPanelAgendaSimulacoes);
@@ -1100,7 +1093,7 @@ public class Main extends javax.swing.JFrame {
         });
 
         jBMaximizar.setBackground(new java.awt.Color(200, 226, 226));
-        jBMaximizar.setFont(new java.awt.Font("Arial", 0, 11));
+        jBMaximizar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jBMaximizar.setText("Maximizar");
         jBMaximizar.setToolTipText("Maximizar Painél");
         jBMaximizar.setAlignmentX(0.5F);
@@ -1116,7 +1109,7 @@ public class Main extends javax.swing.JFrame {
         jScrollPaneGraf.setViewportView(jPanelGraf);
 
         jBLimparHistorico.setBackground(new java.awt.Color(200, 226, 226));
-        jBLimparHistorico.setFont(new java.awt.Font("Arial", 0, 11));
+        jBLimparHistorico.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jBLimparHistorico.setText("Limpar Histórico");
         jBLimparHistorico.setToolTipText("Maximizar Painél");
         jBLimparHistorico.setAlignmentX(0.5F);
@@ -1134,22 +1127,22 @@ public class Main extends javax.swing.JFrame {
             .add(jPanelResultadosLayout.createSequentialGroup()
                 .add(jScrollPaneMetricas, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 235, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(76, 76, 76)
-                .add(jToggleButtonTab, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                .add(jToggleButtonTab, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                 .add(35, 35, 35)
                 .add(jBLimparHistorico)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jBMaximizar)
                 .add(109, 109, 109)
-                .add(jToggleButtonGraf, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                .add(jToggleButtonGraf, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
                 .add(52, 52, 52))
             .add(jPanelResultadosLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(jPanelResultadosLayout.createSequentialGroup()
                     .add(277, 277, 277)
-                    .add(jScrollPaneGraf, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 887, Short.MAX_VALUE)))
+                    .add(jScrollPaneGraf, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)))
         );
         jPanelResultadosLayout.setVerticalGroup(
             jPanelResultadosLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jScrollPaneMetricas, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)
+            .add(jScrollPaneMetricas, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
             .add(jPanelResultadosLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanelResultadosLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
@@ -1165,7 +1158,7 @@ public class Main extends javax.swing.JFrame {
             .add(jPanelResultadosLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(jPanelResultadosLayout.createSequentialGroup()
                     .add(60, 60, 60)
-                    .add(jScrollPaneGraf, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)))
+                    .add(jScrollPaneGraf, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE)))
         );
 
         jTabbedPaneTelas.addTab("Resultados", jPanelResultados);
@@ -1304,9 +1297,9 @@ public class Main extends javax.swing.JFrame {
                 .add(57, 57, 57)
                 .add(jPanelIniciarParar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jProgressBar, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 1051, Short.MAX_VALUE)
+                .add(jProgressBar, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, jTabbedPaneTelas, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 1169, Short.MAX_VALUE)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, jTabbedPaneTelas)
             .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(layout.createSequentialGroup()
                     .addContainerGap()
@@ -1317,7 +1310,7 @@ public class Main extends javax.swing.JFrame {
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jTabbedPaneTelas, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
+                .add(jTabbedPaneTelas, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createSequentialGroup()
                         .add(15, 15, 15)
@@ -1328,7 +1321,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
             .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(589, Short.MAX_VALUE)
+                    .addContainerGap(597, Short.MAX_VALUE)
                     .add(jPanelGerarRelatorio, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
         );
@@ -1684,10 +1677,13 @@ public class Main extends javax.swing.JFrame {
     
     private void carregarArquivosSim(){
     	
-        String net = "files/" + simTmpUrl+ "/network.net";
-        String sim = "files/" + simTmpUrl + "/simulation.sim";
-        String res = "files/" + simTmpUrl + "/results.res";
-        String pairs = "files/" + simTmpUrl +"/pairs.prs";
+        String net = "Files/" + simTmpUrl+ "/network.net";
+        String sim = "Files/" + simTmpUrl + "/simulation.sim";
+        String res = "Files/" + simTmpUrl + "/results.res";
+        String pairs = "Files/" + simTmpUrl +"/pairs.prs";
+        
+        //jToggleButtonMapLock.setEnabled(false);
+        //mPanelDesenho.setMapLock(false);
         
         Vector config = new Vector(3);
         Simulation simulacao = SimulationFileController.readFile(sim, config); //parametros da simulacao
@@ -1718,8 +1714,8 @@ public class Main extends javax.swing.JFrame {
         mPanelDesenho.getTopologiaListaNo().addAll(bothNodesAndLinks[1]);
         mPanelDesenho.updateNsquares();
         mPanelDesenho.getTopologiaListaEnl().addAll(bothNodesAndLinks[2]);
+        mPanelDesenho.resetMap();
         mPanelDesenho.repaint();
-
         switch(conversionType.get(0)){
 	        
 	        case 0: jRadioButtonSemConversao.setSelected(true);
@@ -1791,6 +1787,9 @@ public class Main extends javax.swing.JFrame {
         }else if(jRadioButtonConversaoP.isSelected()){
             conversionType="Partial conversion";
         }
+        jXMapKit1.getAddressLocation();
+        jXMapKit1.getCenterPosition();
+        this.fileMamegement.setMap(jXMapKit1.getMainMap());
         this.fileMamegement.geraArquivoNetwork(conversionType);
         gerarArquivoSimulacao();
         this.fileMamegement.closeFiles();
@@ -1921,6 +1920,11 @@ public class Main extends javax.swing.JFrame {
         mPanelDesenho.Reset();
         showPropriedades(Constants.TOPOLOGY_3);
     }//GEN-LAST:event_jToggleButtonTopology3ActionPerformed
+
+    private void jToggleButtonTopology4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonTopology4ActionPerformed
+        mPanelDesenho.Reset();
+        showPropriedades(((JToggleButton)evt.getSource()).getText());
+    }//GEN-LAST:event_jToggleButtonTopology4ActionPerformed
     
     public String getWAssingAlgo(){
         return this.wAssingAlgo;
@@ -2000,8 +2004,8 @@ public class Main extends javax.swing.JFrame {
     }
 
       /**
-     *mostra a janela de propriedades do no
-     *@param no NoGrf
+     *mostra a janela de propriedades da topologia a ser carregada
+     *@param topologyName
      */
     public void showPropriedades(final String topologyName) {
         this.pTopologia = new PropriedadesTopologia(topologyName);
@@ -2025,7 +2029,6 @@ public class Main extends javax.swing.JFrame {
 
     private void formWindowClosedPropriedadesTopologia(java.awt.event.WindowEvent evt, String topologyName) {
 
-        Modelator modelador = null;
         File sourceLocation;
         if(topologyName.equals(Constants.TOPOLOGY_1)){
            sourceLocation = new File("Topologies/"+Constants.TOPOLOGY_1);
@@ -2035,6 +2038,9 @@ public class Main extends javax.swing.JFrame {
            loadSimulation(sourceLocation);
         }else if(topologyName.equals(Constants.TOPOLOGY_3)){
            sourceLocation = new File("Topologies/"+Constants.TOPOLOGY_3);
+           loadSimulation(sourceLocation);
+        }else{
+           sourceLocation = new File("Topologies/"+topologyName);
            loadSimulation(sourceLocation);
         }
     }
@@ -2186,6 +2192,8 @@ public class Main extends javax.swing.JFrame {
         mPanelDesenho.setLayout(null);
         mPanelDesenho.setBackground(new Color(255,255,255));
         mPanelDesenho.setOpaque(false);
+        mPanelDesenho.setPreferredSize(jLayeredPane1.getPreferredSize());
+        
         //jPanelDesenhoTop.add(mPanelDesenho);
 
         Dimension dTela = Toolkit.getDefaultToolkit().getScreenSize();
@@ -2196,6 +2204,7 @@ public class Main extends javax.swing.JFrame {
         jXMapKit1.setVisible(true);
         jXMapKit1.setSize(400, 400);
         jXMapKit1.setZoom(11);
+        jXMapKit1.setPreferredSize(mPanelDesenho.getPreferredSize());
         jLayeredPane1.add(jXMapKit1, new Integer(0), 0);
         jLayeredPane1.add(mPanelDesenho, new Integer(1), 1);
         mPanelDesenho.setMapa(jXMapKit1.getMainMap());
@@ -2398,6 +2407,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButtonTopology1;
     private javax.swing.JToggleButton jToggleButtonTopology2;
     private javax.swing.JToggleButton jToggleButtonTopology3;
+    private javax.swing.JToggleButton jToggleButtonTopology4;
     private javax.swing.JTree jTreeMetricas;
     // End of variables declaration//GEN-END:variables
     private Messages messages;

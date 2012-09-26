@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import network.Link;
 import network.Node;
 import network.Pair;
+import org.jdesktop.swingx.JXMapViewer;
 import root.Printer;
 import simulator.Simulation;
 
@@ -25,6 +26,7 @@ public class FileManagement {
     private Printer outPairs;
     private Vector<NoGrf> listNodes;
     private Vector<Pair> listPair;
+    private JXMapViewer map;
     
     public FileManagement(String simulationUrl) throws FileNotFoundException {
         this.simulationUrl = simulationUrl;
@@ -37,7 +39,7 @@ public class FileManagement {
     
     public void geraArquivoNetwork(String conversionType){
         try {
-            this.outNet = new Printer(("files/"+this.simulationUrl + "/network.net"), true);
+            this.outNet = new Printer(("Files/"+this.simulationUrl + "/network.net"), true);
         } catch (FileNotFoundException ex) {
            JOptionPane.showMessageDialog(null,"Erro nos arquivos do sistema!","Erro",JOptionPane.ERROR_MESSAGE);
         }
@@ -62,11 +64,14 @@ public class FileManagement {
                 outNet.println(l.getSource().getName()+ ";" + l.getDestination().getName() + ";" +l.getCost()+";"+l.getNumWave());
             }
         }
+        this.outNet.println("map");
+        this.outNet.print(map.getCenterPosition().getLatitude()+";"+map.getCenterPosition().getLongitude()+";"+map.getZoom());
+
     }
     
     public void geraArquivoPair() {
         try {
-            this.outPairs = new Printer(("files/"+simulationUrl + "/pairs.prs"), true);
+            this.outPairs = new Printer(("Files/"+simulationUrl + "/pairs.prs"), true);
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(null,"Erro nos arquivos do sistema!","Erro",JOptionPane.ERROR_MESSAGE);
         }
@@ -82,7 +87,7 @@ public class FileManagement {
     
     public void gerarArquivoSimulacao(Simulation s, String incLoad, String points, String replyNumber, double significativeLevel, String trafficType, boolean failure, double fixLinkRate, double occurRate ){
         try {
-            this.outSim = new Printer(("files/"+simulationUrl + "/simulation.sim"), true);
+            this.outSim = new Printer(("Files/"+simulationUrl + "/simulation.sim"), true);
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(null,"Erro nos arquivos do sistema!","Erro",JOptionPane.ERROR_MESSAGE);
         }
@@ -92,6 +97,10 @@ public class FileManagement {
         outSim.println(trafficType+";");
         outSim.println(significativeLevel+";");
         outSim.println(failure+";"+fixLinkRate+";"+occurRate);
+    }
+        
+    public void setMap(JXMapViewer map) {
+        this.map = map;
     }
     
     public void setListPair(Vector listPair) {
@@ -151,14 +160,14 @@ public class FileManagement {
         File targetLocation = jFileChooser1.getSelectedFile();
       //  teste = fileName1.getAbsolutePath();
         
-        File sourceLocation = new File("files/SimTemp/");
-       // File targetLocation = new File("files/Simulacao/");
+        File sourceLocation = new File("Files/SimTemp/");
+       // File targetLocation = new File("Files/Simulacao/");
         
         copyDirectory(sourceLocation,targetLocation);
     /*Node n1 = new Node("1");
     Node n2 = new Node("2");
     Node n3 = new Node("3");
-    FileManagement fm = new FileManagement("files/SimTemp/");
+    FileManagement fm = new FileManagement("Files/SimTemp/");
     Vector lp = new Vector();
     Vector ln = new Vector();
      

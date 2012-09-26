@@ -49,7 +49,7 @@ public class MousePanel extends JPanel implements MouseMotionListener {
     private boolean activated = false;
     /*int nLambda;*/
     private JXMapViewer mapa;
-    private int lastMapZoom = 11;
+    private int lastMapZoom;
     private double lastMapX;
     private double lastMapY;
     private boolean mapLocked = true;
@@ -583,14 +583,22 @@ public class MousePanel extends JPanel implements MouseMotionListener {
     void setMapa(JXMapViewer mainMap) {
 
         this.mapa = mainMap;
-        this.lastMapX = mainMap.getCenter().getX();
-        this.lastMapY = mainMap.getCenter().getY();
-        this.lastMapZoom = mainMap.getZoom();
+        resetMap();
+    }
+    
+    void resetMap(){
+        this.lastMapX = mapa.getCenter().getX();
+        this.lastMapY = mapa.getCenter().getY();
+        this.lastMapZoom = mapa.getZoom();
     }
 
     void switchMapLock() {
 
         mapLocked = !mapLocked;
+    }
+    
+    void setMapLock(boolean lock){
+        mapLocked = lock;
     }
     
     

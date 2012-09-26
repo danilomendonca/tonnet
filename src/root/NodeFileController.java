@@ -13,6 +13,7 @@ import java.util.Vector;
 
 import network.Node;
 import org.jdesktop.swingx.JXMapViewer;
+import org.jdesktop.swingx.mapviewer.GeoPosition;
 
 public class NodeFileController {
 
@@ -25,7 +26,7 @@ public class NodeFileController {
   }
 
   @SuppressWarnings("unchecked")
-public static Vector[] readFile(String fileName,Vector<Integer> conversionType, JXMapViewer mapa) {
+  public static Vector[] readFile(String fileName,Vector<Integer> conversionType, JXMapViewer mapa) {
     Vector<Node> listNode = new Vector<Node>();
     Hashtable<String, NoGrf> listNodeGrf = new Hashtable<String, NoGrf>();
     Vector<LinkGrf> listLinkGrf = new Vector<LinkGrf>();
@@ -81,9 +82,10 @@ public static Vector[] readFile(String fileName,Vector<Integer> conversionType, 
       
       int linkId = 0;
       //LINE 3-lendo links...
-      while (in.ready()) {
-        line = new StringTokenizer(in.readLine(),";\t");
-        String nameS = line.nextToken(); //lendo no source
+      line = new StringTokenizer(in.readLine(),";\t");
+      token = line.nextToken();
+      while (!token.equalsIgnoreCase("map")){
+        String nameS = token; //lendo no source
         String nameD = line.nextToken(); //lendo no destino
         //System.out.println(nameS+" - "+nameD);
         double cost = Double.parseDouble(line.nextToken()); //lendo custo do enlace
@@ -100,8 +102,14 @@ public static Vector[] readFile(String fileName,Vector<Integer> conversionType, 
                 nGrf2.getOxc().addLink(nGrf1.getOxc(),cost,numWave);
         	listLinkGrf.add(lGrf);
         }
+        
+        line = new StringTokenizer(in.readLine(),";\t");
+        token = line.nextToken();
       }
 
+      line = new StringTokenizer(in.readLine(),";\t");
+      mapa.setCenterPosition(new GeoPosition(Double.parseDouble(line.nextToken()), Double.parseDouble(line.nextToken())));
+      mapa.setZoom(Integer.parseInt(line.nextToken()));
     }
     catch (IOException e) {
       System.out.println("File Error - Sintaxe or file not found");

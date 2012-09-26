@@ -1,4 +1,4 @@
-<?xml version="1.1" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.3" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
@@ -142,10 +142,10 @@
               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
               <Component id="jPanelIniciarParar" min="-2" pref="45" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jProgressBar" pref="1051" max="32767" attributes="0"/>
+              <Component id="jProgressBar" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
-          <Component id="jTabbedPaneTelas" alignment="1" pref="1169" max="32767" attributes="0"/>
+          <Component id="jTabbedPaneTelas" alignment="1" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
@@ -159,7 +159,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPaneTelas" pref="563" max="32767" attributes="0"/>
+              <Component id="jTabbedPaneTelas" pref="574" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
@@ -174,7 +174,7 @@
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="589" max="32767" attributes="0"/>
+                  <EmptySpace pref="597" max="32767" attributes="0"/>
                   <Component id="jPanelGerarRelatorio" min="-2" max="-2" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -210,13 +210,13 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jPanelFerramentas" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="jPanelDesenho" pref="1071" max="32767" attributes="0"/>
+                      <Component id="jPanelDesenho" pref="1066" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanelDesenho" alignment="1" pref="535" max="32767" attributes="0"/>
+                  <Component id="jPanelDesenho" alignment="1" pref="537" max="32767" attributes="0"/>
                   <Component id="jPanelFerramentas" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
@@ -396,12 +396,12 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPaneTopologia" alignment="0" pref="1067" max="32767" attributes="0"/>
+                          <Component id="jScrollPaneTopologia" alignment="0" pref="1062" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPaneTopologia" alignment="0" pref="531" max="32767" attributes="0"/>
+                          <Component id="jScrollPaneTopologia" alignment="0" pref="533" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
@@ -494,6 +494,30 @@
                                 </Constraint>
                               </Constraints>
                             </Component>
+                            <Component class="javax.swing.JToggleButton" name="jToggleButtonTopology4">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                  <Connection code="messages.recuperarMsg(&quot;topology_3&quot;)" type="code"/>
+                                </Property>
+                                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[57, 33]"/>
+                                </Property>
+                                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[57, 33]"/>
+                                </Property>
+                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[57, 33]"/>
+                                </Property>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButtonTopology4ActionPerformed"/>
+                              </Events>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
+                                  <JLayeredPaneConstraints x="370" y="10" width="119" height="23" layer="300" position="-1"/>
+                                </Constraint>
+                              </Constraints>
+                            </Component>
                           </SubComponents>
                         </Container>
                       </SubComponents>
@@ -568,13 +592,15 @@
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jRadioButtonUniforme" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="181" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="jRadioButtonNaoUniforme" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabelGerTrafego" pref="222" max="32767" attributes="1"/>
                                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jRadioButtonUniforme" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonNaoUniforme" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -656,10 +682,6 @@
                         <EmptyBorder bottom="0" left="0" right="0" top="0"/>
                       </Border>
                     </Property>
-                    <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                      <Insets value="[0, 0, 0, 0]"/>
-                    </Property>
-                    <Property name="opaque" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="jRadioButtonNaoUniforme">
@@ -673,10 +695,6 @@
                         <EmptyBorder bottom="0" left="0" right="0" top="0"/>
                       </Border>
                     </Property>
-                    <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                      <Insets value="[0, 0, 0, 0]"/>
-                    </Property>
-                    <Property name="opaque" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jRadioButtonNaoUniformeItemStateChanged"/>
@@ -701,10 +719,6 @@
                       </Border>
                     </Property>
                     <Property name="enabled" type="boolean" value="false"/>
-                    <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                      <Insets value="[0, 0, 0, 0]"/>
-                    </Property>
-                    <Property name="opaque" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jRadioButtonTNUParItemStateChanged"/>
@@ -722,10 +736,6 @@
                       </Border>
                     </Property>
                     <Property name="enabled" type="boolean" value="false"/>
-                    <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                      <Insets value="[0, 0, 0, 0]"/>
-                    </Property>
-                    <Property name="opaque" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPaneTrafego">
@@ -773,12 +783,12 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPaneTrafegoPar" pref="900" max="32767" attributes="0"/>
+                      <Component id="jScrollPaneTrafegoPar" pref="840" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPaneTrafegoPar" alignment="0" pref="531" max="32767" attributes="0"/>
+                      <Component id="jScrollPaneTrafegoPar" alignment="0" pref="533" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -858,28 +868,24 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" max="-2" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="320" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jCheckBoxSobrevivencia" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabelRoteamento" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabelAlgoWA" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" max="-2" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="jPanelSobrevivencia" alignment="0" max="32767" attributes="1"/>
                                   <Component id="jPanelAlgoritmosWA" alignment="0" max="32767" attributes="1"/>
                                   <Component id="jPanelRoteamento" alignment="0" max="32767" attributes="1"/>
                               </Group>
                               <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jCheckBoxSobrevivencia" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelRoteamento" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelAlgoWA" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -900,7 +906,7 @@
                       <Component id="jCheckBoxSobrevivencia" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanelSobrevivencia" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="265" max="32767" attributes="0"/>
+                      <EmptySpace pref="225" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1028,9 +1034,6 @@
                     <EmptyBorder bottom="0" left="0" right="0" top="0"/>
                   </Border>
                 </Property>
-                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                  <Insets value="[0, 0, 0, 0]"/>
-                </Property>
               </Properties>
               <Events>
                 <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBoxSobrevivenciaItemStateChanged"/>
@@ -1094,9 +1097,6 @@
                       </Border>
                     </Property>
                     <Property name="enabled" type="boolean" value="false"/>
-                    <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                      <Insets value="[0, 0, 0, 0]"/>
-                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jRadioButtonProtecaoItemStateChanged"/>
@@ -1117,9 +1117,6 @@
                       </Border>
                     </Property>
                     <Property name="enabled" type="boolean" value="false"/>
-                    <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                      <Insets value="[0, 0, 0, 0]"/>
-                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jRadioButtonRestauracaoItemStateChanged"/>
@@ -1143,9 +1140,6 @@
                       </Border>
                     </Property>
                     <Property name="enabled" type="boolean" value="false"/>
-                    <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                      <Insets value="[0, 0, 0, 0]"/>
-                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jRadioButtonAdaptiveItemStateChanged"/>
@@ -1205,7 +1199,7 @@
                               <EmptySpace min="-2" pref="202" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="347" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="284" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1220,7 +1214,7 @@
                       <Component id="jLabelPosConversores" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanelPosConversores" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="284" max="32767" attributes="0"/>
+                      <EmptySpace pref="245" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1288,9 +1282,6 @@
                         <EmptyBorder bottom="0" left="0" right="0" top="0"/>
                       </Border>
                     </Property>
-                    <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                      <Insets value="[0, 0, 0, 0]"/>
-                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jRadioButtonSemConversaoStateChanged"/>
@@ -1309,9 +1300,6 @@
                       <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                         <EmptyBorder bottom="0" left="0" right="0" top="0"/>
                       </Border>
-                    </Property>
-                    <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                      <Insets value="[0, 0, 0, 0]"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1332,9 +1320,6 @@
                         <EmptyBorder bottom="0" left="0" right="0" top="0"/>
                       </Border>
                     </Property>
-                    <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                      <Insets value="[0, 0, 0, 0]"/>
-                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jRadioButtonConversaoEStateChanged"/>
@@ -1354,9 +1339,6 @@
                         <EmptyBorder bottom="0" left="0" right="0" top="0"/>
                       </Border>
                     </Property>
-                    <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                      <Insets value="[0, 0, 0, 0]"/>
-                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jRadioButtonConversaoEPStateChanged"/>
@@ -1375,9 +1357,6 @@
                       <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                         <EmptyBorder bottom="0" left="0" right="0" top="0"/>
                       </Border>
-                    </Property>
-                    <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                      <Insets value="[0, 0, 0, 0]"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1408,7 +1387,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jComboBoxPosConversores" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="12" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1455,7 +1434,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="355" max="-2" attributes="0"/>
                       <Component id="jPanelParametrosSim" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="585" max="32767" attributes="0"/>
+                      <EmptySpace pref="514" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1464,7 +1443,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       <Component id="jPanelParametrosSim" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="338" max="32767" attributes="0"/>
+                      <EmptySpace pref="304" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1581,9 +1560,6 @@
                         <EmptyBorder bottom="0" left="0" right="0" top="0"/>
                       </Border>
                     </Property>
-                    <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                      <Insets value="[0, 0, 0, 0]"/>
-                    </Property>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -1610,7 +1586,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="316" max="-2" attributes="0"/>
                       <Component id="jPanelAgenda" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="544" max="32767" attributes="0"/>
+                      <EmptySpace pref="540" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1619,7 +1595,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                       <Component id="jPanelAgenda" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="285" max="32767" attributes="0"/>
+                      <EmptySpace pref="276" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1765,26 +1741,26 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jScrollPaneMetricas" min="-2" pref="235" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-                      <Component id="jToggleButtonTab" pref="226" max="32767" attributes="0"/>
+                      <Component id="jToggleButtonTab" pref="218" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="jBLimparHistorico" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jBMaximizar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
-                      <Component id="jToggleButtonGraf" pref="235" max="32767" attributes="0"/>
+                      <Component id="jToggleButtonGraf" pref="227" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="277" max="-2" attributes="0"/>
-                          <Component id="jScrollPaneGraf" pref="887" max="32767" attributes="0"/>
+                          <Component id="jScrollPaneGraf" pref="886" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPaneMetricas" alignment="0" pref="535" max="32767" attributes="0"/>
+                  <Component id="jScrollPaneMetricas" alignment="0" pref="537" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -1805,7 +1781,7 @@
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                          <Component id="jScrollPaneGraf" pref="475" max="32767" attributes="0"/>
+                          <Component id="jScrollPaneGraf" pref="477" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
