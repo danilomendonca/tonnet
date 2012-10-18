@@ -39,8 +39,8 @@ public class WaveAssignControl {
    * @param int category
    * @param freeWave int[]
    */
-  public boolean run(int[] waveList, int[] freeWave, int category) {
-    return algorithm.setWaveAssignment(waveList, freeWave, category);
+  public boolean run(int[] waveList, int[] freeWave, int[] controlChannel,int category, boolean setControlChannel) {
+    return algorithm.setWaveAssignment(waveList, freeWave, category, setControlChannel);
   }
 
 }

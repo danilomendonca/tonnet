@@ -7,7 +7,7 @@ import network.Link;
 import routing.Route;
 
 public class RCL extends WaveAlgo {
-	 public boolean setWaveAssignment(int[]waveList, int[] freeWave, int category) {
+	 public boolean setWaveAssignment(int[]waveList, int[] freeWave, int category, boolean controlChannel) {
 		    int index=0;
 		    //Instancia o objeto do tipo vetor de links. Este vetor armazenara os links que a rota atual possui.
 		    Vector<Link>  links = new Vector<Link> ();

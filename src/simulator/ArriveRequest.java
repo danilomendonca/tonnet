@@ -5,6 +5,7 @@ import request.RequestMother;
 import routing.Route;
 import request.ReqDPPTwoStep;
 import network.*;
+import request.Request;
 
 public class ArriveRequest
     implements EventListener {
@@ -46,7 +47,7 @@ public class ArriveRequest
 
   //------------------------------------------------------------------------------
   public double getHoldRate() {
-    return this.arrivedRate;
+    return this.holdRate;
   }
 
 //------------------------------------------------------------------------------
@@ -78,10 +79,37 @@ public class ArriveRequest
     if (this.mesh.getMeasurements().getNumGeneratedReq() < this.numMaxRequest && e.isGenerateNext())
       request.scheduleNewArrivedRequest(e.getTime(), this);
     
-    if (request.RWA()) {
+    boolean established = true;
+    if (request instanceof Request && e.isGenerateNext()){
+        Request endToEnd = ((Request)request).getEndToEndRequest();
+        Request first = ((Request)request);
+        if(endToEnd != null){
+            established = endToEnd.RWA();        
+            
+            if(established){
+                first.setWaveList(0, endToEnd.getWaveList()[0]);
+                established = first.establish(established);      
+            }else
+                eMachine.remove(first);
+            
+            for(Request r : ((Request)request).getRelatedRequests()){
+                if(established){
+                    r.setWaveList(0, endToEnd.getWaveList()[0]);
+                    established = r.establish(established) && established;
+                }else
+                    eMachine.remove(r);
+            }
+            
+            
+            
+        }else
+            established = false;
+    }
+    
+    if (established) {
       this.mesh.getConnectionControl().addRequest(request);
-      double finalizeTime = e.getTime() + this.mesh.getRandomVar().negexp(this.holdRate);
-      this.eMachine.insert(new Event(e.getObject(), this.finalizeRequest,finalizeTime));
+      double finalizeTime = e.getTime() + e.getFinalizeTime();
+      this.eMachine.insert(new Event(e.getObject(), this.finalizeRequest, finalizeTime));
 
       //soma ao tamanho de todas requisições atendidas
       this.mesh.getMeasurements().sumAllSizeOfPrimaryAcceptedReq(request.getRoute().
@@ -136,6 +164,7 @@ public class ArriveRequest
   public int getNumMaxRequest(){
       return this.numMaxRequest;
   }
+  
 
   /**
    * getEMachine

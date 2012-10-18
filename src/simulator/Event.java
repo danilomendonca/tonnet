@@ -7,6 +7,7 @@ public class Event {
   private Object object;
   private EventListener eventListener;
   private double time;
+  private double finalizeTime;
   private double id;
   private boolean generateNext = true;
 
@@ -71,6 +72,14 @@ public class Event {
 
   public void setGenerateNext(boolean generateNext){
       this.generateNext = generateNext;
+  }
+
+  public void setFinalizeTime(double finalizeTime) {
+      this.finalizeTime = finalizeTime;
+  } 
+  
+  public double getFinalizeTime(){
+      return this.finalizeTime;
   }
 
 }

@@ -1397,7 +1397,7 @@ public class Main extends javax.swing.JFrame {
             BufferedReader in;
             FileReader file;
             try {
-                file = new FileReader("files/SimTemp/results.res");
+                file = new FileReader("Files/SimTemp/results.res");
                 in = new BufferedReader(file);
                 tmp = new JTextArea();
                 tmp.setText("");
@@ -2053,7 +2053,7 @@ public class Main extends javax.swing.JFrame {
         this.pLink = new PropriedadesLink(topologia,indexOfLink);
         this.pLink.setResizable(false);
         this.pLink.setSize(280,177);
-        this.pLink.setLocation((link.getX1()+link.getX2())/2,(link.getY1()+link.getY2())/2);
+        this.pLink.setLocation((link.getX1()+link. getX2())/2,(link.getY1()+link.getY2())/2);
         this.pLink.setVisible(true);
     }
 
@@ -2111,10 +2111,10 @@ public class Main extends javax.swing.JFrame {
     }
     
     private void start(){
-        String net = "files/" + simTmpUrl+ "/network.net";
-        String sim = "files/" + simTmpUrl + "/simulation.sim";
-        String res = "files/" + simTmpUrl + "/results.res";
-        String pairs = "files/" + simTmpUrl +"/pairs.prs";
+        String net = "Files/" + simTmpUrl+ "/network.net";
+        String sim = "Files/" + simTmpUrl + "/simulation.sim";
+        String res = "Files/" + simTmpUrl + "/results.res";
+        String pairs = "Files/" + simTmpUrl +"/pairs.prs";
         
         Vector config = new Vector(3);
         Simulation simulacao = SimulationFileController.readFile(sim, config); //parametros da simulacao
@@ -2192,7 +2192,7 @@ public class Main extends javax.swing.JFrame {
         mPanelDesenho.setLayout(null);
         mPanelDesenho.setBackground(new Color(255,255,255));
         mPanelDesenho.setOpaque(false);
-        mPanelDesenho.setPreferredSize(jLayeredPane1.getPreferredSize());
+        //mPanelDesenho.setPreferredSize(jLayeredPane1.getPreferredSize());
         
         //jPanelDesenhoTop.add(mPanelDesenho);
 
@@ -2204,7 +2204,7 @@ public class Main extends javax.swing.JFrame {
         jXMapKit1.setVisible(true);
         jXMapKit1.setSize(400, 400);
         jXMapKit1.setZoom(11);
-        jXMapKit1.setPreferredSize(mPanelDesenho.getPreferredSize());
+        //jXMapKit1.setPreferredSize(mPanelDesenho.getPreferredSize());
         jLayeredPane1.add(jXMapKit1, new Integer(0), 0);
         jLayeredPane1.add(mPanelDesenho, new Integer(1), 1);
         mPanelDesenho.setMapa(jXMapKit1.getMainMap());

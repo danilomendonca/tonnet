@@ -22,7 +22,7 @@ public class MaxSum extends WaveAlgo {
 	   * @param category int categoria do par
 	   * @return boolean
 	   */
-	 public boolean setWaveAssignment(int[]waveList, int[] freeWave, int category) {
+	 public boolean setWaveAssignment(int[]waveList, int[] freeWave, int category, boolean controlChannel) {
 		    int index=0;
 		    Vector<Link>  links = new Vector<Link> ();
 		    Vector<LinkMeasure>  TotallinksMeasure = new Vector<LinkMeasure> ();

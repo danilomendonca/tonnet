@@ -1,14 +1,32 @@
 package request;
 
+import java.util.ArrayList;
+import java.util.List;
 import network.*;
 import routing.Route;
 import simulator.EventMachine;
 
 public class Request
     extends RequestMother {
-
+    
+  private List <Request> relatedRequests;
+  private Request endToEnd;
+  
   public Request(Pair p, Mesh mesh) {
     super(p, mesh);
+    relatedRequests = new ArrayList<Request>();
+  }
+  
+  public List<Request> getRelatedRequests(){
+      return relatedRequests;
+  }
+  
+  void setEndToEndRequest(Request rEndToEnd) {
+        this.endToEnd = rEndToEnd;
+  }
+  
+  public Request getEndToEndRequest(){
+      return endToEnd;
   }
 
   //------------------------------------------------------------------------------
@@ -92,5 +110,7 @@ public class Request
   public boolean requestAffected(Link link) {
     return this.route.containThisLink(link);
   }
+
+   
 
 }
