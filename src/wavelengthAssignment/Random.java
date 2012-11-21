@@ -12,7 +12,7 @@ public class Random
    * @param category int categoria do par
    * @return boolean
    */
-  public boolean setWaveAssignment(int[]waveList, int[] freeWave, int category, boolean controlChannel) {
+  public boolean setWaveAssignment(int[]waveList, int[] freeWave, int category) {
     int index;
     index = this.mesh.getRandomVar().randInt(0, freeWave.length - 1);
 

@@ -130,6 +130,8 @@ public class AdaptiveSRTSB
         }
         
         if (this.route != null) { //existe rota primaria
+            
+
             boolean flagPrimary = this.route.tryEstablish(this.waveList, this.mesh,
                     this.pair.getCategory(), true);
             if (this.routeBackup != null) { //existe rota secundaria
@@ -151,6 +153,8 @@ public class AdaptiveSRTSB
         routeAux = this.mesh.getRoutingControl().getRoutes(this.pair).get(0);
         if (routeAux != null) {
             this.setRoute(routeAux);
+            boolean hasControlChannel = true;
+            controlChannel = new int[1];
             return this.route.tryEstablish(this.waveList, this.mesh,
                     this.pair.getCategory(), true);
         }
@@ -185,6 +189,9 @@ public class AdaptiveSRTSB
             boolean flag;
             if (restoration != null) {
                 this.setRoute(restoration);
+                
+                boolean hasControlChannel = true;
+                controlChannel = new int[1];
                 flag = this.route.tryEstablish(this.waveList, this.mesh,
                         this.pair.getCategory(), true);
             } else {

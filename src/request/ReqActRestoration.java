@@ -69,6 +69,9 @@ public class ReqActRestoration
     routeAux = this.mesh.getRoutingControl().getRoutes(this.pair).get(0);
     if (routeAux != null) {
       this.setRoute(routeAux);
+      
+      boolean hasControlChannel = true;
+      controlChannel = new int[1];
       return this.route.tryEstablish(this.waveList, this.mesh,
                                                   this.pair.getCategory(),true);
     }
@@ -137,6 +140,9 @@ public class ReqActRestoration
     Route auxRoute = this.getRouteAR(link);
     if (auxRoute!=null){
       this.setRoute(auxRoute);
+      
+      boolean hasControlChannel = true;
+      controlChannel = new int[1];
       flag = this.route.tryEstablish(this.waveList,this.mesh,this.pair.getCategory(),true);
     }else
       flag=false;

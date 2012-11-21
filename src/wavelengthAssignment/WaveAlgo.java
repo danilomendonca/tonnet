@@ -13,8 +13,7 @@ public abstract class WaveAlgo {
    * @param category int categoria do Par
    * @return boolean. True se a configuração foi feita com sucesso.
    */
-  public abstract boolean setWaveAssignment(int[] waveList, int[] freeWave, int[] controlChannel,
-                                            int category, boolean setControlChannel);
+  public abstract boolean setWaveAssignment(int[] waveList, int[] freeWave, int category);
 
   public void setMesh(Mesh m) {
     this.mesh = m;

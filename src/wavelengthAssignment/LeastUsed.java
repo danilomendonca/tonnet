@@ -14,7 +14,7 @@ public class LeastUsed
    * @param category int categoria do par
    * @return boolean
    */
-  public boolean setWaveAssignment(int[] waveList, int[] freeWave, int category, boolean controlChannel) {
+  public boolean setWaveAssignment(int[] waveList, int[] freeWave, int category) {
     int index = 0;
 
     //utilização de cada comprimento de onda

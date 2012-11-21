@@ -1,5 +1,6 @@
 package simulator;
 
+import java.util.Arrays;
 import java.util.Vector;
 import request.RequestMother;
 import routing.Route;
@@ -80,27 +81,47 @@ public class ArriveRequest
       request.scheduleNewArrivedRequest(e.getTime(), this);
     
     boolean established = true;
+    boolean rwa = true;
+    
+    //Bloco para tratamento do pacote de controle num roteamento por pacotes sem conversão
     if (request instanceof Request && e.isGenerateNext()){
         Request endToEnd = ((Request)request).getEndToEndRequest();
         Request first = ((Request)request);
         if(endToEnd != null){
-            established = endToEnd.RWA();        
-            
+            rwa = endToEnd.RWA();   
+            int waveLength = endToEnd.getWaveList()[0];
+                   
+            //Efetua conexão do canal de controle
+            //Recupera comprimento de onda reservado ao canal de controle
+            int [] controlChannel = endToEnd.getControlChannel();
+            for(int i = 0; i < endToEnd.getWaveList().length; i++)
+                endToEnd.setWaveList(i, 39);        
+            //Estabelece conexão
+            established = endToEnd.establish(rwa);
+                      
+            //Caso conexão do pct cnt tenha sido feita
             if(established){
-                first.setWaveList(0, endToEnd.getWaveList()[0]);
+                double finalizeControlTime = e.getTime() + getMesh().getRandomVar().negexp(holdRate) / 10000    ;
+                this.eMachine.insert(new Event(endToEnd, this.finalizeRequest, finalizeControlTime));
+                
+                first.setWaveList(0, waveLength);
                 established = first.establish(established);      
-            }else
-                eMachine.remove(first);
-            
-            for(Request r : ((Request)request).getRelatedRequests()){
-                if(established){
-                    r.setWaveList(0, endToEnd.getWaveList()[0]);
-                    established = r.establish(established) && established;
-                }else
-                    eMachine.remove(r);
-            }
-            
-            
+                
+                //Caso conexão do primeiro evento intermediário tenha sido feita, realiza as demais
+                if(established)
+                    for(Request r : ((Request)request).getRelatedRequests()){
+                        if(established){//Caso a conexão do atual evento intermediário tenha sido feita
+                            r.setWaveList(0, waveLength);
+                            established = r.establish(established) && established;
+                        }else{//Se não, remove este e os próximos eventos intermediários
+                            eMachine.remove(r);                            
+                        }
+                    }
+            }else{//Caso contrário, remove eventos intermediários sucessivos da ME
+                //eMachine.remove(first);                        
+                for(Request r : ((Request)request).getRelatedRequests())
+                    eMachine.remove(r);                
+            }    
             
         }else
             established = false;

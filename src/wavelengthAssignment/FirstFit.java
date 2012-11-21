@@ -13,13 +13,12 @@ public class FirstFit extends WaveAlgo {
    * @param category int categoria do par
    * @return boolean
    */
-  public boolean setWaveAssignment(int[]waveList, int[] freeWave, int category, boolean controlChannel) {
+  public boolean setWaveAssignment(int[]waveList, int[] freeWave, int category) {
     int index;
     index = 0;
     //seta o comprimento de onda a ser utilizado por uma requisição
     //escolhendo o 1º comprimento de onda da lista de comprimento de onda livre
-    int reserved = controlChannel ? 1 : 0; //seleciona último comprimento de onda livre para ser canal de controle
-    for (int i = 0; i < waveList.length - reserved; i++) {
+    for (int i = 0; i < waveList.length; i++) {
       waveList[i]= freeWave[index];
     }
     return true;

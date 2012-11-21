@@ -21,6 +21,9 @@ public class ReqSimpleRestoration
     routeAux = this.mesh.getRoutingControl().getRoutes(this.pair).get(0);
     if (routeAux != null) {
       this.setRoute(routeAux);
+      boolean hasControlChannel = true;
+      controlChannel = new int[1];
+      
       return this.route.tryEstablish(this.waveList, this.mesh,
                                      this.pair.getCategory(), true);
     }
@@ -87,6 +90,9 @@ public class ReqSimpleRestoration
     boolean flag = false;
     if (restoration != null) {
       this.setRoute(restoration);
+      boolean hasControlChannel = true;
+      controlChannel = new int[1];
+      
       flag = this.route.tryEstablish(this.waveList, this.mesh,
                                      this.pair.getCategory(), true);
     }

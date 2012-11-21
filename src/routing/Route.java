@@ -181,6 +181,11 @@ public class Route {
       //  System.out.println("PARE");
     	//m.getRoutes();
     	m.setActualLinklist(linkList);
+        //se houver canal de controle, reserva último comprimento de onda livre
+        /*if(hasControlChannel) {
+            controlChannel[0] = freeWaves[freeWaves.length - 1];
+            freeWaves = Arrays.copyOf(freeWaves, freeWaves.length - 1);            
+        }*/
       return m.callWaveAssign(waveList, freeWaves, category);
     }
     return false;
@@ -308,6 +313,7 @@ public class Route {
                               boolean failure) {
     //...................rota com apenas um link ou SEM CONVERSÃO...............
     if ( (this.size() == 2) || (m.getConversionType() == 0)) {
+      
       return this.tryEstablishWithoutConversion(waveList, m,
                                                 category, failure);
     }

@@ -90,7 +90,7 @@ public class NodeFileController {
         //System.out.println(nameS+" - "+nameD);
         double cost = Double.parseDouble(line.nextToken()); //lendo custo do enlace
         int numWave = Integer.parseInt(line.nextToken()); //lendo num wavelegth
-
+        
         list.get(nameS).getOxc().addLink(list.get(nameD).
             getOxc(), cost, numWave);
 

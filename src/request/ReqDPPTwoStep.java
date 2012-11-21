@@ -55,9 +55,13 @@ public class ReqDPPTwoStep
         }
         
         if (this.route != null) { //existe rota primaria
+            
+            boolean hasControlChannel = true;
+            controlChannel = new int[1];
             boolean flagPrimary = this.route.tryEstablish(this.waveList, this.mesh,
                     this.pair.getCategory(), true);
-            if (this.routeBackup != null) { //existe rota secundaria
+            if (this.routeBackup != null) { //existe rota secundaria               
+                
                 boolean flagBackup = this.routeBackup.tryEstablish(this.waveListRBackup,
                         this.mesh, this.pair.getCategory(), true);
                 if (flagBackup == false) { //incrementa bloqueio por ausencia de backup (falta recursos na rota backup)

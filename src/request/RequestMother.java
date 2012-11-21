@@ -14,7 +14,7 @@ public abstract class RequestMother {
    *o mesmo valor para todos os enlaces.
    */
   protected int[] waveList;
-  private int[] controlChannel;
+  protected int[] controlChannel;
   
   protected boolean protection;
 
