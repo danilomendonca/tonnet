@@ -41,9 +41,7 @@ public class Request
     route = this.mesh.getRoutingControl().getRoutes(this.pair).get(0);
     if (route != null) {
       this.setRoute(route);
-      boolean hasControlChannel = true;
-      controlChannel = new int[1];
-      
+      //TODO verificar failure = true
       return this.route.tryEstablish(this.waveList,  this.mesh,
                                      this.pair.getCategory(), true);
     }

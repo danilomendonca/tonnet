@@ -7,6 +7,9 @@ public class Route {
 
   private Vector<Node> nodeList;
   private Vector<Link> linkList;
+  private char routingType = BURST_ROUTING;
+  public static final char BURST_ROUTING = 'B';
+  public static final char CIRCUIT_ROUTING = 'C';
 
   /**
    * Creates a new instance of Route.
@@ -121,6 +124,16 @@ public class Route {
     }
     return false;
   }
+  
+//------------------------------------------------------------------------------
+  /**
+   * Getter for property routingType.
+   * @return Vector.
+   */
+  public char getRoutingType() {
+    return this.routingType;
+  }  
+  
 
 //------------------------------------------------------------------------------
   /**
@@ -356,6 +369,15 @@ public class Route {
 
     return waves;
   }
+  
+  public int getFirstLinkNumWave(){
+      
+      int numWave = this.linkList.firstElement().getNumWave();
+      if(routingType == BURST_ROUTING)
+          numWave--;
+      
+      return numWave;
+  }
 
   //------------------------------------------------------------------------------
   /**
@@ -365,7 +387,8 @@ public class Route {
    * @return int[]
    */
   public int[] getAllWaveEmpty(boolean failure) {
-    int numWave = this.linkList.firstElement().getNumWave();
+    int numWave = getFirstLinkNumWave();
+    
     int[] setFree = new int[numWave];
 
     for (int j = 0; j < numWave; j++) {

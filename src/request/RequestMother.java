@@ -67,21 +67,7 @@ public abstract class RequestMother {
   public void setWaveList(int index, int wave) {
     this.waveList[index] = wave;
   }
-  
-   /**
-     * @return the controlChannel
-     */
-    public int[] getControlChannel() {
-        return controlChannel;
-    }
-
-    /**
-     * @param controlChannel the controlChannel to set
-     */
-    public void setControlChannel(int[] controlChannel) {
-        this.controlChannel = controlChannel;
-    }
-
+ 
 //------------------------------------------------------------------------------
   public boolean RWA() {
 

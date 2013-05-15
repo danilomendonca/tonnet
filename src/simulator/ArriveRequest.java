@@ -8,6 +8,10 @@ import request.ReqDPPTwoStep;
 import network.*;
 import request.Request;
 
+/**
+ * Classe do tipo evento de requisição
+ * 
+ */
 public class ArriveRequest
     implements EventListener {
 
@@ -82,27 +86,28 @@ public class ArriveRequest
     
     boolean established = true;
     boolean rwa = true;
-    
+        
     //Bloco para tratamento do pacote de controle num roteamento por pacotes sem conversão
     if (request instanceof Request && e.isGenerateNext()){
-        Request endToEnd = ((Request)request).getEndToEndRequest();
+        Request controlChannel = ((Request)request).getEndToEndRequest();
         Request first = ((Request)request);
-        if(endToEnd != null){
-            rwa = endToEnd.RWA();   
-            int waveLength = endToEnd.getWaveList()[0];
+        if(controlChannel != null){
+            rwa = controlChannel.RWA();   
+            
+            int waveLength = controlChannel.getWaveList()[0];
                    
             //Efetua conexão do canal de controle
             //Recupera comprimento de onda reservado ao canal de controle
-            int [] controlChannel = endToEnd.getControlChannel();
-            for(int i = 0; i < endToEnd.getWaveList().length; i++)
-                endToEnd.setWaveList(i, 39);        
+            int controlLambda = controlChannel.getRoute().getFirstLinkNumWave(); //seta o último comprimento de onda disponível  
+            for(int i = 0; i < controlChannel.getWaveList().length; i++)
+                controlChannel.setWaveList(i, controlLambda);      
             //Estabelece conexão
-            established = endToEnd.establish(rwa);
+            established = controlChannel.establish(rwa);
                       
             //Caso conexão do pct cnt tenha sido feita
             if(established){
-                double finalizeControlTime = e.getTime() + getMesh().getRandomVar().negexp(holdRate) / 10000    ;
-                this.eMachine.insert(new Event(endToEnd, this.finalizeRequest, finalizeControlTime));
+                double finalizeControlTime = e.getTime() + getMesh().getRandomVar().negexp(holdRate) / 10000; //TODO verificar proporção do hold time de controle
+                this.eMachine.insert(new Event(controlChannel, this.finalizeRequest, finalizeControlTime));
                 
                 first.setWaveList(0, waveLength);
                 established = first.establish(established);      
