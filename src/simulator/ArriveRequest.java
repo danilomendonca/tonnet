@@ -22,6 +22,7 @@ public class ArriveRequest
   private double arrivedRate;
   private EventMachine eMachine;
   private String wAAlgorithm;
+  private ControlRequest controlRequest;
 
   /**
    *Constroi um objeto ArriveRequest
@@ -66,90 +67,60 @@ public class ArriveRequest
    *de um evento ArrivedRequest escutado.
    * @param e Event
    */
-  public void execute(Event e) {
-    // incrementa o nº de requisições geradas
-    this.mesh.getMeasurements().incNumGeneratedReq();
-    //somatorio da utilização da rede.
-    this.getMesh().getMeasurements().sumOfUtilization(this.mesh.calculateUtilization());
-    //somatorio da utilização por comprimento de onda.
-    this.getMesh().getMeasurements().sumOfWavelenghtUtilization(this.mesh.calculateWavelengthUtilization());
-    //sommatorio da utilizao por enlace
-    this.getMesh().getMeasurements().calcSumUtilizationPerLink();
-
+   public void execute(Event e) {
+       
     RequestMother request = (RequestMother) e.getObject();
-    // incrementa o nº de vezes que o par foi gerados
-    request.getPair().incNumGenerated();
-
-    //verifica se é necessário agendar a geração de novas requisições
-    if (this.mesh.getMeasurements().getNumGeneratedReq() < this.numMaxRequest && e.isGenerateNext())
-      request.scheduleNewArrivedRequest(e.getTime(), this);
-    
-    boolean established = true;
-    boolean rwa = true;
+    if(!e.isBurstPackage()){
+        // incrementa o nº de requisições geradas
+        this.mesh.getMeasurements().incNumGeneratedReq();
+        //somatorio da utilização da rede.
+        this.getMesh().getMeasurements().sumOfUtilization(this.mesh.calculateUtilization());
+        //somatorio da utilização por comprimento de onda.
+        this.getMesh().getMeasurements().sumOfWavelenghtUtilization(this.mesh.calculateWavelengthUtilization());
+        //sommatorio da utilizao por enlace
+        this.getMesh().getMeasurements().calcSumUtilizationPerLink();
         
-    //Bloco para tratamento do pacote de controle num roteamento por pacotes sem conversão
-    if (request instanceof Request && e.isGenerateNext()){
-        Request controlChannel = ((Request)request).getEndToEndRequest();
-        Request first = ((Request)request);
-        if(controlChannel != null){
-            rwa = controlChannel.RWA();   
-            
-            int waveLength = controlChannel.getWaveList()[0];
-                   
-            //Efetua conexão do canal de controle
-            //Recupera comprimento de onda reservado ao canal de controle
-            int controlLambda = controlChannel.getRoute().getFirstLinkNumWave(); //seta o último comprimento de onda disponível  
-            for(int i = 0; i < controlChannel.getWaveList().length; i++)
-                controlChannel.setWaveList(i, controlLambda);      
-            //Estabelece conexão
-            established = controlChannel.establish(rwa);
-                      
-            //Caso conexão do pct cnt tenha sido feita
-            if(established){
-                double finalizeControlTime = e.getTime() + getMesh().getRandomVar().negexp(holdRate) / 10000; //TODO verificar proporção do hold time de controle
-                this.eMachine.insert(new Event(controlChannel, this.finalizeRequest, finalizeControlTime));
-                
-                first.setWaveList(0, waveLength);
-                established = first.establish(established);      
-                
-                //Caso conexão do primeiro evento intermediário tenha sido feita, realiza as demais
-                if(established)
-                    for(Request r : ((Request)request).getRelatedRequests()){
-                        if(established){//Caso a conexão do atual evento intermediário tenha sido feita
-                            r.setWaveList(0, waveLength);
-                            established = r.establish(established) && established;
-                        }else{//Se não, remove este e os próximos eventos intermediários
-                            eMachine.remove(r);                            
-                        }
-                    }
-            }else{//Caso contrário, remove eventos intermediários sucessivos da ME
-                //eMachine.remove(first);                        
-                for(Request r : ((Request)request).getRelatedRequests())
-                    eMachine.remove(r);                
-            }    
-            
-        }else
-            established = false;
+        // incrementa o nº de vezes que o par foi gerados
+        request.getPair().incNumGenerated();
     }
     
-    if (established) {
+    //verifica se é necessário agendar a geração de novas requisições
+    if (this.mesh.getMeasurements().getNumGeneratedReq() <
+        this.numMaxRequest && !e.isBurstPackage())       
+        //TODO Colocar o classificador AQUI ##########
+        if(true || this.getMesh().getRandomVar().nextBoolean())
+          request.scheduleNewArrivedRequest(e.getTime(),this.getControlRequest());
+        else
+          request.scheduleNewArrivedRequest(e.getTime(),this);
+    
+
+    if (e.isBurstPackage() || request.establish(request.RWA())) {
       this.mesh.getConnectionControl().addRequest(request);
-      double finalizeTime = e.getTime() + e.getFinalizeTime();
-      this.eMachine.insert(new Event(e.getObject(), this.finalizeRequest, finalizeTime));
-
-      //soma ao tamanho de todas requisições atendidas
-      this.mesh.getMeasurements().sumAllSizeOfPrimaryAcceptedReq(request.getRoute().
-          getHops());
-      //soma ao tamanho de todas requisições de backup atendidas
-      if (request.getProtection()) {
-        Route bckp = null;
-        if (request instanceof ReqDPPTwoStep){
-          bckp = ( (ReqDPPTwoStep) request).getRouteBackup();
+      
+      
+      double finalizeTime;
+      //rajadas já são contabilizadas no evento de controle
+      if(!e.isBurstPackage()){
+        //soma ao tamanho de todas requisições atendidas
+        this.mesh.getMeasurements().sumAllSizeOfPrimaryAcceptedReq(request.getRoute().
+            getHops());
+ 
+        //soma ao tamanho de todas requisições de backup atendidas
+        if (request.getProtection()) {
+          Route bckp = null;
+          if (request instanceof ReqDPPTwoStep){
+            bckp = ( (ReqDPPTwoStep) request).getRouteBackup();
+          }
+          if (bckp != null)
+            this.mesh.getMeasurements().sumAllSizeOfBackupAcceptedReq(bckp.getHops());
         }
-        if (bckp != null)
-          this.mesh.getMeasurements().sumAllSizeOfBackupAcceptedReq(bckp.getHops());
-      }
-
+        
+        finalizeTime = e.getTime() + this.mesh.getRandomVar().negexp(this.holdRate);             
+      }else
+        finalizeTime = e.getTime() + this.mesh.getRandomVar().negexp(this.holdRate)/100;             
+      
+        this.eMachine.insert(new Event(e.getObject(), this.finalizeRequest,
+                                     finalizeTime));
     }
     else {
       //inc bloqueio geral
@@ -190,8 +161,15 @@ public class ArriveRequest
   public int getNumMaxRequest(){
       return this.numMaxRequest;
   }
-  
 
+  public ControlRequest getControlRequest() {
+      return controlRequest;
+  }
+
+  public void setControlRequest(ControlRequest controlRequest) {
+      this.controlRequest = controlRequest;
+  }
+ 
   /**
    * getEMachine
    *

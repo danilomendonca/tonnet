@@ -9,7 +9,7 @@ public class Event {
   private double time;
   private double finalizeTime;
   private double id;
-  private boolean generateNext = true;
+  private boolean burstPackage = false;
 
   /**
    *Constroi um evento.
@@ -66,12 +66,12 @@ public class Event {
   }
 
 
-  public boolean isGenerateNext(){
-      return generateNext;
+  public boolean isBurstPackage(){
+      return burstPackage;
   }
 
-  public void setGenerateNext(boolean generateNext){
-      this.generateNext = generateNext;
+  public void setBurstPackage(boolean burstPackage){
+      this.burstPackage = burstPackage;
   }
 
   public void setFinalizeTime(double finalizeTime) {

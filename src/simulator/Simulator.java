@@ -8,6 +8,7 @@ public class Simulator {
 
   private EventMachine eMachine;
   private ArriveRequest arriveRequest;
+  private ControlRequest controlRequest;
   private OccurFailure occurFailure;
   private Simulation simulation;
 
@@ -31,6 +32,8 @@ public class Simulator {
    */
   public Measurements start(boolean failure, double fixLinkRate,double occurRate) {
     eMachine = new EventMachine();
+    
+    
     // criando o escutador de eventos arriveRequest
     arriveRequest = new ArriveRequest(this.simulation.getMesh(),
                                       this.getEventMachine(),
@@ -39,6 +42,18 @@ public class Simulator {
                                       this.simulation.getArrivedRate(),
                                       this.simulation.getWAAlgorithm());
 
+    
+    // criando o escutador de eventos controlRequest
+    controlRequest = new ControlRequest(this.simulation.getMesh(),
+                                      this.getEventMachine(),
+                                      this.simulation.getTotalNumberOfRequest(),
+                                      this.simulation.getHoldRate(),
+                                      this.simulation.getArrivedRate(),
+                                      this.simulation.getWAAlgorithm());
+    
+    //referência ao controlRequest (canal de controle) usado no roteamento por rajadas
+    arriveRequest.setControlRequest(controlRequest);
+    controlRequest.setArriveRequest(arriveRequest);
 
     int numMaxFailure = 20000000;
 

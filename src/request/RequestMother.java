@@ -80,70 +80,89 @@ public abstract class RequestMother {
     boolean establish = rwa;
     
     if (establish) {
-      this.establishConnection();
-    }
-    return establish;
+        return this.establishConnection();
+    }else
+        return false;
     
   }
 
   //------------------------------------------------------------------------------
   /**
    * agenda uma nova requisição do mesmo tipo
+   * usado no roteamento por circuitos
    * @param time double
    * @param arrive ArriveRequest
    */
-  public void scheduleNewArrivedRequest(double time, ArriveRequest arrive) {
-    double deltaTime = arrive.getMesh().getRandomVar().negexp(arrive.getArrivedRate());
-    double finalizeTime = arrive.getMesh().getRandomVar().negexp(arrive.getHoldRate());
+   public void scheduleNewArrivedRequest(double time, ArriveRequest arrive) {
+    double deltaTime = arrive.getMesh().getRandomVar().negexp(arrive.
+        getArrivedRate());
+    RequestMother r = null;
+
+    r = this.getNewRequest(arrive.getMesh().pairGenerator(), arrive.getMesh());
+
+    Event e = new Event(r, arrive, deltaTime + time);
+    e.setBurstPackage(false);
+
+    arrive.getEMachine().insert(e);
+
+  }
+
+  //------------------------------------------------------------------------------
+  /**
+   * agenda uma nova requisição composta por um conjunto de subrequisições 
+   * usado no roteamento por rajadas
+   * @param time double
+   * @param arrive ArriveRequest
+   */
+  public void scheduleNewArrivedRequest(double time, ControlRequest control) {
+    
+    
+    double deltaTime = control.getMesh().getRandomVar().negexp(control.getArrivedRate());
+    double finalizeTime = control.getMesh().getRandomVar().negexp(control.getHoldRate());
     Request rEndToEnd, first = null;
 
     /*Event e = new Event(r, arrive, time + delta);
     arrive.getEMachine().insert(e);*/
 
-    Pair nextPair = arrive.getMesh().pairGenerator();
+    Pair nextPair = control.getMesh().pairGenerator();
     Vector <Node> nosRota = this.mesh.getRoutingControl().getRoutes(nextPair).get(0).getNodeList();    
-    rEndToEnd = (Request) this.getNewRequest(nextPair, arrive.getMesh());    
-    //rEndToEnd.establish(rEndToEnd.RWA());
+    rEndToEnd = (Request) this.getNewRequest(nextPair, control.getMesh());    
+   
+    Event e;
+    e = new Event(rEndToEnd, control, time + deltaTime);   
+    control.getEMachine().insert(e);    
     
-    int [] waveList = null;
+    ArriveRequest arrive = control.getArriveRequest();
     
     for (int i = 0; i < nosRota.size() - 1; i ++){
 
         Node noA = nosRota.get(i);
         Node noB = nosRota.get(i + 1);
-        Event e;
+        
         Pair pair = arrive.getMesh().searchPair(noA, noB);
         Route route = this.mesh.getRoutingControl().getRoutes(pair).get(0);
         Request r = (Request) this.getNewRequest(pair, arrive.getMesh());
-        if(i == 0)
-            first = r;
-        else
-            first.getRelatedRequests().add(r);
+        rEndToEnd.getRelatedRequests().add(r);
         
-        //seta manualmente o comprimento de onda e a rota para evitar a chamada ao RWA
         r.setRoute(route);
         r.mesh.setActualLinklist(route.getLinkList());
         
-        e = new Event(r, arrive, time + deltaTime + finalizeTime * (i));        
+        e = new Event(r, arrive, time + deltaTime + finalizeTime * (i + 1));     
+        e.setBurstPackage(true);
         finalizeTime = arrive.getMesh().getRandomVar().negexp(arrive.getHoldRate());
         e.setFinalizeTime(finalizeTime);
-        
-        if(i != 0){
-            e.setGenerateNext(false);
-        }
-        
+                
         arrive.getEMachine().insert(e);        
     }
     
-    first.setEndToEndRequest(rEndToEnd);
   }
-
+  
   //------------------------------------------------------------------------------
   /**
    *Define que os comprimentos de onda alocados ficam ocupados nos
    *enlaces da(s) rota(s) utilizada pela requisição.
    */
-  protected abstract void establishConnection();
+  protected abstract boolean establishConnection();
 
   /**
    *Define que os comprimentos de onda alocados ficam livres nos

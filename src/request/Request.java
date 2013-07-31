@@ -70,7 +70,7 @@ public class Request
    *Define que os comprimentos de onda alocados ficam ocupados nos
    *enlaces da rota utilizada pela requisição.
    */
-  protected void establishConnection() {
+  protected boolean establishConnection() {
     for (int i = 0; i < this.waveList.length - 1; i++) {
       if (this.waveList[i] != this.waveList[i + 1]) {
         if (!this.route.getNode(i + 1).useWc()) {
@@ -78,13 +78,16 @@ public class Request
         }
       }
     }
-    if (!this.route.useWavelength(this.waveList)) {
+    boolean waveUsed = this.route.useWavelength(this.waveList);
+    if (!waveUsed) {
       route.printRoute();
       System.out.println();
       for (int i = 0; i < this.waveList.length; i++) {
         System.out.print(waveList[i] + ";");
       }
     }
+    
+    return waveUsed;
   }
 
   /**
