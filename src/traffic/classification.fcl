@@ -1,0 +1,100 @@
+FUNCTION_BLOCK classificator
+
+// define variaveis de entrada
+VAR_INPUT
+	LAMBDA : REAL;
+	HURST : REAL;
+	INTERCHEGADAS : REAL;
+END_VAR
+
+// define variavel de saida
+
+VAR_OUTPUT
+	comutacao : REAL;
+END_VAR
+
+
+//FUZZIFICA VARIAVEL DE ENTRADA 'LAMBDA': {'BAIXA', 'MEDIA', 'ALTA'}
+
+FUZZIFY LAMBDA
+	TERM BAIXA := (0, 0) (0,1) (2,1) (4,0);
+	TERM MEDIA := (3, 0) (4, 1) (5,0);
+	TERM ALTA := (4, 0) (8,1) (1000,1) (1000,0);
+END_FUZZIFY
+
+
+// fuzzifica a entrada 'HURST' {'poisson', 'hibrido', 'autossimilar'}
+
+FUZZIFY HURST
+	TERM poisson := (0, 0) (0, 1) (0.3,1) (0.6,0);
+	TERM hibrido := (0.4, 0) (0.45, 1) (0.55,1) (0.6,0);
+	TERM autossimilar := (0.55,0) (1, 1) (1, 1);
+END_FUZZIFY
+
+
+// fuzzifica A ENTRADA 'INTERCHEGADAS' {'baixo', 'medio', alto}
+
+FUZZIFY INTERCHEGADAS
+	TERM baixo := (0, 0) (0,1) (2,1) (3,0);
+	TERM medio := (2, 0) (2.5,1) (3.5,1) (4,0);
+	TERM alto := (3.5, 0) (8,1) (1000,1) (1000,0);
+END_FUZZIFY
+
+
+// defuzzifica a variável de saida 'comutacao': {'OBS', 'OCS'}
+
+DEFUZZIFY comutacao
+	TERM OBS := (0, 0) (0.3,1) (0.4,1) (0.7,0);
+	TERM OCS := (0.5, 0) (0.85,1) (1,1) (1,0);
+	METHOD : COG; //metodo de defuzzyficacao 'centro de gravidade'
+	DEFAULT:= 0; //SE NENHUMA REGRA ATIVAR A DEFUZZIFICACAO, SAIDA 0
+END_DEFUZZIFY
+
+// REGRAS DE INFERENCIA
+
+RULEBLOCK No1
+	AND : MIN;	// Use 'min' para 'and'
+	ACT : MIN;	// Use 'min' metodo de ativacao
+	ACCU : MAX;	// Use 'max' metodo de acumulacao
+
+	RULE 1 : IF LAMBDA IS BAIXA AND HURST IS poisson AND INTERCHEGADAS IS baixo THEN comutacao IS OCS;
+	RULE 2 : IF LAMBDA IS MEDIA AND HURST IS poisson AND INTERCHEGADAS IS baixo THEN comutacao IS OCS;
+	RULE 3 : IF LAMBDA IS ALTA AND HURST IS poisson AND INTERCHEGADAS IS baixo THEN comutacao IS OCS;
+	
+	RULE 4 : IF LAMBDA IS BAIXA AND HURST IS hibrido AND INTERCHEGADAS IS baixo THEN comutacao IS OCS;
+	RULE 5 : IF LAMBDA IS MEDIA AND HURST IS hibrido AND INTERCHEGADAS IS baixo THEN comutacao IS OCS;
+	RULE 6 : IF LAMBDA IS ALTA AND HURST IS hibrido AND INTERCHEGADAS IS baixo THEN comutacao IS OCS;
+	
+	RULE 7 : IF LAMBDA IS BAIXA AND HURST IS autossimilar AND INTERCHEGADAS IS baixo THEN comutacao IS OBS;
+	RULE 8 : IF LAMBDA IS MEDIA AND HURST IS autossimilar AND INTERCHEGADAS IS baixo THEN comutacao IS OCS;
+	RULE 9 : IF LAMBDA IS ALTA AND HURST IS autossimilar AND INTERCHEGADAS IS baixo THEN comutacao IS OCS;
+	
+	RULE 10 : IF LAMBDA IS BAIXA AND HURST IS poisson AND INTERCHEGADAS IS medio THEN comutacao IS OCS;
+	RULE 11 : IF LAMBDA IS MEDIA AND HURST IS poisson AND INTERCHEGADAS IS medio THEN comutacao IS OCS;
+	RULE 12 : IF LAMBDA IS ALTA AND HURST IS poisson AND INTERCHEGADAS IS medio THEN comutacao IS OCS;
+	
+	RULE 13 : IF LAMBDA IS BAIXA AND HURST IS hibrido AND INTERCHEGADAS IS medio THEN comutacao IS OBS;
+	RULE 14 : IF LAMBDA IS MEDIA AND HURST IS hibrido AND INTERCHEGADAS IS medio THEN comutacao IS OCS;
+	RULE 15 : IF LAMBDA IS ALTA AND HURST IS hibrido AND INTERCHEGADAS IS medio THEN comutacao IS OCS;
+	
+	RULE 16 : IF LAMBDA IS BAIXA AND HURST IS autossimilar AND INTERCHEGADAS IS medio THEN comutacao IS OBS;
+	RULE 17 : IF LAMBDA IS MEDIA AND HURST IS autossimilar AND INTERCHEGADAS IS medio THEN comutacao IS OCS;
+	RULE 18 : IF LAMBDA IS ALTA AND HURST IS autossimilar AND INTERCHEGADAS IS medio THEN comutacao IS OCS;
+	
+	RULE 19 : IF LAMBDA IS BAIXA AND HURST IS poisson AND INTERCHEGADAS IS alto THEN comutacao IS OBS;
+	RULE 20 : IF LAMBDA IS MEDIA AND HURST IS poisson AND INTERCHEGADAS IS alto THEN comutacao IS OBS;
+	RULE 21 : IF LAMBDA IS ALTA AND HURST IS poisson AND INTERCHEGADAS IS alto THEN comutacao IS OCS;
+	
+	RULE 22 : IF LAMBDA IS BAIXA AND HURST IS hibrido AND INTERCHEGADAS IS alto THEN comutacao IS OBS;
+	RULE 23 : IF LAMBDA IS MEDIA AND HURST IS hibrido AND INTERCHEGADAS IS alto THEN comutacao IS OBS;
+	RULE 24 : IF LAMBDA IS ALTA AND HURST IS hibrido AND INTERCHEGADAS IS alto THEN comutacao IS OBS;
+	
+	RULE 25 : IF LAMBDA IS BAIXA AND HURST IS autossimilar AND INTERCHEGADAS IS alto THEN comutacao IS OBS;
+	RULE 26 : IF LAMBDA IS MEDIA AND HURST IS autossimilar AND INTERCHEGADAS IS alto THEN comutacao IS OCS;
+	RULE 27 : IF LAMBDA IS ALTA AND HURST IS autossimilar AND INTERCHEGADAS IS alto THEN comutacao IS OCS;
+
+
+
+END_RULEBLOCK
+
+END_FUNCTION_BLOCK

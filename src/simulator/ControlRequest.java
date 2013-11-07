@@ -7,6 +7,8 @@ import routing.Route;
 import request.ReqDPPTwoStep;
 import network.*;
 import request.Request;
+import routing.RoutingControl;
+import traffic.FuzzyClassification;
 
 /**
  * Classe do tipo evento de requisição
@@ -83,13 +85,15 @@ public class ControlRequest
 
         
     //verifica se é necessário agendar a geração de novas requisições
-    if (this.mesh.getMeasurements().getNumGeneratedReq() < this.numMaxRequest)
-      //TODO Colocar o classificador AQUI ##########
-      if(true || this.getMesh().getRandomVar().nextBoolean())
+    if (this.mesh.getMeasurements().getNumGeneratedReq() < this.numMaxRequest){
+      //TODO: calcular realLambda para tráfegos não uniformes
+      //classifica tráfego para utilizar rajada ou circuito
+      double realLambda = getArrivedRate()/this.getMesh().getLinkList().size();
+      if(FuzzyClassification.classifyTraffic(realLambda, 0.5, getMesh().getRandomVar().negexp(realLambda)) == RoutingControl.BURST)
         request.scheduleNewArrivedRequest(e.getTime(),this);
       else
         request.scheduleNewArrivedRequest(e.getTime(),this.getArriveRequest());
-    
+    }
     boolean established = true;
     boolean rwa = true;
         
@@ -111,7 +115,7 @@ public class ControlRequest
                       
             //Caso conexão do pct cnt tenha sido feita
             if(established){
-                double finalizeControlTime = e.getTime() + getMesh().getRandomVar().negexp(holdRate) / 1000000; //TODO verificar proporção do hold time de controle
+                double finalizeControlTime = e.getTime() + getMesh().getRandomVar().negexp(holdRate) / 1000000; //TODO: verificar proporção do hold time de controle
                 this.eMachine.insert(new Event(controlChannel, this.finalizeRequest, finalizeControlTime));
                                 
                 //Realiza conexão de todos os pacotes intermediários

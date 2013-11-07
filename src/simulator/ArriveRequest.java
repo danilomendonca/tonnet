@@ -7,6 +7,8 @@ import routing.Route;
 import request.ReqDPPTwoStep;
 import network.*;
 import request.Request;
+import routing.RoutingControl;
+import traffic.FuzzyClassification;
 
 /**
  * Classe do tipo evento de requisição
@@ -85,14 +87,15 @@ public class ArriveRequest
     }
     
     //verifica se é necessário agendar a geração de novas requisições
-    if (this.mesh.getMeasurements().getNumGeneratedReq() <
-        this.numMaxRequest && !e.isBurstPackage())       
-        //TODO Colocar o classificador AQUI ##########
-        if(true || this.getMesh().getRandomVar().nextBoolean())
+    if (this.mesh.getMeasurements().getNumGeneratedReq() < this.numMaxRequest && !e.isBurstPackage()){
+        //TODO: calcular realLambda para tráfegos não uniformes
+        //classifica tráfego para utilizar rajada ou circuito
+        double realLambda = getArrivedRate()/this.getMesh().getLinkList().size();
+        if(FuzzyClassification.classifyTraffic(realLambda, 0.5, getMesh().getRandomVar().negexp(realLambda)) == RoutingControl.BURST)
           request.scheduleNewArrivedRequest(e.getTime(),this.getControlRequest());
         else
           request.scheduleNewArrivedRequest(e.getTime(),this);
-    
+    }
 
     if (e.isBurstPackage() || request.establish(request.RWA())) {
       this.mesh.getConnectionControl().addRequest(request);
@@ -117,7 +120,7 @@ public class ArriveRequest
         
         finalizeTime = e.getTime() + this.mesh.getRandomVar().negexp(this.holdRate);             
       }else
-        finalizeTime = e.getTime() + this.mesh.getRandomVar().negexp(this.holdRate)/100;             
+        finalizeTime = e.getTime() + this.mesh.getRandomVar().negexp(this.holdRate)/100; //TODO: Qual valor???           
       
         this.eMachine.insert(new Event(e.getObject(), this.finalizeRequest,
                                      finalizeTime));

@@ -58,7 +58,7 @@ public class AdaptiveSRTSB
         return establish;
     }
     
-    protected void establishConnection() {
+    protected boolean establishConnection() {
         //rota primaria
         for (int i = 0; i < this.waveList.length - 1; i++) {
             if (this.waveList[i] != this.waveList[i + 1]) {
@@ -82,6 +82,7 @@ public class AdaptiveSRTSB
             
             this.routeBackup.useWavelength(this.waveListRBackup);
         }
+        return true; //TODO verify
     }
     
     public void tearDownConnection() {

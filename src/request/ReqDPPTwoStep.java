@@ -80,7 +80,8 @@ public class ReqDPPTwoStep
      *Define que os comprimentos de onda alocados ficam ocupados nos
      *enlaces das rotas primária e segundária utilizadas pela requisição.
      */
-    protected void establishConnection() {
+    @Override
+    protected boolean establishConnection() {
         //rota primaria
         for (int i = 0; i < this.waveList.length - 1; i++) {
             if (this.waveList[i] != this.waveList[i + 1]) {
@@ -102,7 +103,7 @@ public class ReqDPPTwoStep
         }
         
         this.routeBackup.useWavelength(this.waveListRBackup);
-        
+        return true; //TODO Verify        
     }
     
 //------------------------------------------------------------------------------

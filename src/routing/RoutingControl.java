@@ -8,6 +8,10 @@ import network.Node;
 public class RoutingControl {
   private int routingType;
   private RoutingMother routingMother;
+  
+  public static final char BURST = 'B';
+  public static final char CIRCUIT = 'C';
+  public static final char NONE = 'N';
 
   public RoutingControl(Vector<Node> nodeList, Vector<Link> linkList,
       Vector<Pair> pairList, int routingType) {
