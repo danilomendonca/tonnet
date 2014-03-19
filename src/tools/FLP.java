@@ -8,6 +8,7 @@ import root.SimulationFileController;
 import root.NodeFileController;
 import measurement.*;
 import root.Printer;
+import traffic.FuzzyClassification;
 
 public class FLP {
   private String path;
@@ -289,6 +290,7 @@ public class FLP {
       Mesh mesh = new Mesh(NodeFileController.readFile(net, conversionType)[0],
                            simulacao.getWAAlgorithm(), pairs, 0, 0);//TODO verificar último parâmetro de tipo de tráfego
       mesh.setConversionType(conversionType.get(0));
+      mesh.setFuzzyClassification(new FuzzyClassification("src/traffic/classification.fcl"));
       s.setMesh(mesh);
       allSimulations.lastElement().add(s);
     }

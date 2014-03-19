@@ -97,7 +97,7 @@ public class ArriveRequest
             float hurstMin = this.mesh.getMeasurements().getHurstMin();
             float hurstMax = this.mesh.getMeasurements().getHurstMax();
             float hurst = ((float)this.mesh.getRandomVar().randInt((int)(hurstMin * 100), (int)(hurstMax * 100))) / 100;
-            if(FuzzyClassification.classifyTraffic(realLambda, hurst, getMesh().getRandomVar().negexp(realLambda)) == RoutingControl.BURST){
+            if(this.mesh.getFuzzyClassificator().classifyTraffic(realLambda, hurst, getMesh().getRandomVar().negexp(realLambda)) == RoutingControl.BURST){
                 request.scheduleNewArrivedRequest(e.getTime(),this.getControlRequest());
             }else{
                 request.scheduleNewArrivedRequest(e.getTime(),this);

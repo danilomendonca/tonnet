@@ -13,11 +13,19 @@ import routing.RoutingControl;
  */
 public class FuzzyClassification {   
     
+    FIS fis;
+    
     public static void main(String[] args) throws Exception {
-       classifyTraffic(9, 0.7, 3);
+       //classifyTraffic(9, 0.7, 3);
+    }
+
+    public FuzzyClassification(String fileName) {
+        fis = FIS.load(fileName,true);
     }
     
-    public static char classifyTraffic(double lambda, double hurst, double interarrival){
+    
+    
+    public char classifyTraffic(double lambda, double hurst, double interarrival){
          // Load from 'FCL' file
         String fileName = "src/traffic/classification.fcl";
         FIS fis = FIS.load(fileName,true);
@@ -43,7 +51,7 @@ public class FuzzyClassification {
         double out = fis.getVariable("comutacao").getLatestDefuzzifiedValue();
         
         // Print ruleSet
-        System.out.println(out);
+        //System.out.println(out);
         
         if(out <= 0.6)
             return RoutingControl.BURST;

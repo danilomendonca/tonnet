@@ -26,6 +26,7 @@ public class Mesh {
   public int countMoreOneFailure = 0;
   // teste fim .............
   public Vector<Link> linkListFaildAtMoment;
+  public FuzzyClassification fuzzyClassification;
 
   public Mesh(Vector<Node> nodeList, String algorithm, String pairFile,int trafficType, int switchingType) {
     this.nodeList = nodeList;
@@ -230,6 +231,15 @@ public class Mesh {
 //------------------------------------------------------------------------------
   public RoutingControl getRoutingControl() {
     return this.routingControl;
+  }
+  
+  //----------------------------------------------------------------------------
+  public FuzzyClassification getFuzzyClassificator(){
+      return this.fuzzyClassification;
+  }
+  
+  public void setFuzzyClassification(FuzzyClassification fuzzyClassificator){
+      this.fuzzyClassification = fuzzyClassificator;
   }
 
 //------------------------------------------------------------------------------

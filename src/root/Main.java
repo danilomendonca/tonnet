@@ -4,6 +4,7 @@ import network.*;
 import java.util.*;
 import java.io.FileNotFoundException;
 import simulator.*;
+import traffic.FuzzyClassification;
 
 public class Main {
   /**
@@ -89,6 +90,7 @@ public class Main {
            Mesh mesh = new Mesh(NodeFileController.readFile(net,conversionType)[0],
                              simulacao.getWAAlgorithm(), pairs,(Integer)config.get(3), (Integer)config.get(4));
            mesh.setConversionType(conversionType.get(0));
+           mesh.setFuzzyClassification(new FuzzyClassification("src/traffic/classification.fcl"));
            s.setMesh(mesh);
            allSimulations.lastElement().add(s);
         }

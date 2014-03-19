@@ -49,6 +49,7 @@ import simulator.Simulation;
 import simulator.SimulationManagement;
 import tools.Modelator;
 import tools.RingModel;
+import traffic.FuzzyClassification;
 
 public class Main extends javax.swing.JFrame {
 
@@ -2320,6 +2321,7 @@ public class Main extends javax.swing.JFrame {
                 Mesh mesh = new Mesh(bothNodes[0],
                         simulacao.getWAAlgorithm(), pairs,(Integer)config.get(3), (Integer)config.get(4));
                 mesh.setConversionType(conversionType.get(0));
+                mesh.setFuzzyClassification(new FuzzyClassification("src/traffic/classification.fcl"));
                 s.setMesh(mesh);
                 allSimulations.lastElement().add(s);
                 

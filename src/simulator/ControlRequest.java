@@ -1,5 +1,6 @@
 package simulator;
 
+import gui.Constants;
 import java.util.Arrays;
 import java.util.Vector;
 import request.RequestMother;
@@ -89,13 +90,20 @@ public class ControlRequest
       //TODO: calcular realLambda para tráfegos não uniformes
       //classifica tráfego para utilizar rajada ou circuito
       double realLambda = getArrivedRate()/this.getMesh().getLinkList().size();
-      float hurstMin = this.mesh.getMeasurements().getHurstMin();
-      float hurstMax = this.mesh.getMeasurements().getHurstMax();
-      float hurst = this.mesh.getRandomVar().randInt((int)(hurstMin * 100), (int)(hurstMax * 100)) / 100;
-      if(FuzzyClassification.classifyTraffic(realLambda, hurst, getMesh().getRandomVar().negexp(realLambda)) == RoutingControl.BURST)
-        request.scheduleNewArrivedRequest(e.getTime(),this);
-      else
-        request.scheduleNewArrivedRequest(e.getTime(),this.getArriveRequest());
+      int switchingType = getMesh().getMeasurements().getSwitchingType();
+      if(switchingType == Constants.SWITCHING_HYBRID){
+        float hurstMin = this.mesh.getMeasurements().getHurstMin();
+        float hurstMax = this.mesh.getMeasurements().getHurstMax();
+        float hurst = ((float)this.mesh.getRandomVar().randInt((int)(hurstMin * 100), (int)(hurstMax * 100))) / 100;
+        if(this.mesh.getFuzzyClassificator().classifyTraffic(realLambda, hurst, getMesh().getRandomVar().negexp(realLambda)) == RoutingControl.BURST)
+          request.scheduleNewArrivedRequest(e.getTime(),this);
+        else
+          request.scheduleNewArrivedRequest(e.getTime(),this.getArriveRequest());
+      }else if(switchingType ==  Constants.SWITCHING_BURST){
+            request.scheduleNewArrivedRequest(e.getTime(),this);                        
+      }else if(switchingType == Constants.SWITCHING_CIRCUIT){
+            request.scheduleNewArrivedRequest(e.getTime(),this.getArriveRequest());
+      }        
     }
     boolean established = true;
     boolean rwa = true;

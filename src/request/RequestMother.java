@@ -147,9 +147,9 @@ public abstract class RequestMother {
         r.setRoute(route);
         r.mesh.setActualLinklist(route.getLinkList());
         
-        e = new Event(r, arrive, time + deltaTime + finalizeTime * (i + 1));     
+        e = new Event(r, arrive, time + deltaTime + finalizeTime * (i));     
         e.setBurstPackage(true);
-        finalizeTime = arrive.getMesh().getRandomVar().negexp(arrive.getHoldRate());
+        finalizeTime = arrive.getMesh().getRandomVar().negexp(arrive.getHoldRate()) / nosRota.size();
         e.setFinalizeTime(finalizeTime);
                 
         arrive.getEMachine().insert(e);        

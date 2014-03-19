@@ -9,6 +9,7 @@ import root.SimulationFileController;
 import simulator.Simulation;
 import simulator.SimulationManagement;
 import simulator.Validate;
+import traffic.FuzzyClassification;
 
 public class JanelaValidacao extends javax.swing.JFrame implements Runnable {
     
@@ -171,6 +172,7 @@ public class JanelaValidacao extends javax.swing.JFrame implements Runnable {
            Mesh mesh = new Mesh(NodeFileController.readFile(net,conversionType)[0],
                              simulacao.getWAAlgorithm(), pairs,(Integer)config.get(3), (Integer)config.get(4));
            mesh.setConversionType(conversionType.get(0));
+           mesh.setFuzzyClassification(new FuzzyClassification("src/traffic/classification.fcl"));
            s.setMesh(mesh);
            allSimulations.lastElement().add(s);
         }
