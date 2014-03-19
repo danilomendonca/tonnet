@@ -13,6 +13,8 @@ public class SimulationFileController {
   public static Simulation readFile(String fileName, Vector config) {
     double holdRate = 1;
     double arrivedRate = 1;
+    float hurstMin = 0.5f;
+    float hurstMax = 0.5f;
     int numberReq = 1;
     int simulationType = 1;
     String wAssing = "";
@@ -33,6 +35,8 @@ public class SimulationFileController {
 
       holdRate = Double.parseDouble(line.nextToken());
       arrivedRate = Double.parseDouble(line.nextToken());
+      hurstMin = Float.parseFloat(line.nextToken());
+      hurstMax = Float.parseFloat(line.nextToken());
       numberReq = Integer.valueOf(line.nextToken());
       simulationType = Integer.valueOf(line.nextToken());
       wAssing = line.nextToken();
@@ -46,10 +50,13 @@ public class SimulationFileController {
       //replicações
       config.add(Integer.valueOf(line.nextToken()));
 
-      //LINE 3-tipo de trafego
+      //LINE 4-tipo de trafego
       line = new StringTokenizer(in.readLine(), ";\t");
       config.add(Integer.valueOf(line.nextToken()));
 
+      //LINE 4-tipo de comutação      
+      config.add(Integer.valueOf(line.nextToken()));
+      
       //LINE 5-nivel de confiança
       line = new StringTokenizer(in.readLine(), ";\t");
       config.add(Double.parseDouble(line.nextToken()));
@@ -75,7 +82,7 @@ public class SimulationFileController {
     System.out.println("numberReq = " + numberReq);
     System.out.println("simulationType = " + simulationType);
     System.out.println("wAssing = " + wAssing);
-    return new Simulation(holdRate, arrivedRate, numberReq, simulationType,
+    return new Simulation(holdRate, arrivedRate, hurstMin, hurstMax, numberReq, simulationType,
                           wAssing);
   }
 

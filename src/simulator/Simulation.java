@@ -6,6 +6,8 @@ import measurement.*;
 public class Simulation {
 
   private double arrivedRate;
+  private float hurstMin;
+  private float hurstMax;
   private int numReply;
   private double holdRate;
   private int totalNumberOfRequests;
@@ -23,11 +25,14 @@ public class Simulation {
    * @param wAssing String
    */
   public Simulation(double holdRate, double arrivedRate,
+                    float hurstMin,
+                    float hurstMax,
                     int numberReq,
                     int simulationType, String wAssing) {
     this.holdRate = holdRate;
     this.arrivedRate = arrivedRate;
-    this.numReply = numReply;
+    this.hurstMin = hurstMin;
+    this.hurstMax = hurstMax;
     this.totalNumberOfRequests = numberReq;
     this.simulationType = simulationType;
     this.wAAlgorithm = wAssing;
@@ -37,6 +42,8 @@ public class Simulation {
   public void setMesh(Mesh mesh) {
     this.mesh = mesh;
     this.mesh.getMeasurements().setArrivedRate(this.arrivedRate);
+    this.mesh.getMeasurements().setHurstMin(this.hurstMin);
+    this.mesh.getMeasurements().setHurstMax(this.hurstMax);
     this.mesh.getMeasurements().setReplication(this.numReply);
   }
 
@@ -56,7 +63,15 @@ public class Simulation {
   public double getArrivedRate() {
     return this.arrivedRate;
   }
-//------------------------------------------------------------------------------
+  //------------------------------------------------------------------------------
+  public float getHurstMin(){
+      return this.hurstMin;
+  }
+  //------------------------------------------------------------------------------
+  public float getHurstMax(){
+      return this.hurstMax;
+  }
+  //------------------------------------------------------------------------------
   public double getHoldRate() {
     return this.holdRate;
   }

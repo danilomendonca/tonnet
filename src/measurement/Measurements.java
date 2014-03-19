@@ -11,6 +11,18 @@ public class Measurements {
    */
   private double arrivedRate;
   /**
+   * hurst mínimo
+   */
+  private float hurstMin;
+  /**
+   * hurst máximo
+   */
+  private float hurstMax;
+  /**
+   * tipo de comutação
+   */
+  private int switchingType;
+  /**
    * numero da replicação
    */
   private int replication;
@@ -120,16 +132,49 @@ public class Measurements {
   public void setReplication(int replication) {
     this.replication = replication;
   }
+  
+    //------------------------------------------------------------------------------
+  public int getSwitchingType() {
+    return this.switchingType;
+  }
+
+  //------------------------------------------------------------------------------
+  public void setSwitchingType(int switchingType) {
+    this.switchingType = switchingType;
+  }
+
 
   //------------------------------------------------------------------------------
 
   public double getArrivedRate() {
     return this.arrivedRate;
   }
+  
+  //------------------------------------------------------------------------------
+
+  public float getHurstMin() {
+    return this.hurstMin;
+  }
+  
+  //------------------------------------------------------------------------------
+
+  public float getHurstMax() {
+    return this.hurstMax;
+  }
 
   //------------------------------------------------------------------------------
   public void setArrivedRate(double arrivedRate) {
     this.arrivedRate = arrivedRate;
+  }
+  
+  //------------------------------------------------------------------------------
+  public void setHurstMin(float hurst) {
+    this.hurstMin = hurst;
+  }
+  
+  //------------------------------------------------------------------------------
+  public void setHurstMax(float hurst) {
+    this.hurstMax = hurst;
   }
 
   //------------------------------------------------------------------------------

@@ -2,12 +2,11 @@ package network;
 
 import java.io.*;
 import java.util.*;
-
 import measurement.*;
 import routing.*;
 import simulator.*;
-import wavelengthAssignment.*;
 import traffic.*;
+import wavelengthAssignment.*;
 
 public class Mesh {
 
@@ -28,7 +27,7 @@ public class Mesh {
   // teste fim .............
   public Vector<Link> linkListFaildAtMoment;
 
-  public Mesh(Vector<Node> nodeList, String algorithm, String pairFile,int trafficType) {
+  public Mesh(Vector<Node> nodeList, String algorithm, String pairFile,int trafficType, int switchingType) {
     this.nodeList = nodeList;
     this.waveAssignControl = new WaveAssignControl(this, algorithm);
     this.randomVar = new RandGenerator();

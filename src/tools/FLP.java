@@ -50,13 +50,13 @@ public class FLP {
    * @param inc int
    * @param M int
    */
-  public void run(int flMin, int flMax, int inc, int M) {
+  public void run(int flMin, int flMax, int inc, float hurstMin, float hurstMax, int M) {
     //E1
-    this.firstLoad = this.binarySearchFirstLoad(flMin, flMax, inc, M);
+    this.firstLoad = this.binarySearchFirstLoad(flMin, flMax, inc, M, hurstMin, hurstMax);
 
     //E2
     Vector<Measurements> measurements = new Vector<Measurements> ();
-    measurements = this.runSimulation(firstLoad, this.replyForSecStep);
+    measurements = this.runSimulation(firstLoad, hurstMin, hurstMax, this.replyForSecStep);
 
     Vector<NodeMeasure> nodeMList = measurements.get(0).getListNodeMeasure();
     //percorre os nós
@@ -181,7 +181,7 @@ public class FLP {
    * @param M int M
    * @return int carga
    */
-  private int binarySearchFirstLoad(int flMin, int flMax, int inc, int M) {
+  private int binarySearchFirstLoad(int flMin, int flMax, int inc, int M, float hurstMin, float hurstMax) {
     int loadArray[] = this.montaLoadArray(flMin, flMax, inc);
     double valueArray[] = new double[loadArray.length];
 
@@ -194,7 +194,7 @@ public class FLP {
       indiceMeio = (esq + dir) / 2;
       System.out.println("pivo=" + loadArray[indiceMeio]);
       //simula e retorna pico para a carga i
-      valueArray[indiceMeio] = computeValueN(loadArray[indiceMeio]);
+      valueArray[indiceMeio] = computeValueN(loadArray[indiceMeio], hurstMin, hurstMax);
       System.out.println("somaWcMax=" + valueArray[indiceMeio]);
       if (valueArray[indiceMeio] == M) {
         return loadArray[indiceMeio];
@@ -236,9 +236,9 @@ public class FLP {
    * @param arriveRate int
    * @return int
    */
-  private double computeValueN(int arriveRate) {
+  private double computeValueN(int arriveRate, float hurstMin, float hurstMax) {
     Vector<Measurements> m = new Vector<Measurements> ();
-    m = this.runSimulation(arriveRate, this.replyForComputeFL);
+    m = this.runSimulation(arriveRate, hurstMin, hurstMax, this.replyForComputeFL);
 
     int sum = 0;
     for (int i = 0; i < this.replyForComputeFL; i++) {
@@ -256,7 +256,7 @@ public class FLP {
    * @param replyNumber int
    * @return Vector Measurements
    */
-  private Vector<Measurements> runSimulation(int arriveRate, int replyNumber) {
+  private Vector<Measurements> runSimulation(int arriveRate, float hurstMin, float hurstMax, int replyNumber) {
 
     String net = "files/" + this.path + "/network.net";
     String sim = "files/" + this.path + "/simulation.sim";
@@ -277,6 +277,8 @@ public class FLP {
     for (int j = 0; j < replyNumber; j++) {
       Simulation s = new Simulation(simulacao.getHoldRate(),
                                     arriveRate,
+                                    hurstMin,
+                                    hurstMax,
                                     simulacao.getTotalNumberOfRequest(),
                                     simulacao.getSimulationType(),
                                     simulacao.getWAAlgorithm());
@@ -285,7 +287,7 @@ public class FLP {
       Vector<Integer> conversionType = new Vector<Integer> (1);
 
       Mesh mesh = new Mesh(NodeFileController.readFile(net, conversionType)[0],
-                           simulacao.getWAAlgorithm(), pairs, 0);
+                           simulacao.getWAAlgorithm(), pairs, 0, 0);//TODO verificar último parâmetro de tipo de tráfego
       mesh.setConversionType(conversionType.get(0));
       s.setMesh(mesh);
       allSimulations.lastElement().add(s);

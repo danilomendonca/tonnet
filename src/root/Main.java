@@ -46,7 +46,7 @@ public class Main {
       String res = "files/" + args[0] + "/results.res";
       String pairs = "files/" + args[0] +"/pairs.prs";
 
-      Vector config = new Vector(3);
+      Vector config = new Vector(4);
       Simulation simulacao = SimulationFileController.readFile(sim, config); //parametros da simulacao
 
       // double incLoad = 150; //incremento da carga
@@ -68,6 +68,8 @@ public class Main {
        */
       Vector<Vector<Simulation>> allSimulations = new Vector<Vector<Simulation>> ();
       double newArriveRate = simulacao.getArrivedRate();
+      float newHurstMin = simulacao.getHurstMin();
+      float newHurstMax = simulacao.getHurstMax();
       //loop para geração de todos os pontos
       for (int i = 0; i < points; i++) {
         allSimulations.add(new Vector<Simulation> ());
@@ -75,6 +77,8 @@ public class Main {
         for (int j = 0; j < replyNumber; j++) {
           Simulation s = new Simulation(simulacao.getHoldRate(),
                                         newArriveRate,
+                                        newHurstMin,
+                                        newHurstMax,
                                         simulacao.getTotalNumberOfRequest(),
                                         simulacao.getSimulationType(),
                                         simulacao.getWAAlgorithm());
@@ -83,7 +87,7 @@ public class Main {
            Vector<Integer> conversionType=new Vector<Integer>(1);
 
            Mesh mesh = new Mesh(NodeFileController.readFile(net,conversionType)[0],
-                             simulacao.getWAAlgorithm(), pairs,(Integer)config.get(3));
+                             simulacao.getWAAlgorithm(), pairs,(Integer)config.get(3), (Integer)config.get(4));
            mesh.setConversionType(conversionType.get(0));
            s.setMesh(mesh);
            allSimulations.lastElement().add(s);

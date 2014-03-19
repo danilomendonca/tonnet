@@ -23,6 +23,7 @@ import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JSlider;
 import javax.swing.JTextArea;
 import javax.swing.JToggleButton;
 import javax.swing.SpinnerNumberModel;
@@ -43,6 +44,7 @@ import org.jdesktop.swingx.JXMapKit.DefaultProviders;
 import org.jdesktop.swingx.mapviewer.GeoPosition;
 import root.NodeFileController;
 import root.SimulationFileController;
+import simulator.RandGenerator;
 import simulator.Simulation;
 import simulator.SimulationManagement;
 import tools.Modelator;
@@ -107,6 +109,16 @@ public class Main extends javax.swing.JFrame {
         jRadioButtonTNUNo = new javax.swing.JRadioButton();
         jScrollPaneTrafego = new javax.swing.JScrollPane();
         jTextAreaTrafego = new javax.swing.JTextArea();
+        jLabelIncremento1 = new javax.swing.JLabel();
+        jComboBoxSwitchingType = new javax.swing.JComboBox();
+        jSliderTrafficSample = new javax.swing.JSlider();
+        jLabelIncremento2 = new javax.swing.JLabel();
+        jLabelIncremento3 = new javax.swing.JLabel();
+        jLabelIncremento4 = new javax.swing.JLabel();
+        jSliderTrafficMaxHolder = new javax.swing.JSlider();
+        jTextFieldHurstMin = new javax.swing.JTextField();
+        jLabelIncremento5 = new javax.swing.JLabel();
+        jTextFieldHurstMax = new javax.swing.JTextField();
         jPanelDir = new javax.swing.JPanel();
         jScrollPaneTrafegoPar = new javax.swing.JScrollPane();
         jTableTrafegoPar = new javax.swing.JTable();
@@ -288,7 +300,7 @@ public class Main extends javax.swing.JFrame {
                 .add(jToggleButtonMap, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 33, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jToggleButtonMapLock)
-                .addContainerGap(225, Short.MAX_VALUE))
+                .addContainerGap(316, Short.MAX_VALUE))
         );
 
         jPanelDesenho.setBackground(new java.awt.Color(255, 255, 255));
@@ -365,11 +377,11 @@ public class Main extends javax.swing.JFrame {
         jPanelDesenhoTop.setLayout(jPanelDesenhoTopLayout);
         jPanelDesenhoTopLayout.setHorizontalGroup(
             jPanelDesenhoTopLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jScrollPaneTopologia, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 1062, Short.MAX_VALUE)
+            .add(jScrollPaneTopologia, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 1092, Short.MAX_VALUE)
         );
         jPanelDesenhoTopLayout.setVerticalGroup(
             jPanelDesenhoTopLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jScrollPaneTopologia, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
+            .add(jScrollPaneTopologia, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
         );
 
         jPanelDesenho.add(jPanelDesenhoTop);
@@ -381,11 +393,11 @@ public class Main extends javax.swing.JFrame {
             .add(jPanelTopologiaLayout.createSequentialGroup()
                 .add(jPanelFerramentas, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanelDesenho, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 1066, Short.MAX_VALUE))
+                .add(jPanelDesenho, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 1096, Short.MAX_VALUE))
         );
         jPanelTopologiaLayout.setVerticalGroup(
             jPanelTopologiaLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanelDesenho, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanelDesenho, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
             .add(jPanelFerramentas, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -396,11 +408,16 @@ public class Main extends javax.swing.JFrame {
         jPanelEsq.setBackground(new java.awt.Color(255, 255, 255));
         jPanelEsq.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        jLabelIntensInicial.setText("Intensidade Inicial:");
+        jLabelIntensInicial.setText("Intensidade Inicial (E):");
 
-        jLabelIncremento.setText("Incremento da Intensidade:");
+        jLabelIncremento.setText("Incremento da Intensidade (E):");
 
         jTextFieldintensInicial.setText("0");
+        jTextFieldintensInicial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldintensInicialActionPerformed(evt);
+            }
+        });
 
         jTextFieldIncremento.setText("0");
 
@@ -437,13 +454,68 @@ public class Main extends javax.swing.JFrame {
         jRadioButtonTNUNo.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jRadioButtonTNUNo.setEnabled(false);
 
-        jTextAreaTrafego.setColumns(20);
         jTextAreaTrafego.setEditable(false);
+        jTextAreaTrafego.setColumns(20);
         jTextAreaTrafego.setLineWrap(true);
         jTextAreaTrafego.setRows(5);
         jTextAreaTrafego.setText("Tráfego Uniforme.");
         jTextAreaTrafego.setWrapStyleWord(true);
         jScrollPaneTrafego.setViewportView(jTextAreaTrafego);
+
+        jLabelIncremento1.setText("Comutação:");
+
+        jComboBoxSwitchingType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Híbrido", "Rajada", "Circuito" }));
+        jComboBoxSwitchingType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxSwitchingTypeActionPerformed(evt);
+            }
+        });
+        jComboBoxSwitchingType.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jComboBoxSwitchingTypePropertyChange(evt);
+            }
+        });
+
+        jSliderTrafficSample.setMajorTickSpacing(1);
+        jSliderTrafficSample.setMinorTickSpacing(1);
+        jSliderTrafficSample.setValue(10);
+        jSliderTrafficSample.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSliderTrafficSampleStateChanged(evt);
+            }
+        });
+
+        jLabelIncremento2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabelIncremento2.setText("Escala [0 - 1ms]:");
+
+        jLabelIncremento3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabelIncremento3.setText("Hurst Min [0 - 1]:");
+
+        jLabelIncremento4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabelIncremento4.setText("α max [0 - 10]:");
+
+        jSliderTrafficMaxHolder.setMaximum(200);
+        jSliderTrafficMaxHolder.setMinorTickSpacing(1);
+        jSliderTrafficMaxHolder.setToolTipText("");
+        jSliderTrafficMaxHolder.setValue(0);
+        jSliderTrafficMaxHolder.setEnabled(false);
+
+        jTextFieldHurstMin.setText("0");
+        jTextFieldHurstMin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldHurstMinActionPerformed(evt);
+            }
+        });
+
+        jLabelIncremento5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabelIncremento5.setText("Hurst Max [0 - 1]:");
+
+        jTextFieldHurstMax.setText("0");
+        jTextFieldHurstMax.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldHurstMaxActionPerformed(evt);
+            }
+        });
 
         org.jdesktop.layout.GroupLayout jPanelEsqLayout = new org.jdesktop.layout.GroupLayout(jPanelEsq);
         jPanelEsq.setLayout(jPanelEsqLayout);
@@ -452,34 +524,48 @@ public class Main extends javax.swing.JFrame {
             .add(jPanelEsqLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanelEsqLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanelEsqLayout.createSequentialGroup()
-                        .add(20, 20, 20)
-                        .add(jPanelEsqLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jLabelIncremento)
-                            .add(jLabelIntensInicial))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 28, Short.MAX_VALUE)
-                        .add(jPanelEsqLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                            .add(jTextFieldIncremento)
-                            .add(jTextFieldintensInicial, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanelEsqLayout.createSequentialGroup()
+                        .add(jLabelIncremento3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .add(74, 74, 74)
+                        .add(jTextFieldHurstMin, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .add(jPanelEsqLayout.createSequentialGroup()
-                        .add(jLabelGerTrafego, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
-                        .add(20, 20, 20))
+                        .add(jPanelEsqLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jPanelEsqLayout.createSequentialGroup()
+                                .add(jPanelEsqLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(jLabelIncremento)
+                                    .add(jLabelIntensInicial))
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .add(jPanelEsqLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                                    .add(jTextFieldIncremento, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                                    .add(jTextFieldintensInicial)))
+                            .add(jPanelEsqLayout.createSequentialGroup()
+                                .add(jLabelIncremento1)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(jComboBoxSwitchingType, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .add(jSliderTrafficSample, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabelIncremento2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .add(jPanelEsqLayout.createSequentialGroup()
+                                .add(jLabelIncremento5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(jTextFieldHurstMax, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabelIncremento4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jSliderTrafficMaxHolder, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanelEsqLayout.createSequentialGroup()
+                        .add(jLabelGerTrafego, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .add(8, 8, 8))
                     .add(jPanelEsqLayout.createSequentialGroup()
                         .add(jPanelEsqLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jRadioButtonUniforme)
-                            .add(jRadioButtonNaoUniforme))
-                        .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .add(jPanelEsqLayout.createSequentialGroup()
-                .add(58, 58, 58)
-                .add(jPanelEsqLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jRadioButtonTNUNo)
-                    .add(jRadioButtonTNUPar))
-                .addContainerGap(141, Short.MAX_VALUE))
-            .add(jPanelEsqLayout.createSequentialGroup()
-                .addContainerGap()
-                .add(jScrollPaneTrafego, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
-                .addContainerGap())
+                            .add(jRadioButtonNaoUniforme)
+                            .add(jPanelEsqLayout.createSequentialGroup()
+                                .add(46, 46, 46)
+                                .add(jPanelEsqLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(jRadioButtonTNUNo)
+                                    .add(jRadioButtonTNUPar))))
+                        .add(159, 159, 159))
+                    .add(jScrollPaneTrafego)))
         );
         jPanelEsqLayout.setVerticalGroup(
             jPanelEsqLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -492,7 +578,28 @@ public class Main extends javax.swing.JFrame {
                 .add(jPanelEsqLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jTextFieldIncremento, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jLabelIncremento))
-                .add(19, 19, 19)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jPanelEsqLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(jLabelIncremento1)
+                    .add(jComboBoxSwitchingType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jLabelIncremento2)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jSliderTrafficSample, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jPanelEsqLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jLabelIncremento3)
+                    .add(jPanelEsqLayout.createSequentialGroup()
+                        .add(jTextFieldHurstMin, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jPanelEsqLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jTextFieldHurstMax, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(jLabelIncremento5))))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jLabelIncremento4)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jSliderTrafficMaxHolder, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jLabelGerTrafego)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jRadioButtonUniforme)
@@ -504,7 +611,7 @@ public class Main extends javax.swing.JFrame {
                 .add(jRadioButtonTNUNo)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jScrollPaneTrafego, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 114, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(227, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         jPanelDir.setBackground(new java.awt.Color(255, 255, 255));
@@ -540,11 +647,13 @@ public class Main extends javax.swing.JFrame {
         jPanelDir.setLayout(jPanelDirLayout);
         jPanelDirLayout.setHorizontalGroup(
             jPanelDirLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jScrollPaneTrafegoPar, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 840, Short.MAX_VALUE)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanelDirLayout.createSequentialGroup()
+                .add(0, 0, Short.MAX_VALUE)
+                .add(jScrollPaneTrafegoPar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 869, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
         );
         jPanelDirLayout.setVerticalGroup(
             jPanelDirLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jScrollPaneTrafegoPar, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
+            .add(jScrollPaneTrafegoPar)
         );
 
         org.jdesktop.layout.GroupLayout jPanelTrafegoLayout = new org.jdesktop.layout.GroupLayout(jPanelTrafego);
@@ -554,7 +663,7 @@ public class Main extends javax.swing.JFrame {
             .add(jPanelTrafegoLayout.createSequentialGroup()
                 .add(jPanelEsq, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanelDir, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .add(jPanelDir, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 848, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
         );
         jPanelTrafegoLayout.setVerticalGroup(
             jPanelTrafegoLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -736,7 +845,7 @@ public class Main extends javax.swing.JFrame {
                 .add(jCheckBoxSobrevivencia)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanelSobrevivencia, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(225, Short.MAX_VALUE))
+                .addContainerGap(342, Short.MAX_VALUE))
         );
 
         jTabbedPaneTelas.addTab("RWA e Sobrevivência", jPanelRWASobrevivencia);
@@ -870,7 +979,7 @@ public class Main extends javax.swing.JFrame {
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanelConversoresLayout.createSequentialGroup()
                         .add(jPanelPosConversores, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(202, 202, 202)))
-                .add(0, 284, Short.MAX_VALUE))
+                .add(0, 307, Short.MAX_VALUE))
         );
         jPanelConversoresLayout.setVerticalGroup(
             jPanelConversoresLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -883,7 +992,7 @@ public class Main extends javax.swing.JFrame {
                 .add(jLabelPosConversores)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanelPosConversores, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(245, Short.MAX_VALUE))
+                .addContainerGap(362, Short.MAX_VALUE))
         );
 
         jTabbedPaneTelas.addTab("Conversores", jPanelConversores);
@@ -962,14 +1071,14 @@ public class Main extends javax.swing.JFrame {
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanelParametrosSimulacaoLayout.createSequentialGroup()
                 .add(355, 355, 355)
                 .add(jPanelParametrosSim, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(514, Short.MAX_VALUE))
+                .addContainerGap(537, Short.MAX_VALUE))
         );
         jPanelParametrosSimulacaoLayout.setVerticalGroup(
             jPanelParametrosSimulacaoLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanelParametrosSimulacaoLayout.createSequentialGroup()
                 .add(48, 48, 48)
                 .add(jPanelParametrosSim, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(304, Short.MAX_VALUE))
+                .addContainerGap(421, Short.MAX_VALUE))
         );
 
         jTabbedPaneTelas.addTab("Parâmetros de Simulação", jPanelParametrosSimulacao);
@@ -1055,14 +1164,14 @@ public class Main extends javax.swing.JFrame {
             .add(jPanelAgendaSimulacoesLayout.createSequentialGroup()
                 .add(316, 316, 316)
                 .add(jPanelAgenda, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(540, Short.MAX_VALUE))
+                .addContainerGap(566, Short.MAX_VALUE))
         );
         jPanelAgendaSimulacoesLayout.setVerticalGroup(
             jPanelAgendaSimulacoesLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanelAgendaSimulacoesLayout.createSequentialGroup()
                 .add(44, 44, 44)
                 .add(jPanelAgenda, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(276, Short.MAX_VALUE))
+                .addContainerGap(393, Short.MAX_VALUE))
         );
 
         jTabbedPaneTelas.addTab("Agenda de Simulações", jPanelAgendaSimulacoes);
@@ -1127,22 +1236,22 @@ public class Main extends javax.swing.JFrame {
             .add(jPanelResultadosLayout.createSequentialGroup()
                 .add(jScrollPaneMetricas, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 235, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(76, 76, 76)
-                .add(jToggleButtonTab, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                .add(jToggleButtonTab, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
                 .add(35, 35, 35)
                 .add(jBLimparHistorico)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jBMaximizar)
                 .add(109, 109, 109)
-                .add(jToggleButtonGraf, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                .add(jToggleButtonGraf, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
                 .add(52, 52, 52))
             .add(jPanelResultadosLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(jPanelResultadosLayout.createSequentialGroup()
                     .add(277, 277, 277)
-                    .add(jScrollPaneGraf, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)))
+                    .add(jScrollPaneGraf, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 916, Short.MAX_VALUE)))
         );
         jPanelResultadosLayout.setVerticalGroup(
             jPanelResultadosLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jScrollPaneMetricas, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
+            .add(jScrollPaneMetricas, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
             .add(jPanelResultadosLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanelResultadosLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
@@ -1154,11 +1263,11 @@ public class Main extends javax.swing.JFrame {
                     .add(jPanelResultadosLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                         .add(jBMaximizar)
                         .add(jBLimparHistorico)))
-                .addContainerGap(491, Short.MAX_VALUE))
+                .addContainerGap(598, Short.MAX_VALUE))
             .add(jPanelResultadosLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(jPanelResultadosLayout.createSequentialGroup()
                     .add(60, 60, 60)
-                    .add(jScrollPaneGraf, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE)))
+                    .add(jScrollPaneGraf, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)))
         );
 
         jTabbedPaneTelas.addTab("Resultados", jPanelResultados);
@@ -1304,13 +1413,13 @@ public class Main extends javax.swing.JFrame {
                 .add(layout.createSequentialGroup()
                     .addContainerGap()
                     .add(jPanelGerarRelatorio, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 41, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(1118, Short.MAX_VALUE)))
+                    .addContainerGap(1148, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jTabbedPaneTelas, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
+                .add(jTabbedPaneTelas, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 691, Short.MAX_VALUE)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createSequentialGroup()
                         .add(15, 15, 15)
@@ -1321,7 +1430,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
             .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(597, Short.MAX_VALUE)
+                    .addContainerGap(714, Short.MAX_VALUE)
                     .add(jPanelGerarRelatorio, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
         );
@@ -1685,7 +1794,7 @@ public class Main extends javax.swing.JFrame {
         //jToggleButtonMapLock.setEnabled(false);
         //mPanelDesenho.setMapLock(false);
         
-        Vector config = new Vector(3);
+        Vector config = new Vector(4);
         Simulation simulacao = SimulationFileController.readFile(sim, config); //parametros da simulacao
         
         // double incLoad = 150; //incremento da carga
@@ -1704,9 +1813,11 @@ public class Main extends javax.swing.JFrame {
         if(((Integer) config.get(3)) == 0){
         	jRadioButtonUniforme.setSelected(true);
         }else{
-        	jRadioButtonUniforme.setSelected(false);
-        	
+        	jRadioButtonUniforme.setSelected(false);       	
         }
+        
+        //Tipo de comutação
+        jComboBoxSwitchingType.setSelectedIndex((Integer)config.get(4));
         
         Vector<Integer> conversionType = new Vector<Integer>(1);
         //Recupera os nós e seus equivalentes gráficos (Vector<Node>, Vector<NoGrf>, Vector<Enl)
@@ -1731,11 +1842,13 @@ public class Main extends javax.swing.JFrame {
         	
         }
      
-        jSpinnerNivelConfianca.setValue(1 - (Double)config.get(4));
+        jSpinnerNivelConfianca.setValue(1 - (Double)config.get(5));
         
-        jCheckBoxGerarFalhas.setSelected((Boolean)config.get(5));
+        jCheckBoxGerarFalhas.setSelected((Boolean)config.get(6));
         
-        jTextFieldintensInicial.setText(String.valueOf((simulacao.getArrivedRate())));
+        jTextFieldintensInicial.setText(String.valueOf(simulacao.getArrivedRate()));
+        jTextFieldHurstMin.setText(String.valueOf(simulacao.getHurstMin()));
+        jTextFieldHurstMax.setText(String.valueOf(simulacao.getHurstMax()));    
         
         jTextFieldNumReq.setText(String.valueOf(simulacao.getTotalNumberOfRequest()));
         
@@ -1925,6 +2038,40 @@ public class Main extends javax.swing.JFrame {
         mPanelDesenho.Reset();
         showPropriedades(((JToggleButton)evt.getSource()).getText());
     }//GEN-LAST:event_jToggleButtonTopology4ActionPerformed
+
+    private void jComboBoxSwitchingTypePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jComboBoxSwitchingTypePropertyChange
+        
+    }//GEN-LAST:event_jComboBoxSwitchingTypePropertyChange
+
+    private void jComboBoxSwitchingTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSwitchingTypeActionPerformed
+        if(jComboBoxSwitchingType.getSelectedIndex() != Constants.SWITCHING_HYBRID)
+            jSliderTrafficSample.setEnabled(false);
+        else
+            jSliderTrafficSample.setEnabled(true);
+    }//GEN-LAST:event_jComboBoxSwitchingTypeActionPerformed
+
+    private void jSliderTrafficSampleStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderTrafficSampleStateChanged
+        JSlider source = (JSlider)evt.getSource();
+        if (!source.getValueIsAdjusting()) {
+            float scale = (float)source.getValue()/100;
+            jTextFieldHurstMin.setEnabled(scale > 0.01);
+            jTextFieldHurstMax.setEnabled(scale > 0.01);
+            jSliderTrafficMaxHolder.setEnabled(scale <= 0.01);
+
+        }
+    }//GEN-LAST:event_jSliderTrafficSampleStateChanged
+
+    private void jTextFieldintensInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldintensInicialActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldintensInicialActionPerformed
+
+    private void jTextFieldHurstMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldHurstMinActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldHurstMinActionPerformed
+
+    private void jTextFieldHurstMaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldHurstMaxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldHurstMaxActionPerformed
     
     public String getWAssingAlgo(){
         return this.wAssingAlgo;
@@ -1933,6 +2080,16 @@ public class Main extends javax.swing.JFrame {
     private void gerarArquivoSimulacao() throws Exception {
         
         Double arriveRate = Double.parseDouble(jTextFieldintensInicial.getText());
+        float scale = jSliderTrafficSample.getValue();
+        float hurstMin, hurstMax;
+        float holder = Math.max(jSliderTrafficMaxHolder.getValue(), 1);
+        if(jSliderTrafficMaxHolder.isEnabled()){
+            hurstMin = ((holder + 1)/2) * 0.8f;
+            hurstMax = ((holder + 1)/2) * 1.2f;
+        }else{   
+            hurstMin = Float.parseFloat(jTextFieldHurstMin.getText());
+            hurstMax = Float.parseFloat(jTextFieldHurstMax.getText());          
+        }
         int numReq = Integer.valueOf(jTextFieldNumReq.getText());
         this.wAssingAlgo = (String)jComboBoxAlgosWA.getSelectedItem();
         int simulationType = 0;
@@ -1960,7 +2117,7 @@ public class Main extends javax.swing.JFrame {
             simulationType=0+2*roteamento;
         }
         
-        Simulation s = new Simulation(1.0,arriveRate,numReq,simulationType,wAssingAlgo);
+        Simulation s = new Simulation(1.0,arriveRate, hurstMin, hurstMax,numReq,simulationType,wAssingAlgo);
         String incLoad = Double.parseDouble(jTextFieldIncremento.getText())+"";
         String points = Integer.parseInt(jTextFieldPontosCarga.getText())+"";
         String numReply = Integer.parseInt(jTextFieldNumRep.getText())+"";
@@ -1975,6 +2132,8 @@ public class Main extends javax.swing.JFrame {
             trafficType="2";// não uniforme por nó
         }
         
+        String switchingType = jComboBoxSwitchingType.getSelectedIndex() + "";     
+        
         boolean failure = jCheckBoxGerarFalhas.isSelected();
         double fixLinkRate=0;
         double occurRate=0;
@@ -1983,7 +2142,7 @@ public class Main extends javax.swing.JFrame {
             fixLinkRate=1*fm;
             occurRate = fm*failureOcurrRateCompute();
         }
-        fileMamegement.gerarArquivoSimulacao(s,incLoad,points,numReply,siginificativeLevel,trafficType,failure, fixLinkRate,occurRate);
+        fileMamegement.gerarArquivoSimulacao(s,incLoad,points, hurstMin, hurstMax, numReply,siginificativeLevel,trafficType, switchingType,failure, fixLinkRate,occurRate);
     }
     
     private double failureOcurrRateCompute(){
@@ -2116,7 +2275,7 @@ public class Main extends javax.swing.JFrame {
         String res = "Files/" + simTmpUrl + "/results.res";
         String pairs = "Files/" + simTmpUrl +"/pairs.prs";
         
-        Vector config = new Vector(3);
+        Vector config = new Vector(4);
         Simulation simulacao = SimulationFileController.readFile(sim, config); //parametros da simulacao
         
         // double incLoad = 150; //incremento da carga
@@ -2142,6 +2301,8 @@ public class Main extends javax.swing.JFrame {
          */
         Vector<Vector<Simulation>> allSimulations = new Vector<Vector<Simulation>> ();
         double newArriveRate = simulacao.getArrivedRate();
+        float newHusrtMin = simulacao.getHurstMin();
+        float newHurstMax = simulacao.getHurstMax();
         //loop para geração de todos os pontos
         for (int i = 0; i < points; i++) {
             allSimulations.add(new Vector<Simulation> ());
@@ -2149,13 +2310,15 @@ public class Main extends javax.swing.JFrame {
             for (int j = 0; j < replyNumber; j++) {
                 Simulation s = new Simulation(simulacao.getHoldRate(),
                         newArriveRate,
+                        newHusrtMin,
+                        newHurstMax,
                         simulacao.getTotalNumberOfRequest(),
                         simulacao.getSimulationType(),
                         simulacao.getWAAlgorithm());
-                s.setnumReply(j);              
+                        s.setnumReply(j);              
                 
                 Mesh mesh = new Mesh(bothNodes[0],
-                        simulacao.getWAAlgorithm(), pairs,(Integer)config.get(3));
+                        simulacao.getWAAlgorithm(), pairs,(Integer)config.get(3), (Integer)config.get(4));
                 mesh.setConversionType(conversionType.get(0));
                 s.setMesh(mesh);
                 allSimulations.lastElement().add(s);
@@ -2167,10 +2330,10 @@ public class Main extends javax.swing.JFrame {
         this.management = new SimulationManagement(
                 allSimulations);
         
-        management.setSignificativeLevel((Double)config.get(4));
-        management.setFailure((Boolean)config.get(5));
-        management.setFixLinkRate((Double)config.get(6));
-        management.setOccurRate((Double)config.get(7));
+        management.setSignificativeLevel((Double)config.get(5));
+        management.setFailure((Boolean)config.get(6));
+        management.setFixLinkRate((Double)config.get(7));
+        management.setOccurRate((Double)config.get(8));
         
         management.setFileRes(res);
         management.setGui(this);
@@ -2186,7 +2349,12 @@ public class Main extends javax.swing.JFrame {
         //mPanelDesenho.setBackground(new Color(227,241,241));
         mPanelDesenho.setOpaque(false);
         this.jPanelDesenhoTop.add(mPanelDesenho);*/
-
+        
+        jSliderTrafficSample = new FloatJSlider(jSliderTrafficSample.getMinimum(), 
+                                                jSliderTrafficSample.getMaximum(), 
+                                                jSliderTrafficSample.getValue());
+        jSliderTrafficSample.setPaintLabels(true);
+      
         //painel de desenho
         mPanelDesenho=new MousePanel(this);
         mPanelDesenho.setLayout(null);
@@ -2317,12 +2485,18 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBoxPosConversores;
     private javax.swing.JComboBox jComboBoxRoteamento;
     private javax.swing.JComboBox jComboBoxSobrevivencia;
+    private javax.swing.JComboBox jComboBoxSwitchingType;
     private javax.swing.JLabel jLabelAlgoWA;
     private javax.swing.JLabel jLabelAlgoritmo;
     private javax.swing.JLabel jLabelArqtConversao;
     private javax.swing.JLabel jLabelCenarios;
     private javax.swing.JLabel jLabelGerTrafego;
     private javax.swing.JLabel jLabelIncremento;
+    private javax.swing.JLabel jLabelIncremento1;
+    private javax.swing.JLabel jLabelIncremento2;
+    private javax.swing.JLabel jLabelIncremento3;
+    private javax.swing.JLabel jLabelIncremento4;
+    private javax.swing.JLabel jLabelIncremento5;
     private javax.swing.JLabel jLabelIntensInicial;
     private javax.swing.JLabel jLabelNivelConfianca;
     private javax.swing.JLabel jLabelNumRep;
@@ -2385,11 +2559,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPaneTopologia;
     private javax.swing.JScrollPane jScrollPaneTrafego;
     private javax.swing.JScrollPane jScrollPaneTrafegoPar;
+    private javax.swing.JSlider jSliderTrafficMaxHolder;
+    private javax.swing.JSlider jSliderTrafficSample;
     private javax.swing.JSpinner jSpinnerNivelConfianca;
     private javax.swing.JTabbedPane jTabbedPaneTelas;
     private javax.swing.JTable jTableTrafegoPar;
     private javax.swing.JTextArea jTextAreaCenarios;
     private javax.swing.JTextArea jTextAreaTrafego;
+    private javax.swing.JTextField jTextFieldHurstMax;
+    private javax.swing.JTextField jTextFieldHurstMin;
     private javax.swing.JTextField jTextFieldIncremento;
     private javax.swing.JTextField jTextFieldNumRep;
     private javax.swing.JTextField jTextFieldNumReq;

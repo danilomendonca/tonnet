@@ -71,6 +71,8 @@ public class TOT {
     int points = (Integer) config.get(1);
     int replyNumber = (Integer) config.get(2); //numero de replicações
     double newArriveRate = simulacao.getArrivedRate();
+    float newHurstMin = simulacao.getHurstMin();
+    float newHurstMax = simulacao.getHurstMax();
     //loop para geração de todos os pontos
     for (int i = 0; i < points; i++) {
       allSimulations.add(new Vector<Simulation> ());
@@ -78,6 +80,8 @@ public class TOT {
       for (int j = 0; j < replyNumber; j++) {
         Simulation s = new Simulation(simulacao.getHoldRate(),
                                       newArriveRate,
+                                      newHurstMin,
+                                      newHurstMax,
                                       simulacao.getTotalNumberOfRequest(),
                                       simulacao.getSimulationType(),
                                       simulacao.getWAAlgorithm());
@@ -86,7 +90,7 @@ public class TOT {
         Vector<Integer> conversionType = new Vector<Integer> (1);
 
         Mesh mesh = new Mesh(NodeFileController.readFile(net, conversionType)[0],
-                             simulacao.getWAAlgorithm(), pairs, 0);
+                             simulacao.getWAAlgorithm(), pairs, 0, 0);//TODO verificar último parâmetro de tipo de tráfego
         mesh.setConversionType(conversionType.get(0));
         s.setMesh(mesh);
         allSimulations.lastElement().add(s);

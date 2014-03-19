@@ -89,7 +89,10 @@ public class ControlRequest
       //TODO: calcular realLambda para tráfegos não uniformes
       //classifica tráfego para utilizar rajada ou circuito
       double realLambda = getArrivedRate()/this.getMesh().getLinkList().size();
-      if(FuzzyClassification.classifyTraffic(realLambda, 0.5, getMesh().getRandomVar().negexp(realLambda)) == RoutingControl.BURST)
+      float hurstMin = this.mesh.getMeasurements().getHurstMin();
+      float hurstMax = this.mesh.getMeasurements().getHurstMax();
+      float hurst = this.mesh.getRandomVar().randInt((int)(hurstMin * 100), (int)(hurstMax * 100)) / 100;
+      if(FuzzyClassification.classifyTraffic(realLambda, hurst, getMesh().getRandomVar().negexp(realLambda)) == RoutingControl.BURST)
         request.scheduleNewArrivedRequest(e.getTime(),this);
       else
         request.scheduleNewArrivedRequest(e.getTime(),this.getArriveRequest());
@@ -107,16 +110,16 @@ public class ControlRequest
                    
             //Efetua conexão do canal de controle
             //Recupera comprimento de onda reservado ao canal de controle
-            int controlLambda = controlChannel.getRoute().getFirstLinkNumWave(); //seta o último comprimento de onda disponível  
-            for(int i = 0; i < controlChannel.getWaveList().length; i++)
-                controlChannel.setWaveList(i, controlLambda);      
+            //int controlLambda = controlChannel.getRoute().getFirstLinkNumWave(); //seta o último comprimento de onda disponível  
+            //for(int i = 0; i < controlChannel.getWaveList().length; i++)
+            //    controlChannel.setWaveList(i, controlLambda);      
             //Estabelece conexão
-            established = controlChannel.establish(rwa);
+            //established = controlChannel.establish(rwa);
                       
             //Caso conexão do pct cnt tenha sido feita
-            if(established){
-                double finalizeControlTime = e.getTime() + getMesh().getRandomVar().negexp(holdRate) / 1000000; //TODO: verificar proporção do hold time de controle
-                this.eMachine.insert(new Event(controlChannel, this.finalizeRequest, finalizeControlTime));
+            //if(established){
+                //double finalizeControlTime = e.getTime() + getMesh().getRandomVar().negexp(holdRate) / 1000000; //TODO: verificar proporção do hold time de controle
+                //this.eMachine.insert(new Event(controlChannel, this.finalizeRequest, finalizeControlTime));
                                 
                 //Realiza conexão de todos os pacotes intermediários
                 for(Request r : controlChannel.getRelatedRequests()){
@@ -127,11 +130,11 @@ public class ControlRequest
                         eMachine.remove(r);                            
                      }
                 }
-            }else{//Caso contrário, remove eventos intermediários sucessivos da ME
+            //}else{//Caso contrário, remove eventos intermediários sucessivos da ME
                 //eMachine.remove(first);                        
-                for(Request r : ((Request)request).getRelatedRequests())
-                    eMachine.remove(r);                
-            }    
+            //    for(Request r : ((Request)request).getRelatedRequests())
+            //        eMachine.remove(r);                
+            //}    
             
         }else
             established = false;

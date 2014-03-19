@@ -1,8 +1,8 @@
 package root;
 
-import tools.FLP;
-import java.util.Vector;
 import java.io.FileNotFoundException;
+import java.util.Vector;
+import tools.FLP;
 
 public class RootFLP {
 
@@ -12,12 +12,14 @@ public class RootFLP {
     int flMin = (Integer) config.get(0);
     int flMax = (Integer) config.get(1);
     int inc = (Integer) config.get(2);
-    int M = (Integer) config.get(3);
+    float hurstMin = (Float) config.get(3);
+    float hurstMax = (Float) config.get(4);
+    int M = (Integer) config.get(5);
 
     flp.setReplyForComputeFL(10);
     flp.setReplyForSecStep(10);
 
-    flp.run(flMin, flMax, inc, M);
+    flp.run(flMin, flMax, inc, hurstMin, hurstMax, M);
     flp.printResults();
   }
 }

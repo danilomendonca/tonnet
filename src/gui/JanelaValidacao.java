@@ -150,6 +150,8 @@ public class JanelaValidacao extends javax.swing.JFrame implements Runnable {
        */
       Vector<Vector<Simulation>> allSimulations = new Vector<Vector<Simulation>> ();
       double newArriveRate = simulacao.getArrivedRate();
+      float newHurstMin = simulacao.getHurstMin();
+      float newHurstMax = simulacao.getHurstMax();
       //loop para geração de todos os pontos
       for (int i = 0; i < points; i++) {
         allSimulations.add(new Vector<Simulation> ());
@@ -157,6 +159,8 @@ public class JanelaValidacao extends javax.swing.JFrame implements Runnable {
         for (int j = 0; j < replyNumber; j++) {
           Simulation s = new Simulation(simulacao.getHoldRate(),
                                         newArriveRate,
+                                        newHurstMin,
+                                        newHurstMax,
                                         simulacao.getTotalNumberOfRequest(),
                                         simulacao.getSimulationType(),
                                         simulacao.getWAAlgorithm());
@@ -165,7 +169,7 @@ public class JanelaValidacao extends javax.swing.JFrame implements Runnable {
            Vector<Integer> conversionType=new Vector<Integer>(1);
 
            Mesh mesh = new Mesh(NodeFileController.readFile(net,conversionType)[0],
-                             simulacao.getWAAlgorithm(), pairs,(Integer)config.get(3));
+                             simulacao.getWAAlgorithm(), pairs,(Integer)config.get(3), (Integer)config.get(4));
            mesh.setConversionType(conversionType.get(0));
            s.setMesh(mesh);
            allSimulations.lastElement().add(s);

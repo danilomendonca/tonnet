@@ -1,5 +1,6 @@
 package simulator;
 
+import gui.Constants;
 import java.util.Arrays;
 import java.util.Vector;
 import request.RequestMother;
@@ -79,7 +80,7 @@ public class ArriveRequest
         this.getMesh().getMeasurements().sumOfUtilization(this.mesh.calculateUtilization());
         //somatorio da utilização por comprimento de onda.
         this.getMesh().getMeasurements().sumOfWavelenghtUtilization(this.mesh.calculateWavelengthUtilization());
-        //sommatorio da utilizao por enlace
+        //sommatorio da utilizaocontrole por enlace
         this.getMesh().getMeasurements().calcSumUtilizationPerLink();
         
         // incrementa o nº de vezes que o par foi gerados
@@ -87,14 +88,25 @@ public class ArriveRequest
     }
     
     //verifica se é necessário agendar a geração de novas requisições
-    if (this.mesh.getMeasurements().getNumGeneratedReq() < this.numMaxRequest && !e.isBurstPackage()){
+    if(this.mesh.getMeasurements().getNumGeneratedReq() < this.numMaxRequest && !e.isBurstPackage()){
         //TODO: calcular realLambda para tráfegos não uniformes
         //classifica tráfego para utilizar rajada ou circuito
-        double realLambda = getArrivedRate()/this.getMesh().getLinkList().size();
-        if(FuzzyClassification.classifyTraffic(realLambda, 0.5, getMesh().getRandomVar().negexp(realLambda)) == RoutingControl.BURST)
-          request.scheduleNewArrivedRequest(e.getTime(),this.getControlRequest());
-        else
-          request.scheduleNewArrivedRequest(e.getTime(),this);
+        double realLambda = getArrivedRate()/this.getMesh().getLinkList().size();        
+        int switchingType = getMesh().getMeasurements().getSwitchingType();
+        if(switchingType == Constants.SWITCHING_HYBRID){
+            float hurstMin = this.mesh.getMeasurements().getHurstMin();
+            float hurstMax = this.mesh.getMeasurements().getHurstMax();
+            float hurst = ((float)this.mesh.getRandomVar().randInt((int)(hurstMin * 100), (int)(hurstMax * 100))) / 100;
+            if(FuzzyClassification.classifyTraffic(realLambda, hurst, getMesh().getRandomVar().negexp(realLambda)) == RoutingControl.BURST){
+                request.scheduleNewArrivedRequest(e.getTime(),this.getControlRequest());
+            }else{
+                request.scheduleNewArrivedRequest(e.getTime(),this);
+            }
+        }else if(switchingType ==  Constants.SWITCHING_BURST){
+            request.scheduleNewArrivedRequest(e.getTime(),this.getControlRequest());                        
+        }else if(switchingType == Constants.SWITCHING_CIRCUIT){
+            request.scheduleNewArrivedRequest(e.getTime(),this);
+        }        
     }
 
     if (e.isBurstPackage() || request.establish(request.RWA())) {

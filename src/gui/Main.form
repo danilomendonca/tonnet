@@ -150,7 +150,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanelGerarRelatorio" min="-2" pref="41" max="-2" attributes="0"/>
-                  <EmptySpace pref="1118" max="32767" attributes="0"/>
+                  <EmptySpace pref="1148" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -159,7 +159,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPaneTelas" pref="578" max="32767" attributes="0"/>
+              <Component id="jTabbedPaneTelas" pref="703" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
@@ -174,7 +174,7 @@
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="601" max="32767" attributes="0"/>
+                  <EmptySpace pref="726" max="32767" attributes="0"/>
                   <Component id="jPanelGerarRelatorio" min="-2" max="-2" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -210,13 +210,13 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jPanelFerramentas" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="jPanelDesenho" pref="1066" max="32767" attributes="0"/>
+                      <Component id="jPanelDesenho" pref="1096" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanelDesenho" alignment="1" pref="541" max="32767" attributes="0"/>
+                  <Component id="jPanelDesenho" alignment="1" pref="666" max="32767" attributes="0"/>
                   <Component id="jPanelFerramentas" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
@@ -265,7 +265,7 @@
                           <Component id="jToggleButtonMap" min="-2" pref="33" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jToggleButtonMapLock" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="225" max="32767" attributes="0"/>
+                          <EmptySpace pref="316" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -396,12 +396,12 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPaneTopologia" alignment="0" pref="1062" max="32767" attributes="0"/>
+                          <Component id="jScrollPaneTopologia" alignment="0" pref="1092" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPaneTopologia" alignment="0" pref="537" max="32767" attributes="0"/>
+                          <Component id="jScrollPaneTopologia" alignment="0" pref="662" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
@@ -548,7 +548,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jPanelEsq" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanelDir" max="32767" attributes="0"/>
+                      <Component id="jPanelDir" min="-2" pref="848" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -578,44 +578,62 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jLabelIncremento3" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldHurstMin" min="-2" pref="50" max="-2" attributes="1"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabelIncremento" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelIntensInicial" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabelIncremento" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelIntensInicial" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="jTextFieldIncremento" pref="50" max="32767" attributes="1"/>
+                                              <Component id="jTextFieldintensInicial" max="32767" attributes="1"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabelIncremento1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jComboBoxSwitchingType" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="jSliderTrafficSample" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLabelIncremento2" alignment="1" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabelIncremento5" max="32767" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jTextFieldHurstMax" min="-2" pref="50" max="-2" attributes="1"/>
+                                      </Group>
+                                      <Component id="jLabelIncremento4" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="jSliderTrafficMaxHolder" alignment="1" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="28" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="jTextFieldIncremento" max="32767" attributes="1"/>
-                                      <Component id="jTextFieldintensInicial" alignment="1" pref="50" max="32767" attributes="1"/>
-                                  </Group>
-                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jLabelGerTrafego" max="32767" attributes="1"/>
+                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabelGerTrafego" pref="222" max="32767" attributes="1"/>
-                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jRadioButtonUniforme" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jRadioButtonNaoUniforme" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jRadioButtonTNUNo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jRadioButtonTNUPar" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="jScrollPaneTrafego" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jRadioButtonTNUNo" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButtonTNUPar" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="141" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPaneTrafego" pref="232" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -632,7 +650,32 @@
                               <Component id="jTextFieldIncremento" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelIncremento" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabelIncremento1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jComboBoxSwitchingType" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabelIncremento2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jSliderTrafficSample" min="-2" pref="48" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabelIncremento3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jTextFieldHurstMin" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jTextFieldHurstMax" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelIncremento5" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabelIncremento4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jSliderTrafficMaxHolder" min="-2" pref="48" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabelGerTrafego" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jRadioButtonUniforme" min="-2" max="-2" attributes="0"/>
@@ -644,7 +687,7 @@
                           <Component id="jRadioButtonTNUNo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPaneTrafego" min="-2" pref="114" max="-2" attributes="0"/>
-                          <EmptySpace pref="227" max="32767" attributes="0"/>
+                          <EmptySpace pref="81" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -652,18 +695,21 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabelIntensInicial">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Intensidade Inicial:"/>
+                    <Property name="text" type="java.lang.String" value="Intensidade Inicial (E):"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabelIncremento">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Incremento da Intensidade:"/>
+                    <Property name="text" type="java.lang.String" value="Incremento da Intensidade (E):"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldintensInicial">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="0"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldintensInicialActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldIncremento">
                   <Properties>
@@ -747,8 +793,8 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="jTextAreaTrafego">
                       <Properties>
-                        <Property name="columns" type="int" value="20"/>
                         <Property name="editable" type="boolean" value="false"/>
+                        <Property name="columns" type="int" value="20"/>
                         <Property name="lineWrap" type="boolean" value="true"/>
                         <Property name="rows" type="int" value="5"/>
                         <Property name="text" type="java.lang.String" value="Tr&#xe1;fego Uniforme."/>
@@ -757,6 +803,85 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JLabel" name="jLabelIncremento1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Comuta&#xe7;&#xe3;o:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="jComboBoxSwitchingType">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="3">
+                        <StringItem index="0" value="H&#xed;brido"/>
+                        <StringItem index="1" value="Rajada"/>
+                        <StringItem index="2" value="Circuito"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxSwitchingTypeActionPerformed"/>
+                    <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jComboBoxSwitchingTypePropertyChange"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JSlider" name="jSliderTrafficSample">
+                  <Properties>
+                    <Property name="majorTickSpacing" type="int" value="1"/>
+                    <Property name="minorTickSpacing" type="int" value="1"/>
+                    <Property name="value" type="int" value="10"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSliderTrafficSampleStateChanged"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelIncremento2">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="Escala [0 - 1ms]:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelIncremento3">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="Hurst Min [0 - 1]:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelIncremento4">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="&#x3b1; max [0 - 10]:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JSlider" name="jSliderTrafficMaxHolder">
+                  <Properties>
+                    <Property name="maximum" type="int" value="200"/>
+                    <Property name="minorTickSpacing" type="int" value="1"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                    <Property name="value" type="int" value="0"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTextFieldHurstMin">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldHurstMinActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelIncremento5">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="Hurst Max [0 - 1]:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTextFieldHurstMax">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldHurstMaxActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanelDir">
@@ -783,12 +908,15 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPaneTrafegoPar" pref="840" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="jScrollPaneTrafegoPar" min="-2" pref="869" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPaneTrafegoPar" alignment="0" pref="537" max="32767" attributes="0"/>
+                      <Component id="jScrollPaneTrafegoPar" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -906,7 +1034,7 @@
                       <Component id="jCheckBoxSobrevivencia" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanelSobrevivencia" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="229" max="32767" attributes="0"/>
+                      <EmptySpace pref="354" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1199,7 +1327,7 @@
                               <EmptySpace min="-2" pref="202" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="284" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="307" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1214,7 +1342,7 @@
                       <Component id="jLabelPosConversores" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanelPosConversores" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="249" max="32767" attributes="0"/>
+                      <EmptySpace pref="374" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1434,7 +1562,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="355" max="-2" attributes="0"/>
                       <Component id="jPanelParametrosSim" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="514" max="32767" attributes="0"/>
+                      <EmptySpace pref="537" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1443,7 +1571,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       <Component id="jPanelParametrosSim" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="308" max="32767" attributes="0"/>
+                      <EmptySpace pref="433" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1586,7 +1714,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="316" max="-2" attributes="0"/>
                       <Component id="jPanelAgenda" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="540" max="32767" attributes="0"/>
+                      <EmptySpace pref="566" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1595,7 +1723,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                       <Component id="jPanelAgenda" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="280" max="32767" attributes="0"/>
+                      <EmptySpace pref="405" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1741,26 +1869,26 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jScrollPaneMetricas" min="-2" pref="235" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-                      <Component id="jToggleButtonTab" pref="218" max="32767" attributes="0"/>
+                      <Component id="jToggleButtonTab" pref="234" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="jBLimparHistorico" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jBMaximizar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
-                      <Component id="jToggleButtonGraf" pref="227" max="32767" attributes="0"/>
+                      <Component id="jToggleButtonGraf" pref="241" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="277" max="-2" attributes="0"/>
-                          <Component id="jScrollPaneGraf" pref="886" max="32767" attributes="0"/>
+                          <Component id="jScrollPaneGraf" pref="916" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPaneMetricas" alignment="0" pref="541" max="32767" attributes="0"/>
+                  <Component id="jScrollPaneMetricas" alignment="0" pref="666" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -1776,12 +1904,12 @@
                               <Component id="jBLimparHistorico" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="491" max="32767" attributes="0"/>
+                      <EmptySpace pref="598" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                          <Component id="jScrollPaneGraf" pref="481" max="32767" attributes="0"/>
+                          <Component id="jScrollPaneGraf" pref="606" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>

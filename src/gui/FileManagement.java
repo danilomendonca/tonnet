@@ -85,16 +85,16 @@ public class FileManagement {
         }
     }
     
-    public void gerarArquivoSimulacao(Simulation s, String incLoad, String points, String replyNumber, double significativeLevel, String trafficType, boolean failure, double fixLinkRate, double occurRate ){
+    public void gerarArquivoSimulacao(Simulation s, String incLoad, String points, float hurstMin, float hurstMax, String replyNumber, double significativeLevel, String trafficType, String switchingType, boolean failure, double fixLinkRate, double occurRate ){
         try {
             this.outSim = new Printer(("Files/"+simulationUrl + "/simulation.sim"), true);
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(null,"Erro nos arquivos do sistema!","Erro",JOptionPane.ERROR_MESSAGE);
         }
         outSim.println("//");
-        outSim.println(s.getHoldRate()+";"+s.getArrivedRate()+";"+s.getTotalNumberOfRequest()+";"+s.getSimulationType()+";"+s.getWAAlgorithm());
+        outSim.println(s.getHoldRate()+";"+s.getArrivedRate()+";"+hurstMin+";"+hurstMax+";"+s.getTotalNumberOfRequest()+";"+s.getSimulationType()+";"+s.getWAAlgorithm());
         outSim.println(incLoad+";"+points+";"+replyNumber);
-        outSim.println(trafficType+";");
+        outSim.println(trafficType+";"+switchingType);        
         outSim.println(significativeLevel+";");
         outSim.println(failure+";"+fixLinkRate+";"+occurRate);
     }
