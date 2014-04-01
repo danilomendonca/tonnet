@@ -9,6 +9,7 @@ public class Pair {
   private int id;
   private int category;
   private int privilege;
+  private double lastBurstTime;
 
   /**
    * Cria instancia de Pair
@@ -114,6 +115,14 @@ public class Pair {
    */
   public String printPair() {
     return "(" + this.source.getName() + "," + this.destination.getName() + ")";
+  }
+
+  public double getLastBurstTime() {
+        return lastBurstTime;
+  }
+
+  public void setLastBurstTime(double lastBurstTime) {
+        this.lastBurstTime = lastBurstTime;
   }
 
   /**

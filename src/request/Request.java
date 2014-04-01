@@ -10,7 +10,7 @@ public class Request
     extends RequestMother {
     
   private List <Request> relatedRequests;
-  private Request endToEnd;
+  private Request endToEnd;  
   
   public Request(Pair p, Mesh mesh) {
     super(p, mesh);
@@ -103,7 +103,7 @@ public class Request
 
   public boolean survive(Link link, EventMachine eMachine) {
     return false;
-  }
+  } 
 
   //------------------------------------------------------------------------------
   /**

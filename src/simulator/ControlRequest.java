@@ -107,86 +107,97 @@ public class ControlRequest
     }
     boolean established = true;
     boolean rwa = true;
-        
+      
     //Bloco para tratamento do pacote de controle num roteamento por pacotes sem conversão
-    if (request instanceof Request && !e.isBurstPackage()){
+    if(request instanceof Request && !e.isBurstPackage()){
         Request controlChannel = ((Request)request);
-        if(controlChannel != null){
-            rwa = controlChannel.RWA();   
-            
-            int waveLength = controlChannel.getWaveList()[0];
-                   
-            //Efetua conexão do canal de controle
-            //Recupera comprimento de onda reservado ao canal de controle
-            //int controlLambda = controlChannel.getRoute().getFirstLinkNumWave(); //seta o último comprimento de onda disponível  
-            //for(int i = 0; i < controlChannel.getWaveList().length; i++)
-            //    controlChannel.setWaveList(i, controlLambda);      
-            //Estabelece conexão
-            //established = controlChannel.establish(rwa);
-                      
-            //Caso conexão do pct cnt tenha sido feita
-            //if(established){
-                //double finalizeControlTime = e.getTime() + getMesh().getRandomVar().negexp(holdRate) / 1000000; //TODO: verificar proporção do hold time de controle
-                //this.eMachine.insert(new Event(controlChannel, this.finalizeRequest, finalizeControlTime));
-                                
-                //Realiza conexão de todos os pacotes intermediários
-                for(Request r : controlChannel.getRelatedRequests()){
-                    if(established){//Caso a conexão do atual evento intermediário tenha sido feita
-                        r.setWaveList(0, waveLength);
-                        established = r.establish(established) && established;
-                     }else{//Se não, remove este e os próximos eventos intermediários
-                        eMachine.remove(r);                            
-                     }
+        
+        if((e.getTime() - controlChannel.getPair().getLastBurstTime()) > 0.050){
+                
+            System.out.println("Dispara rajada.");
+            controlChannel.getPair().setLastBurstTime(e.getTime());            
+
+            if(controlChannel != null){
+                rwa = controlChannel.RWA();   
+
+                int waveLength = controlChannel.getWaveList()[0];
+
+                //Efetua conexão do canal de controle
+                //Recupera comprimento de onda reservado ao canal de controle
+                //int controlLambda = controlChannel.getRoute().getFirstLinkNumWave(); //seta o último comprimento de onda disponível  
+                //for(int i = 0; i < controlChannel.getWaveList().length; i++)
+                //    controlChannel.setWaveList(i, controlLambda);      
+                //Estabelece conexão
+                //established = controlChannel.establish(rwa);
+
+                //Caso conexão do pct cnt tenha sido feita
+                //if(established){
+                    //double finalizeControlTime = e.getTime() + getMesh().getRandomVar().negexp(holdRate) / 1000000; //TODO: verificar proporção do hold time de controle
+                    //this.eMachine.insert(new Event(controlChannel, this.finalizeRequest, finalizeControlTime));
+
+                    //Realiza conexão de todos os pacotes intermediários
+                    for(Request r : controlChannel.getRelatedRequests()){
+                        if(established){//Caso a conexão do atual evento intermediário tenha sido feita
+                            r.setWaveList(0, waveLength);
+                            established = r.establish(established) && established;
+                         }else{//Se não, remove este e os próximos eventos intermediários
+                            eMachine.remove(r);                            
+                         }
+                    }
+                //}else{//Caso contrário, remove eventos intermediários sucessivos da ME
+                    //eMachine.remove(first);                        
+                //    for(Request r : ((Request)request).getRelatedRequests())
+                //        eMachine.remove(r);                
+                //}    
+
+            }else
+                established = false;
+        
+            if (established) {
+                this.mesh.getConnectionControl().addRequest(request);
+                //double finalizeTime = e.getTime() + e.getFinalizeTime();
+                //this.eMachine.insert(new Event(e.getObject(), this.finalizeRequest, finalizeTime));
+
+                //soma ao tamanho de todas requisições atendidas      
+                this.mesh.getMeasurements().sumAllSizeOfPrimaryAcceptedReq(request.getRoute().getHops());
+
+                //soma ao tamanho de todas requisições de backup atendidas
+                if (request.getProtection()) {
+                  Route bckp = null;
+                  if (request instanceof ReqDPPTwoStep){
+                    bckp = ( (ReqDPPTwoStep) request).getRouteBackup();
+                  }
+                  if (bckp != null)
+                    this.mesh.getMeasurements().sumAllSizeOfBackupAcceptedReq(bckp.getHops());
+                } 
+            }else{
+                //inc bloqueio geral
+                this.mesh.getMeasurements().incBlocked();
+                //inc bloqueio do par
+                request.getPair().incNumBlocked();
+                //soma ao tamanho de todas requisições bloqueidas
+                if (request.getRoute()!=null)
+                  this.mesh.getMeasurements().sumAllSizeOfPrimaryBloqckedReq(request.getRoute().
+                      getHops());
+                //soma ao tamanho de todas requisições de backup bloqueidas
+                if (request.getProtection()) {
+                  Route bckp = null;
+                  if(request instanceof ReqDPPTwoStep){
+                    bckp = ( (ReqDPPTwoStep) request).getRouteBackup();
+                  }
+                  if(bckp != null)
+                    this.mesh.getMeasurements().sumAllSizeOfBackupBloqckedReq(bckp.
+                        getHops());
                 }
-            //}else{//Caso contrário, remove eventos intermediários sucessivos da ME
-                //eMachine.remove(first);                        
-            //    for(Request r : ((Request)request).getRelatedRequests())
-            //        eMachine.remove(r);                
-            //}    
+            }   
+        }else{
+            for(Request r : controlChannel.getRelatedRequests()){
+                r.setStoredRequest(true);                
+            }
             
-        }else
-            established = false;
+        }
     }
     
-    if (established) {
-      this.mesh.getConnectionControl().addRequest(request);
-      //double finalizeTime = e.getTime() + e.getFinalizeTime();
-      //this.eMachine.insert(new Event(e.getObject(), this.finalizeRequest, finalizeTime));
-
-      //soma ao tamanho de todas requisições atendidas      
-      this.mesh.getMeasurements().sumAllSizeOfPrimaryAcceptedReq(request.getRoute().getHops());
-      
-      //soma ao tamanho de todas requisições de backup atendidas
-      if (request.getProtection()) {
-        Route bckp = null;
-        if (request instanceof ReqDPPTwoStep){
-          bckp = ( (ReqDPPTwoStep) request).getRouteBackup();
-        }
-        if (bckp != null)
-          this.mesh.getMeasurements().sumAllSizeOfBackupAcceptedReq(bckp.getHops());
-      } 
-
-    }
-    else {
-      //inc bloqueio geral
-      this.mesh.getMeasurements().incBlocked();
-      //inc bloqueio do par
-      request.getPair().incNumBlocked();
-      //soma ao tamanho de todas requisições bloqueidas
-      if (request.getRoute()!=null)
-        this.mesh.getMeasurements().sumAllSizeOfPrimaryBloqckedReq(request.getRoute().
-            getHops());
-      //soma ao tamanho de todas requisições de backup bloqueidas
-      if (request.getProtection()) {
-        Route bckp = null;
-        if (request instanceof ReqDPPTwoStep){
-          bckp = ( (ReqDPPTwoStep) request).getRouteBackup();
-        }
-        if (bckp != null)
-          this.mesh.getMeasurements().sumAllSizeOfBackupBloqckedReq(bckp.
-              getHops());
-      }
-    }
     this.mesh.getMeasurements().verifyMaximumWCUtilization(this.mesh.getNodeList());
   }
 

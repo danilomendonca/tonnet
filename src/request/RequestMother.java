@@ -9,6 +9,8 @@ public abstract class RequestMother {
   protected Route route;
   protected Pair pair;
   protected Mesh mesh;
+  private boolean storedRequest = false;
+  
   /** de comprimentos de onda utilizados em todos os enlaces da rota.
    *Se não houver conversão de comprimento de onda o vetor vai armazenar
    *o mesmo valor para todos os enlaces.
@@ -56,6 +58,15 @@ public abstract class RequestMother {
   public int[] getWaveList() {
     return this.waveList;
   }
+  
+  //------------------------------------------------------------------------------
+  public boolean isStoredRequest() {
+      return storedRequest;
+  }
+
+  public void setStoredRequest(boolean storedRequest) {
+      this.storedRequest = storedRequest;
+  }  
 
   //------------------------------------------------------------------------------
   /**
@@ -125,36 +136,36 @@ public abstract class RequestMother {
     arrive.getEMachine().insert(e);*/
 
     Pair nextPair = control.getMesh().pairGenerator();
+    
     Vector <Node> nosRota = this.mesh.getRoutingControl().getRoutes(nextPair).get(0).getNodeList();    
     rEndToEnd = (Request) this.getNewRequest(nextPair, control.getMesh());    
-   
+
     Event e;
     e = new Event(rEndToEnd, control, time + deltaTime);   
     control.getEMachine().insert(e);    
-    
+
     ArriveRequest arrive = control.getArriveRequest();
-    
+
     for (int i = 0; i < nosRota.size() - 1; i ++){
 
         Node noA = nosRota.get(i);
         Node noB = nosRota.get(i + 1);
-        
+
         Pair pair = arrive.getMesh().searchPair(noA, noB);
         Route route = this.mesh.getRoutingControl().getRoutes(pair).get(0);
         Request r = (Request) this.getNewRequest(pair, arrive.getMesh());
         rEndToEnd.getRelatedRequests().add(r);
-        
+
         r.setRoute(route);
         r.mesh.setActualLinklist(route.getLinkList());
-        
-        e = new Event(r, arrive, time + deltaTime + finalizeTime * (i));     
+
+        e = new Event(r, arrive, time + deltaTime + finalizeTime * (i + 1));                 
         e.setBurstPackage(true);
-        finalizeTime = arrive.getMesh().getRandomVar().negexp(arrive.getHoldRate()) / nosRota.size();
+        finalizeTime = arrive.getMesh().getRandomVar().negexp(arrive.getHoldRate()) / (nosRota.size() - 1);//número de saltos
         e.setFinalizeTime(finalizeTime);
-                
+
         arrive.getEMachine().insert(e);        
     }
-    
   }
   
   //------------------------------------------------------------------------------

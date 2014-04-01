@@ -13,6 +13,7 @@ public class Simulation {
   private int totalNumberOfRequests;
   private String wAAlgorithm;
   private int simulationType;
+  private int switchingType;
   private Mesh mesh;
 
   /**
@@ -27,14 +28,15 @@ public class Simulation {
   public Simulation(double holdRate, double arrivedRate,
                     float hurstMin,
                     float hurstMax,
-                    int numberReq,
-                    int simulationType, String wAssing) {
+                    int numberReq,                    
+                    int simulationType, int switchingType, String wAssing) {
     this.holdRate = holdRate;
     this.arrivedRate = arrivedRate;
     this.hurstMin = hurstMin;
     this.hurstMax = hurstMax;
     this.totalNumberOfRequests = numberReq;
     this.simulationType = simulationType;
+    this.switchingType = switchingType;
     this.wAAlgorithm = wAssing;
   }
 
@@ -45,6 +47,7 @@ public class Simulation {
     this.mesh.getMeasurements().setHurstMin(this.hurstMin);
     this.mesh.getMeasurements().setHurstMax(this.hurstMax);
     this.mesh.getMeasurements().setReplication(this.numReply);
+    this.mesh.getMeasurements().setSwitchingType(this.switchingType);
   }
 
 //------------------------------------------------------------------------------
@@ -90,6 +93,10 @@ public class Simulation {
 //------------------------------------------------------------------------------
     public String getWAAlgorithm() {
       return this.wAAlgorithm;
+  }
+    
+  public int getSwitchingType(){
+      return this.switchingType;
   }
 
 }

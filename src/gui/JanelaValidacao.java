@@ -153,6 +153,7 @@ public class JanelaValidacao extends javax.swing.JFrame implements Runnable {
       double newArriveRate = simulacao.getArrivedRate();
       float newHurstMin = simulacao.getHurstMin();
       float newHurstMax = simulacao.getHurstMax();
+      int switchingType = simulacao.getSwitchingType();
       //loop para geração de todos os pontos
       for (int i = 0; i < points; i++) {
         allSimulations.add(new Vector<Simulation> ());
@@ -164,6 +165,7 @@ public class JanelaValidacao extends javax.swing.JFrame implements Runnable {
                                         newHurstMax,
                                         simulacao.getTotalNumberOfRequest(),
                                         simulacao.getSimulationType(),
+                                        switchingType,
                                         simulacao.getWAAlgorithm());
           s.setnumReply(j);
 

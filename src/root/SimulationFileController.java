@@ -17,6 +17,7 @@ public class SimulationFileController {
     float hurstMax = 0.5f;
     int numberReq = 1;
     int simulationType = 1;
+    int switchingType = 0;
     String wAssing = "";
 
     BufferedReader in;
@@ -55,7 +56,8 @@ public class SimulationFileController {
       config.add(Integer.valueOf(line.nextToken()));
 
       //LINE 4-tipo de comutação      
-      config.add(Integer.valueOf(line.nextToken()));
+      switchingType = Integer.valueOf(line.nextToken());
+      config.add(switchingType);
       
       //LINE 5-nivel de confiança
       line = new StringTokenizer(in.readLine(), ";\t");
@@ -82,7 +84,7 @@ public class SimulationFileController {
     System.out.println("numberReq = " + numberReq);
     System.out.println("simulationType = " + simulationType);
     System.out.println("wAssing = " + wAssing);
-    return new Simulation(holdRate, arrivedRate, hurstMin, hurstMax, numberReq, simulationType,
+    return new Simulation(holdRate, arrivedRate, hurstMin, hurstMax, numberReq, simulationType, switchingType,
                           wAssing);
   }
 

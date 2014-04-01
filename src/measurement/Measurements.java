@@ -43,6 +43,11 @@ public class Measurements {
   private double numGeneratedReq;
 
   /**
+   * Time spent by skip burst events
+   */
+  private double skipBurstEventsTime;
+  
+  /**
    * tamanho total de todas requisições atendidas
    */
   private double allSizeOfPrimaryAcceptedReq;

@@ -2118,7 +2118,9 @@ public class Main extends javax.swing.JFrame {
             simulationType=0+2*roteamento;
         }
         
-        Simulation s = new Simulation(1.0,arriveRate, hurstMin, hurstMax,numReq,simulationType,wAssingAlgo);
+        int switchingType = jComboBoxSwitchingType.getSelectedIndex();     
+
+        Simulation s = new Simulation(1.0,arriveRate, hurstMin, hurstMax,numReq,simulationType, switchingType, wAssingAlgo);
         String incLoad = Double.parseDouble(jTextFieldIncremento.getText())+"";
         String points = Integer.parseInt(jTextFieldPontosCarga.getText())+"";
         String numReply = Integer.parseInt(jTextFieldNumRep.getText())+"";
@@ -2133,7 +2135,6 @@ public class Main extends javax.swing.JFrame {
             trafficType="2";// não uniforme por nó
         }
         
-        String switchingType = jComboBoxSwitchingType.getSelectedIndex() + "";     
         
         boolean failure = jCheckBoxGerarFalhas.isSelected();
         double fixLinkRate=0;
@@ -2143,7 +2144,7 @@ public class Main extends javax.swing.JFrame {
             fixLinkRate=1*fm;
             occurRate = fm*failureOcurrRateCompute();
         }
-        fileMamegement.gerarArquivoSimulacao(s,incLoad,points, hurstMin, hurstMax, numReply,siginificativeLevel,trafficType, switchingType,failure, fixLinkRate,occurRate);
+        fileMamegement.gerarArquivoSimulacao(s,incLoad,points, hurstMin, hurstMax, numReply,siginificativeLevel,trafficType, switchingType + "",failure, fixLinkRate,occurRate);
     }
     
     private double failureOcurrRateCompute(){
@@ -2315,6 +2316,7 @@ public class Main extends javax.swing.JFrame {
                         newHurstMax,
                         simulacao.getTotalNumberOfRequest(),
                         simulacao.getSimulationType(),
+                        simulacao.getSwitchingType(),
                         simulacao.getWAAlgorithm());
                         s.setnumReply(j);              
                 

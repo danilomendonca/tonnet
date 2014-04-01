@@ -282,6 +282,7 @@ public class FLP {
                                     hurstMax,
                                     simulacao.getTotalNumberOfRequest(),
                                     simulacao.getSimulationType(),
+                                    simulacao.getSwitchingType(),
                                     simulacao.getWAAlgorithm());
       s.setnumReply(j);
 

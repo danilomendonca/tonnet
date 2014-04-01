@@ -85,6 +85,7 @@ public class TOT {
                                       newHurstMax,
                                       simulacao.getTotalNumberOfRequest(),
                                       simulacao.getSimulationType(),
+                                      simulacao.getSwitchingType(),
                                       simulacao.getWAAlgorithm());
         s.setnumReply(j);
 

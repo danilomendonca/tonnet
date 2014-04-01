@@ -131,9 +131,12 @@ public class ArriveRequest
         }
         
         finalizeTime = e.getTime() + this.mesh.getRandomVar().negexp(this.holdRate);             
-      }else
-        finalizeTime = e.getTime() + this.mesh.getRandomVar().negexp(this.holdRate)/100; //TODO: Qual valor???           
+      }else{
+        RequestMother controlRequest = (RequestMother) e.getObject();        
+        finalizeTime = e.getTime() + this.mesh.getRandomVar().negexp(this.holdRate)/controlRequest.getRoute().getHops();
+      }
       
+      if(!request.isStoredRequest())
         this.eMachine.insert(new Event(e.getObject(), this.finalizeRequest,
                                      finalizeTime));
     }

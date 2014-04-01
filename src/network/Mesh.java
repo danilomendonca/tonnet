@@ -21,6 +21,7 @@ public class Mesh {
   private Vector<Link> linkList;
   public Vector<Link> linkList_actual_route;
   private int conversionType;
+
   // teste ................
   public int falha = 0;
   public int countMoreOneFailure = 0;

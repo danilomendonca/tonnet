@@ -72,8 +72,8 @@ public class Event {
 
   public void setBurstPackage(boolean burstPackage){
       this.burstPackage = burstPackage;
-  }
-
+  }  
+  
   public void setFinalizeTime(double finalizeTime) {
       this.finalizeTime = finalizeTime;
   } 
